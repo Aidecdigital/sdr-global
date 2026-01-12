@@ -36,7 +36,7 @@ export default function Home() {
         </div>
         
         {/* Background decoration */}
-        <div className="absolute top-0 inset-x-0 h-full bg-gradient-to-b from-blue-50/50 to-white -z-10" />
+        <div className="absolute top-0 inset-x-0 h-full bg-linear-to-b from-blue-50/50 to-white -z-10" />
       </section>
 
       {/* Stats / Trust Bar */}
