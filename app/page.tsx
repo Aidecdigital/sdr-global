@@ -82,7 +82,7 @@ export default function Home() {
                   { title: 'Management Drain', desc: 'Countless hours spent on coaching basics.' }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-red-100 text-red-600">
+                    <div className="shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-red-100 text-red-600">
                       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                       </svg>
@@ -106,7 +106,7 @@ export default function Home() {
                   { title: 'Global Scale', desc: 'Hire in any time zone, language, or region.' }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-green-100 text-green-600">
+                    <div className="shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-green-100 text-green-600">
                       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
