@@ -56,16 +56,16 @@ export default function Header() {
               {activeDropdown === 'solutions' && (
                 <div className="absolute z-10 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                   <div className="py-1">
-                    <Link href="/for-companies" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                    <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
                       For Companies
                     </Link>
-                    <Link href="/engagement-models" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                    <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
                       Engagement Models
                     </Link>
-                    <Link href="/how-it-works" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                    <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
                       How It Works
                     </Link>
-                    <Link href="/case-studies" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                    <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
                       Case Studies
                     </Link>
                   </div>
@@ -87,16 +87,16 @@ export default function Header() {
               {activeDropdown === 'talent' && (
                 <div className="absolute z-10 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                   <div className="py-1">
-                    <Link href="/for-sdrs" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                    <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
                       For SDRs
                     </Link>
-                    <Link href="/training-certification" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                    <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
                       Training & Certification
                     </Link>
-                    <Link href="/talent-pool" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                    <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
                       Talent Pool
                     </Link>
-                    <Link href="/faqs-sdrs" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                    <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
                       FAQs (SDRs)
                     </Link>
                   </div>
@@ -105,17 +105,17 @@ export default function Header() {
             </div>
 
             {/* Resources */}
-            <Link href="/resources" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+            <Link href="#" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
               Resources
             </Link>
 
             {/* About */}
-            <Link href="/about" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+            <Link href="#" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
               About
             </Link>
 
             {/* Contact */}
-            <Link href="/contact" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+            <Link href="#" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
               Contact
             </Link>
           </nav>
@@ -154,10 +154,10 @@ export default function Header() {
           <div className="px-4 pt-4 pb-6 space-y-4">
             {/* Mobile CTAs */}
             <div className="grid grid-cols-1 gap-3">
-              <Link href="/for-companies" className="flex justify-center items-center w-full bg-blue-600 text-white px-4 py-3 rounded-md text-base font-medium hover:bg-blue-700 shadow-sm transition-colors">
+              <Link href="#" className="flex justify-center items-center w-full bg-blue-600 text-white px-4 py-3 rounded-md text-base font-medium hover:bg-blue-700 shadow-sm transition-colors">
                 Hire SDR Talent
               </Link>
-              <Link href="/for-sdrs" className="flex justify-center items-center w-full text-gray-700 bg-white border border-gray-300 px-4 py-3 rounded-md text-base font-medium hover:bg-gray-50 transition-colors">
+              <Link href="#" className="flex justify-center items-center w-full text-gray-700 bg-white border border-gray-300 px-4 py-3 rounded-md text-base font-medium hover:bg-gray-50 transition-colors">
                 Become an SDR
               </Link>
             </div>
@@ -175,16 +175,16 @@ export default function Header() {
               </button>
               {activeDropdown === 'solutions' && (
                 <div className="ml-4 space-y-1 border-l-2 border-gray-100 pl-2">
-                  <Link href="/for-companies" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
+                  <Link href="#" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
                     For Companies
                   </Link>
-                  <Link href="/engagement-models" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
+                  <Link href="#" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
                     Engagement Models
                   </Link>
-                  <Link href="/how-it-works" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
+                  <Link href="#" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
                     How It Works
                   </Link>
-                  <Link href="/case-studies" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
+                  <Link href="#" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
                     Case Studies
                   </Link>
                 </div>
@@ -201,25 +201,25 @@ export default function Header() {
               </button>
               {activeDropdown === 'talent' && (
                 <div className="ml-4 space-y-1 border-l-2 border-gray-100 pl-2">
-                  <Link href="/for-sdrs" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
+                  <Link href="#" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
                     For SDRs
                   </Link>
-                  <Link href="/training-certification" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
+                  <Link href="#" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
                     Training & Certification
                   </Link>
-                  <Link href="/talent-pool" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
+                  <Link href="#" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
                     Talent Pool
                   </Link>
-                  <Link href="/faqs-sdrs" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
+                  <Link href="#" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
                     FAQs (SDRs)
                   </Link>
                 </div>
               )}
 
-              <Link href="/resources" className="block text-gray-700 hover:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium transition-colors">
+              <Link href="#" className="block text-gray-700 hover:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium transition-colors">
                 Resources
               </Link>
-              <Link href="/about" className="block text-gray-700 hover:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium transition-colors">
+              <Link href="#" className="block text-gray-700 hover:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium transition-colors">
                 About
               </Link>
               <Link href="/contact" className="block text-gray-700 hover:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium transition-colors">
