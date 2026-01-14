@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "SDR Global - Sales Development Solutions",
   description: "Empowering businesses with expert sales development representatives to drive growth and success.",
+  icons: {
+    icon: "/SDRGlobalIcon.png",
+  },
 };
 
 export default function RootLayout({

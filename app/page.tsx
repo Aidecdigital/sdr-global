@@ -20,13 +20,13 @@ export default function Home() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
-                href="#"
+                href="/for-companies"
                 className="w-full sm:w-auto px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
               >
                 Hire SDR Talent
               </Link>
               <Link
-                href="#"
+                href="/for-sdrs"
                 className="w-full sm:w-auto px-8 py-4 bg-white text-gray-700 border border-gray-200 rounded-lg font-semibold text-lg hover:bg-gray-50 hover:border-gray-300 transition-all"
               >
                 Become an SDR
@@ -119,7 +119,7 @@ export default function Home() {
                 ))}
               </div>
               <div className="mt-10 pt-8 border-t border-gray-100">
-                <Link href="#" className="text-blue-600 font-semibold hover:text-blue-700 flex items-center">
+                <Link href="/how-it-works" className="text-blue-600 font-semibold hover:text-blue-700 flex items-center">
                   View our vetting process <span className="ml-2">→</span>
                 </Link>
               </div>
@@ -153,7 +153,7 @@ export default function Home() {
                 <li className="flex items-center"><span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></span>Eliminate training costs</li>
                 <li className="flex items-center"><span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></span>Flexible engagement models</li>
               </ul>
-              <Link href="#" className="inline-flex items-center justify-center w-full px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors">
+              <Link href="/for-companies" className="inline-flex items-center justify-center w-full px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors">
                 Hire Talent
               </Link>
             </div>
@@ -174,7 +174,7 @@ export default function Home() {
                 <li className="flex items-center"><span className="w-1.5 h-1.5 bg-green-600 rounded-full mr-2"></span>Global job opportunities</li>
                 <li className="flex items-center"><span className="w-1.5 h-1.5 bg-green-600 rounded-full mr-2"></span>Career mentorship & growth</li>
               </ul>
-              <Link href="#" className="inline-flex items-center justify-center w-full px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+              <Link href="/for-sdrs" className="inline-flex items-center justify-center w-full px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors">
                 Apply Now
               </Link>
             </div>
@@ -193,13 +193,13 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="#"
+              href="/contact"
               className="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold text-lg hover:bg-blue-500 transition-colors"
             >
               Talk to Sales
             </Link>
             <Link
-              href="#"
+              href="/case-studies"
               className="px-8 py-4 bg-transparent border border-gray-700 text-white rounded-lg font-semibold text-lg hover:bg-gray-800 transition-colors"
             >
               View Case Studies

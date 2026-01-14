@@ -36,14 +36,18 @@ export default function Header() {
           {/* Logo */}
           <div className="shrink-0">
             <Link href="/" className="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
-              SDR Global
+              <img src="/SDRGloballogo.png" alt="SDR Global Logo" className="h-12 w-auto" />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex space-x-8">
             {/* Solutions Dropdown */}
-            <div className="relative">
+            <div
+              className="relative"
+              onMouseEnter={() => setActiveDropdown('solutions')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
               <button
                 onClick={() => toggleDropdown('solutions')}
                 className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center"
@@ -54,18 +58,18 @@ export default function Header() {
                 </svg>
               </button>
               {activeDropdown === 'solutions' && (
-                <div className="absolute z-10 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                  <div className="py-1">
-                    <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                <div className="absolute z-10 w-56 pt-2">
+                  <div className="rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1">
+                    <Link href="/for-companies" onClick={() => setActiveDropdown(null)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
                       For Companies
                     </Link>
-                    <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                    <Link href="/engagement-models" onClick={() => setActiveDropdown(null)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
                       Engagement Models
                     </Link>
-                    <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                    <Link href="/how-it-works" onClick={() => setActiveDropdown(null)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
                       How It Works
                     </Link>
-                    <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                    <Link href="/case-studies" onClick={() => setActiveDropdown(null)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
                       Case Studies
                     </Link>
                   </div>
@@ -74,7 +78,11 @@ export default function Header() {
             </div>
 
             {/* Talent Dropdown */}
-            <div className="relative">
+            <div
+              className="relative"
+              onMouseEnter={() => setActiveDropdown('talent')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
               <button
                 onClick={() => toggleDropdown('talent')}
                 className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center"
@@ -85,18 +93,18 @@ export default function Header() {
                 </svg>
               </button>
               {activeDropdown === 'talent' && (
-                <div className="absolute z-10 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                  <div className="py-1">
-                    <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                <div className="absolute z-10 w-56 pt-2">
+                  <div className="rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1">
+                    <Link href="#" onClick={() => setActiveDropdown(null)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
                       For SDRs
                     </Link>
-                    <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                    <Link href="#" onClick={() => setActiveDropdown(null)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
                       Training & Certification
                     </Link>
-                    <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                    <Link href="#" onClick={() => setActiveDropdown(null)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
                       Talent Pool
                     </Link>
-                    <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                    <Link href="#" onClick={() => setActiveDropdown(null)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
                       FAQs (SDRs)
                     </Link>
                   </div>
@@ -175,16 +183,16 @@ export default function Header() {
               </button>
               {activeDropdown === 'solutions' && (
                 <div className="ml-4 space-y-1 border-l-2 border-gray-100 pl-2">
-                  <Link href="#" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
+                  <Link href="/for-companies" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
                     For Companies
                   </Link>
-                  <Link href="#" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
+                  <Link href="/engagement-models" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
                     Engagement Models
                   </Link>
-                  <Link href="#" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
+                  <Link href="/how-it-works" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
                     How It Works
                   </Link>
-                  <Link href="#" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
+                  <Link href="/case-studies" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
                     Case Studies
                   </Link>
                 </div>
@@ -222,7 +230,7 @@ export default function Header() {
               <Link href="#" className="block text-gray-700 hover:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium transition-colors">
                 About
               </Link>
-              <Link href="/contact" className="block text-gray-700 hover:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium transition-colors">
+              <Link href="#" className="block text-gray-700 hover:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium transition-colors">
                 Contact
               </Link>
             </div>

@@ -79,7 +79,7 @@ export default function Footer() {
                 </button>
                 <div className="text-xs text-gray-400">
                   <p>Global HQ:</p>
-                  <p>Accra, Ghana</p>
+                  <p>East Legon, Ogbojo - Accra, Ghana</p>
                 </div>
              </div>
           </div>
