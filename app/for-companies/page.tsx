@@ -1,13 +1,15 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Companies() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative pt-24 pb-20 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium text-blue-600 bg-blue-50 mb-8 border border-blue-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative z-10">
+              <div className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium text-blue-600 bg-blue-50 mb-8 border border-blue-100">
               For Startups, SMEs & Enterprises
             </div>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-8 leading-tight">
@@ -32,10 +34,20 @@ export default function Companies() {
                 View Pricing Models
               </Link>
             </div>
+            </div>
+            <div className="hidden lg:block relative aspect-4/3">
+              <Image
+                src="/company2.jpg"
+                alt="Sales team collaborating in a modern office"
+                fill
+                className="object-cover rounded-3xl shadow-2xl"
+                priority
+              />
+            </div>
           </div>
         </div>
         {/* Background decoration */}
-        <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50 -z-10"></div>
+        <div className="absolute top-0 left-0 -mt-20 -ml-20 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50"></div>
       </section>
 
       {/* Metrics Strip */}
@@ -215,6 +227,31 @@ export default function Companies() {
         </div>
       </section>
 
+      {/* Success Stories */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Real Results from Real Companies</h2>
+            <p className="text-xl text-gray-600">See how SDR Global has helped businesses like yours achieve remarkable growth.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-blue-600 mb-2">300%</div>
+              <p className="text-gray-600">Increase in qualified leads</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-blue-600 mb-2">50%</div>
+              <p className="text-gray-600">Reduction in sales cycle</p>
+            </div>
+            <div className="text-center">
+              <Link href="/case-studies" className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                View Case Studies
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-24 bg-blue-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -230,6 +267,12 @@ export default function Companies() {
               className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors shadow-lg"
             >
               Book a Strategy Call
+            </Link>
+            <Link
+              href="/faqs-sdrs"
+              className="px-8 py-4 bg-transparent border border-white text-white rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors"
+            >
+              Have Questions? View FAQs
             </Link>
           </div>
         </div>

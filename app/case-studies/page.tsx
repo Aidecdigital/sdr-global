@@ -1,10 +1,204 @@
 import Link from 'next/link';
 
+type CaseStudyResult = {
+  value: string;
+  label: string;
+  color: string;
+};
+
+type CaseStudy = {
+  id: string;
+  initials: string;
+  initialsBg: string;
+  title: string;
+  subtitle: string;
+  subtitleColor: string;
+  clientBackground: string;
+  problem: string;
+  solution: string;
+  results: CaseStudyResult[];
+  quote: string;
+  quoteAuthor: string;
+};
+
+type SummaryStat = {
+  value: string;
+  label: string;
+  sub: string;
+  color: string;
+};
+
+type MethodologyItem = {
+  icon: string;
+  title: string;
+  description: string;
+};
+
+type IndustryApp = {
+  icon: string;
+  title: string;
+  description: string;
+};
+
+const caseStudies: CaseStudy[] = [
+  {
+    id: 'cloudsync',
+    initials: 'CS',
+    initialsBg: 'bg-blue-600',
+    title: 'CloudSync',
+    subtitle: 'SaaS Startup • 50 employees',
+    subtitleColor: 'text-blue-600',
+    clientBackground: 'Cloud-based data synchronization platform serving SMBs. Pre-Series A with aggressive growth targets.',
+    problem: 'No dedicated sales team, relying on product-led growth. CEO handling all outbound sales manually, limiting scale and missing quarterly targets.',
+    solution: 'Deployed 3 SDRs using our Outsourced Team model. Focused on enterprise SMB segment with personalized outreach sequences.',
+    results: [
+      { value: '150+', label: 'Qualified Meetings', color: 'text-green-600' },
+      { value: '300%', label: 'Pipeline Growth', color: 'text-blue-600' },
+      { value: '$2.1M', label: 'New Pipeline', color: 'text-purple-600' },
+      { value: '45 days', label: 'Time to Impact', color: 'text-orange-600' },
+    ],
+    quote: '"SDR Global didn\'t just meet our expectations – they exceeded them. In 45 days, we went from zero outbound sales capacity to a healthy pipeline that funded our Series A."',
+    quoteAuthor: '— Sarah Chen, CEO & Co-Founder',
+  },
+  {
+    id: 'datasecure',
+    initials: 'DS',
+    initialsBg: 'bg-purple-600',
+    title: 'DataSecure',
+    subtitle: 'Enterprise Cybersecurity • 500+ employees',
+    subtitleColor: 'text-purple-600',
+    clientBackground: 'Leading enterprise cybersecurity platform. Strong product but inconsistent lead generation across global sales teams.',
+    problem: '12-month sales cycle with inconsistent MQL quality. Field sales team spending 60% of time on prospecting instead of closing.',
+    solution: 'Regional Pods model with 8 SDRs across North America and EMEA. Specialized in enterprise cybersecurity messaging and long-cycle nurturing.',
+    results: [
+      { value: '85%', label: 'MQL Quality Increase', color: 'text-green-600' },
+      { value: '40%', label: 'Sales Cycle Reduction', color: 'text-blue-600' },
+      { value: '$18M', label: 'Pipeline Value', color: 'text-purple-600' },
+      { value: '60 days', label: 'Time to Impact', color: 'text-orange-600' },
+    ],
+    quote: '"The quality of MQLs improved dramatically. Our sales team can now focus on what they do best – closing deals – while SDR Global handles the heavy lifting of prospecting."',
+    quoteAuthor: '— Michael Rodriguez, VP of Sales',
+  },
+  {
+    id: 'markettech',
+    initials: 'MT',
+    initialsBg: 'bg-orange-600',
+    title: 'MarketTech',
+    subtitle: 'B2B Marketplace • 200 employees',
+    subtitleColor: 'text-orange-600',
+    clientBackground: 'Digital marketplace connecting manufacturers with distributors. Growing rapidly but struggling with international expansion.',
+    problem: 'Strong domestic growth but zero international traction. No local presence or understanding of European/Asian markets.',
+    solution: 'Regional Pods with native-speaking SDRs in Germany, UK, and Singapore. Localized market research and culturally-adapted messaging.',
+    results: [
+      { value: '5', label: 'New Markets Entered', color: 'text-green-600' },
+      { value: '250%', label: 'International Growth', color: 'text-blue-600' },
+      { value: '$4.2M', label: 'International Revenue', color: 'text-purple-600' },
+      { value: '90 days', label: 'Time to Impact', color: 'text-orange-600' },
+    ],
+    quote: '"International expansion was our biggest challenge. SDR Global\'s regional expertise made it possible to enter 5 new markets in 90 days with real traction."',
+    quoteAuthor: '— Anna Liu, CMO',
+  },
+  {
+    id: 'healthconnect',
+    initials: 'HC',
+    initialsBg: 'bg-teal-600',
+    title: 'HealthConnect',
+    subtitle: 'Healthcare Technology • 150 employees',
+    subtitleColor: 'text-teal-600',
+    clientBackground: 'Patient management platform for healthcare providers. Strong clinical adoption but weak sales execution.',
+    problem: 'Highly regulated industry with complex decision-making. Sales team lacked healthcare expertise and struggled with long, complex sales cycles.',
+    solution: 'Vertical Pod with healthcare-experienced SDRs. Specialized training in HIPAA compliance, healthcare buying processes, and medical terminology.',
+    results: [
+      { value: '95%', label: 'Compliance Rate', color: 'text-green-600' },
+      { value: '65%', label: 'Win Rate Increase', color: 'text-blue-600' },
+      { value: '$8.5M', label: 'New Bookings', color: 'text-purple-600' },
+      { value: '75 days', label: 'Time to Impact', color: 'text-orange-600' },
+    ],
+    quote: '"Healthcare sales is incredibly complex. SDR Global\'s specialized team understood our market better than our own salespeople initially."',
+    quoteAuthor: '— Dr. James Wilson, Chief Medical Officer',
+  },
+];
+
+const summaryStats: SummaryStat[] = [
+  { value: '45-90', label: 'Days to Impact', sub: 'Average time to first results', color: 'text-green-400' },
+  { value: '200%', label: 'Avg Pipeline Growth', sub: 'Across all case studies', color: 'text-blue-400' },
+  { value: '$8.2M', label: 'Avg New Pipeline', sub: 'Per engagement', color: 'text-purple-400' },
+  { value: '94%', label: 'Client Satisfaction', sub: 'Based on post-engagement surveys', color: 'text-orange-400' },
+];
+
+const methodologyItems: MethodologyItem[] = [
+  { icon: '🎯', title: 'Strategic Alignment', description: 'Deep discovery process ensures our SDRs understand your ICP, messaging, and sales process before deployment.' },
+  { icon: '⚡', title: 'Rapid Execution', description: 'Pre-trained SDRs and established processes enable immediate productivity without ramp-up delays.' },
+  { icon: '📈', title: 'Continuous Optimization', description: 'Real-time performance tracking and weekly optimization calls ensure maximum ROI throughout the engagement.' },
+];
+
+const industryApps: IndustryApp[] = [
+  { icon: '💻', title: 'SaaS & Software', description: '300% pipeline growth, 45-day impact' },
+  { icon: '🔒', title: 'Cybersecurity', description: '85% MQL quality increase, 60-day impact' },
+  { icon: '🏥', title: 'Healthcare', description: '65% win rate increase, 75-day impact' },
+  { icon: '🌐', title: 'Marketplaces', description: '250% international growth, 90-day impact' },
+];
+
+const CaseStudyCard = ({ study }: { study: CaseStudy }) => (
+  <div className="mb-20 last:mb-0">
+    <div className="bg-gray-50 rounded-lg p-8 md:p-12">
+      <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div className="flex items-center mb-6">
+            <div className={`w-16 h-16 ${study.initialsBg} rounded-lg flex items-center justify-center text-white font-bold text-xl mr-4`}>
+              {study.initials}
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900">{study.title}</h3>
+              <p className={`${study.subtitleColor} font-semibold`}>{study.subtitle}</p>
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            <div>
+              <h4 className="text-lg font-semibold text-gray-900 mb-2">Client Background</h4>
+              <p className="text-gray-600">{study.clientBackground}</p>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-semibold text-red-600 mb-2">The Problem</h4>
+              <p className="text-gray-600">{study.problem}</p>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-semibold text-blue-600 mb-2">SDR Global Solution</h4>
+              <p className="text-gray-600">{study.solution}</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white p-8 rounded-lg shadow-lg">
+          <h4 className="text-xl font-bold text-center mb-6">Results Achieved</h4>
+
+          <div className="grid grid-cols-2 gap-6 mb-6">
+            {study.results.map((result, i) => (
+              <div key={i} className="text-center">
+                <div className={`text-3xl font-bold ${result.color} mb-2`}>{result.value}</div>
+                <div className="text-sm text-gray-600">{result.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="border-t pt-6">
+            <blockquote className="text-gray-700 italic mb-4">{study.quote}</blockquote>
+            <div className="text-sm text-gray-600">{study.quoteAuthor}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 export default function CaseStudies() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-900 via-green-800 to-green-700 text-white py-20">
+      <section className="bg-linear-to-br from-green-900 via-green-800 to-green-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
@@ -44,301 +238,9 @@ export default function CaseStudies() {
             </p>
           </div>
 
-          {/* Case Study 1: SaaS Startup */}
-          <div className="mb-20">
-            <div className="bg-gray-50 rounded-lg p-8 md:p-12">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                  <div className="flex items-center mb-6">
-                    <div className="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl mr-4">
-                      CS
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-900">CloudSync</h3>
-                      <p className="text-blue-600 font-semibold">SaaS Startup • 50 employees</p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Client Background</h4>
-                      <p className="text-gray-600">
-                        Cloud-based data synchronization platform serving SMBs. Pre-Series A with aggressive growth targets.
-                      </p>
-                    </div>
-
-                    <div>
-                      <h4 className="text-lg font-semibold text-red-600 mb-2">The Problem</h4>
-                      <p className="text-gray-600">
-                        No dedicated sales team, relying on product-led growth. CEO handling all outbound sales manually, limiting scale and missing quarterly targets.
-                      </p>
-                    </div>
-
-                    <div>
-                      <h4 className="text-lg font-semibold text-blue-600 mb-2">SDR Global Solution</h4>
-                      <p className="text-gray-600">
-                        Deployed 3 SDRs using our Outsourced Team model. Focused on enterprise SMB segment with personalized outreach sequences.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white p-8 rounded-lg shadow-lg">
-                  <h4 className="text-xl font-bold text-center mb-6">Results Achieved</h4>
-
-                  <div className="grid grid-cols-2 gap-6 mb-6">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-green-600 mb-2">150+</div>
-                      <div className="text-sm text-gray-600">Qualified Meetings</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-blue-600 mb-2">300%</div>
-                      <div className="text-sm text-gray-600">Pipeline Growth</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-purple-600 mb-2">$2.1M</div>
-                      <div className="text-sm text-gray-600">New Pipeline</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-orange-600 mb-2">45 days</div>
-                      <div className="text-sm text-gray-600">Time to Impact</div>
-                    </div>
-                  </div>
-
-                  <div className="border-t pt-6">
-                    <blockquote className="text-gray-700 italic mb-4">
-                      "SDR Global didn't just meet our expectations – they exceeded them. In 45 days, we went from zero outbound sales capacity to a healthy pipeline that funded our Series A."
-                    </blockquote>
-                    <div className="text-sm text-gray-600">
-                      — Sarah Chen, CEO & Co-Founder
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Case Study 2: Enterprise Tech */}
-          <div className="mb-20">
-            <div className="bg-gray-50 rounded-lg p-8 md:p-12">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                  <div className="flex items-center mb-6">
-                    <div className="w-16 h-16 bg-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-xl mr-4">
-                      DS
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-900">DataSecure</h3>
-                      <p className="text-purple-600 font-semibold">Enterprise Cybersecurity • 500+ employees</p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Client Background</h4>
-                      <p className="text-gray-600">
-                        Leading enterprise cybersecurity platform. Strong product but inconsistent lead generation across global sales teams.
-                      </p>
-                    </div>
-
-                    <div>
-                      <h4 className="text-lg font-semibold text-red-600 mb-2">The Problem</h4>
-                      <p className="text-gray-600">
-                        12-month sales cycle with inconsistent MQL quality. Field sales team spending 60% of time on prospecting instead of closing.
-                      </p>
-                    </div>
-
-                    <div>
-                      <h4 className="text-lg font-semibold text-blue-600 mb-2">SDR Global Solution</h4>
-                      <p className="text-gray-600">
-                        Regional Pods model with 8 SDRs across North America and EMEA. Specialized in enterprise cybersecurity messaging and long-cycle nurturing.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white p-8 rounded-lg shadow-lg">
-                  <h4 className="text-xl font-bold text-center mb-6">Results Achieved</h4>
-
-                  <div className="grid grid-cols-2 gap-6 mb-6">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-green-600 mb-2">85%</div>
-                      <div className="text-sm text-gray-600">MQL Quality Increase</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-blue-600 mb-2">40%</div>
-                      <div className="text-sm text-gray-600">Sales Cycle Reduction</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-purple-600 mb-2">$18M</div>
-                      <div className="text-sm text-gray-600">Pipeline Value</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-orange-600 mb-2">60 days</div>
-                      <div className="text-sm text-gray-600">Time to Impact</div>
-                    </div>
-                  </div>
-
-                  <div className="border-t pt-6">
-                    <blockquote className="text-gray-700 italic mb-4">
-                      "The quality of MQLs improved dramatically. Our sales team can now focus on what they do best – closing deals – while SDR Global handles the heavy lifting of prospecting."
-                    </blockquote>
-                    <div className="text-sm text-gray-600">
-                      — Michael Rodriguez, VP of Sales
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Case Study 3: B2B Marketplace */}
-          <div className="mb-20">
-            <div className="bg-gray-50 rounded-lg p-8 md:p-12">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                  <div className="flex items-center mb-6">
-                    <div className="w-16 h-16 bg-orange-600 rounded-lg flex items-center justify-center text-white font-bold text-xl mr-4">
-                      MT
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-900">MarketTech</h3>
-                      <p className="text-orange-600 font-semibold">B2B Marketplace • 200 employees</p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Client Background</h4>
-                      <p className="text-gray-600">
-                        Digital marketplace connecting manufacturers with distributors. Growing rapidly but struggling with international expansion.
-                      </p>
-                    </div>
-
-                    <div>
-                      <h4 className="text-lg font-semibold text-red-600 mb-2">The Problem</h4>
-                      <p className="text-gray-600">
-                        Strong domestic growth but zero international traction. No local presence or understanding of European/Asian markets.
-                      </p>
-                    </div>
-
-                    <div>
-                      <h4 className="text-lg font-semibold text-blue-600 mb-2">SDR Global Solution</h4>
-                      <p className="text-gray-600">
-                        Regional Pods with native-speaking SDRs in Germany, UK, and Singapore. Localized market research and culturally-adapted messaging.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white p-8 rounded-lg shadow-lg">
-                  <h4 className="text-xl font-bold text-center mb-6">Results Achieved</h4>
-
-                  <div className="grid grid-cols-2 gap-6 mb-6">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-green-600 mb-2">5</div>
-                      <div className="text-sm text-gray-600">New Markets Entered</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-blue-600 mb-2">250%</div>
-                      <div className="text-sm text-gray-600">International Growth</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-purple-600 mb-2">$4.2M</div>
-                      <div className="text-sm text-gray-600">International Revenue</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-orange-600 mb-2">90 days</div>
-                      <div className="text-sm text-gray-600">Time to Impact</div>
-                    </div>
-                  </div>
-
-                  <div className="border-t pt-6">
-                    <blockquote className="text-gray-700 italic mb-4">
-                      "International expansion was our biggest challenge. SDR Global's regional expertise made it possible to enter 5 new markets in 90 days with real traction."
-                    </blockquote>
-                    <div className="text-sm text-gray-600">
-                      — Anna Liu, CMO
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Case Study 4: Healthcare Tech */}
-          <div className="mb-20">
-            <div className="bg-gray-50 rounded-lg p-8 md:p-12">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                  <div className="flex items-center mb-6">
-                    <div className="w-16 h-16 bg-teal-600 rounded-lg flex items-center justify-center text-white font-bold text-xl mr-4">
-                      HC
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-900">HealthConnect</h3>
-                      <p className="text-teal-600 font-semibold">Healthcare Technology • 150 employees</p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Client Background</h4>
-                      <p className="text-gray-600">
-                        Patient management platform for healthcare providers. Strong clinical adoption but weak sales execution.
-                      </p>
-                    </div>
-
-                    <div>
-                      <h4 className="text-lg font-semibold text-red-600 mb-2">The Problem</h4>
-                      <p className="text-gray-600">
-                        Highly regulated industry with complex decision-making. Sales team lacked healthcare expertise and struggled with long, complex sales cycles.
-                      </p>
-                    </div>
-
-                    <div>
-                      <h4 className="text-lg font-semibold text-blue-600 mb-2">SDR Global Solution</h4>
-                      <p className="text-gray-600">
-                        Vertical Pod with healthcare-experienced SDRs. Specialized training in HIPAA compliance, healthcare buying processes, and medical terminology.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white p-8 rounded-lg shadow-lg">
-                  <h4 className="text-xl font-bold text-center mb-6">Results Achieved</h4>
-
-                  <div className="grid grid-cols-2 gap-6 mb-6">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-green-600 mb-2">95%</div>
-                      <div className="text-sm text-gray-600">Compliance Rate</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-blue-600 mb-2">65%</div>
-                      <div className="text-sm text-gray-600">Win Rate Increase</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-purple-600 mb-2">$8.5M</div>
-                      <div className="text-sm text-gray-600">New Bookings</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-orange-600 mb-2">75 days</div>
-                      <div className="text-sm text-gray-600">Time to Impact</div>
-                    </div>
-                  </div>
-
-                  <div className="border-t pt-6">
-                    <blockquote className="text-gray-700 italic mb-4">
-                      "Healthcare sales is incredibly complex. SDR Global's specialized team understood our market better than our own salespeople initially."
-                    </blockquote>
-                    <div className="text-sm text-gray-600">
-                      — Dr. James Wilson, Chief Medical Officer
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {caseStudies.map(study => (
+            <CaseStudyCard key={study.id} study={study} />
+          ))}
         </div>
       </section>
 
@@ -355,26 +257,13 @@ export default function CaseStudies() {
           </div>
 
           <div className="grid md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-green-400 mb-2">45-90</div>
-              <div className="text-lg font-semibold">Days to Impact</div>
-              <div className="text-sm opacity-75">Average time to first results</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-blue-400 mb-2">200%</div>
-              <div className="text-lg font-semibold">Avg Pipeline Growth</div>
-              <div className="text-sm opacity-75">Across all case studies</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-purple-400 mb-2">$8.2M</div>
-              <div className="text-lg font-semibold">Avg New Pipeline</div>
-              <div className="text-sm opacity-75">Per engagement</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-orange-400 mb-2">94%</div>
-              <div className="text-lg font-semibold">Client Satisfaction</div>
-              <div className="text-sm opacity-75">Based on post-engagement surveys</div>
-            </div>
+            {summaryStats.map(stat => (
+              <div key={stat.label}>
+                <div className={`text-4xl font-bold ${stat.color} mb-2`}>{stat.value}</div>
+                <div className="text-lg font-semibold">{stat.label}</div>
+                <div className="text-sm opacity-75">{stat.sub}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -392,29 +281,13 @@ export default function CaseStudies() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-6xl mb-6">🎯</div>
-              <h3 className="text-2xl font-bold mb-4">Strategic Alignment</h3>
-              <p className="text-gray-600">
-                Deep discovery process ensures our SDRs understand your ICP, messaging, and sales process before deployment.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="text-6xl mb-6">⚡</div>
-              <h3 className="text-2xl font-bold mb-4">Rapid Execution</h3>
-              <p className="text-gray-600">
-                Pre-trained SDRs and established processes enable immediate productivity without ramp-up delays.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="text-6xl mb-6">📈</div>
-              <h3 className="text-2xl font-bold mb-4">Continuous Optimization</h3>
-              <p className="text-gray-600">
-                Real-time performance tracking and weekly optimization calls ensure maximum ROI throughout the engagement.
-              </p>
-            </div>
+            {methodologyItems.map(item => (
+              <div key={item.title} className="text-center">
+                <div className="text-6xl mb-6" aria-hidden="true">{item.icon}</div>
+                <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
+                <p className="text-gray-600">{item.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -432,29 +305,13 @@ export default function CaseStudies() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="text-4xl mb-4">💻</div>
-              <h3 className="text-lg font-bold mb-2">SaaS & Software</h3>
-              <p className="text-gray-600 text-sm">300% pipeline growth, 45-day impact</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="text-4xl mb-4">🔒</div>
-              <h3 className="text-lg font-bold mb-2">Cybersecurity</h3>
-              <p className="text-gray-600 text-sm">85% MQL quality increase, 60-day impact</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="text-4xl mb-4">🏥</div>
-              <h3 className="text-lg font-bold mb-2">Healthcare</h3>
-              <p className="text-gray-600 text-sm">65% win rate increase, 75-day impact</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="text-4xl mb-4">🌐</div>
-              <h3 className="text-lg font-bold mb-2">Marketplaces</h3>
-              <p className="text-gray-600 text-sm">250% international growth, 90-day impact</p>
-            </div>
+            {industryApps.map(app => (
+              <div key={app.title} className="bg-white p-6 rounded-lg shadow-sm text-center">
+                <div className="text-4xl mb-4" aria-hidden="true">{app.icon}</div>
+                <h3 className="text-lg font-bold mb-2">{app.title}</h3>
+                <p className="text-gray-600 text-sm">{app.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
