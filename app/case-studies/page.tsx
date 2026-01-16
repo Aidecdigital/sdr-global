@@ -1,198 +1,6 @@
 import Link from 'next/link';
-
-type CaseStudyResult = {
-  value: string;
-  label: string;
-  color: string;
-};
-
-type CaseStudy = {
-  id: string;
-  initials: string;
-  initialsBg: string;
-  title: string;
-  subtitle: string;
-  subtitleColor: string;
-  clientBackground: string;
-  problem: string;
-  solution: string;
-  results: CaseStudyResult[];
-  quote: string;
-  quoteAuthor: string;
-};
-
-type SummaryStat = {
-  value: string;
-  label: string;
-  sub: string;
-  color: string;
-};
-
-type MethodologyItem = {
-  icon: string;
-  title: string;
-  description: string;
-};
-
-type IndustryApp = {
-  icon: string;
-  title: string;
-  description: string;
-};
-
-const caseStudies: CaseStudy[] = [
-  {
-    id: 'cloudsync',
-    initials: 'CS',
-    initialsBg: 'bg-blue-600',
-    title: 'CloudSync',
-    subtitle: 'SaaS Startup • 50 employees',
-    subtitleColor: 'text-blue-600',
-    clientBackground: 'Cloud-based data synchronization platform serving SMBs. Pre-Series A with aggressive growth targets.',
-    problem: 'No dedicated sales team, relying on product-led growth. CEO handling all outbound sales manually, limiting scale and missing quarterly targets.',
-    solution: 'Deployed 3 SDRs using our Outsourced Team model. Focused on enterprise SMB segment with personalized outreach sequences.',
-    results: [
-      { value: '150+', label: 'Qualified Meetings', color: 'text-green-600' },
-      { value: '300%', label: 'Pipeline Growth', color: 'text-blue-600' },
-      { value: '$2.1M', label: 'New Pipeline', color: 'text-purple-600' },
-      { value: '45 days', label: 'Time to Impact', color: 'text-orange-600' },
-    ],
-    quote: '"SDR Global didn\'t just meet our expectations – they exceeded them. In 45 days, we went from zero outbound sales capacity to a healthy pipeline that funded our Series A."',
-    quoteAuthor: '— Sarah Chen, CEO & Co-Founder',
-  },
-  {
-    id: 'datasecure',
-    initials: 'DS',
-    initialsBg: 'bg-purple-600',
-    title: 'DataSecure',
-    subtitle: 'Enterprise Cybersecurity • 500+ employees',
-    subtitleColor: 'text-purple-600',
-    clientBackground: 'Leading enterprise cybersecurity platform. Strong product but inconsistent lead generation across global sales teams.',
-    problem: '12-month sales cycle with inconsistent MQL quality. Field sales team spending 60% of time on prospecting instead of closing.',
-    solution: 'Regional Pods model with 8 SDRs across North America and EMEA. Specialized in enterprise cybersecurity messaging and long-cycle nurturing.',
-    results: [
-      { value: '85%', label: 'MQL Quality Increase', color: 'text-green-600' },
-      { value: '40%', label: 'Sales Cycle Reduction', color: 'text-blue-600' },
-      { value: '$18M', label: 'Pipeline Value', color: 'text-purple-600' },
-      { value: '60 days', label: 'Time to Impact', color: 'text-orange-600' },
-    ],
-    quote: '"The quality of MQLs improved dramatically. Our sales team can now focus on what they do best – closing deals – while SDR Global handles the heavy lifting of prospecting."',
-    quoteAuthor: '— Michael Rodriguez, VP of Sales',
-  },
-  {
-    id: 'markettech',
-    initials: 'MT',
-    initialsBg: 'bg-orange-600',
-    title: 'MarketTech',
-    subtitle: 'B2B Marketplace • 200 employees',
-    subtitleColor: 'text-orange-600',
-    clientBackground: 'Digital marketplace connecting manufacturers with distributors. Growing rapidly but struggling with international expansion.',
-    problem: 'Strong domestic growth but zero international traction. No local presence or understanding of European/Asian markets.',
-    solution: 'Regional Pods with native-speaking SDRs in Germany, UK, and Singapore. Localized market research and culturally-adapted messaging.',
-    results: [
-      { value: '5', label: 'New Markets Entered', color: 'text-green-600' },
-      { value: '250%', label: 'International Growth', color: 'text-blue-600' },
-      { value: '$4.2M', label: 'International Revenue', color: 'text-purple-600' },
-      { value: '90 days', label: 'Time to Impact', color: 'text-orange-600' },
-    ],
-    quote: '"International expansion was our biggest challenge. SDR Global\'s regional expertise made it possible to enter 5 new markets in 90 days with real traction."',
-    quoteAuthor: '— Anna Liu, CMO',
-  },
-  {
-    id: 'healthconnect',
-    initials: 'HC',
-    initialsBg: 'bg-teal-600',
-    title: 'HealthConnect',
-    subtitle: 'Healthcare Technology • 150 employees',
-    subtitleColor: 'text-teal-600',
-    clientBackground: 'Patient management platform for healthcare providers. Strong clinical adoption but weak sales execution.',
-    problem: 'Highly regulated industry with complex decision-making. Sales team lacked healthcare expertise and struggled with long, complex sales cycles.',
-    solution: 'Vertical Pod with healthcare-experienced SDRs. Specialized training in HIPAA compliance, healthcare buying processes, and medical terminology.',
-    results: [
-      { value: '95%', label: 'Compliance Rate', color: 'text-green-600' },
-      { value: '65%', label: 'Win Rate Increase', color: 'text-blue-600' },
-      { value: '$8.5M', label: 'New Bookings', color: 'text-purple-600' },
-      { value: '75 days', label: 'Time to Impact', color: 'text-orange-600' },
-    ],
-    quote: '"Healthcare sales is incredibly complex. SDR Global\'s specialized team understood our market better than our own salespeople initially."',
-    quoteAuthor: '— Dr. James Wilson, Chief Medical Officer',
-  },
-];
-
-const summaryStats: SummaryStat[] = [
-  { value: '45-90', label: 'Days to Impact', sub: 'Average time to first results', color: 'text-green-400' },
-  { value: '200%', label: 'Avg Pipeline Growth', sub: 'Across all case studies', color: 'text-blue-400' },
-  { value: '$8.2M', label: 'Avg New Pipeline', sub: 'Per engagement', color: 'text-purple-400' },
-  { value: '94%', label: 'Client Satisfaction', sub: 'Based on post-engagement surveys', color: 'text-orange-400' },
-];
-
-const methodologyItems: MethodologyItem[] = [
-  { icon: '🎯', title: 'Strategic Alignment', description: 'Deep discovery process ensures our SDRs understand your ICP, messaging, and sales process before deployment.' },
-  { icon: '⚡', title: 'Rapid Execution', description: 'Pre-trained SDRs and established processes enable immediate productivity without ramp-up delays.' },
-  { icon: '📈', title: 'Continuous Optimization', description: 'Real-time performance tracking and weekly optimization calls ensure maximum ROI throughout the engagement.' },
-];
-
-const industryApps: IndustryApp[] = [
-  { icon: '💻', title: 'SaaS & Software', description: '300% pipeline growth, 45-day impact' },
-  { icon: '🔒', title: 'Cybersecurity', description: '85% MQL quality increase, 60-day impact' },
-  { icon: '🏥', title: 'Healthcare', description: '65% win rate increase, 75-day impact' },
-  { icon: '🌐', title: 'Marketplaces', description: '250% international growth, 90-day impact' },
-];
-
-const CaseStudyCard = ({ study }: { study: CaseStudy }) => (
-  <div className="mb-20 last:mb-0">
-    <div className="bg-gray-50 rounded-lg p-8 md:p-12">
-      <div className="grid lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <div className="flex items-center mb-6">
-            <div className={`w-16 h-16 ${study.initialsBg} rounded-lg flex items-center justify-center text-white font-bold text-xl mr-4`}>
-              {study.initials}
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900">{study.title}</h3>
-              <p className={`${study.subtitleColor} font-semibold`}>{study.subtitle}</p>
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            <div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">Client Background</h4>
-              <p className="text-gray-600">{study.clientBackground}</p>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-semibold text-red-600 mb-2">The Problem</h4>
-              <p className="text-gray-600">{study.problem}</p>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-semibold text-blue-600 mb-2">SDR Global Solution</h4>
-              <p className="text-gray-600">{study.solution}</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white p-8 rounded-lg shadow-lg">
-          <h4 className="text-xl font-bold text-center mb-6">Results Achieved</h4>
-
-          <div className="grid grid-cols-2 gap-6 mb-6">
-            {study.results.map((result, i) => (
-              <div key={i} className="text-center">
-                <div className={`text-3xl font-bold ${result.color} mb-2`}>{result.value}</div>
-                <div className="text-sm text-gray-600">{result.label}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="border-t pt-6">
-            <blockquote className="text-gray-700 italic mb-4">{study.quote}</blockquote>
-            <div className="text-sm text-gray-600">{study.quoteAuthor}</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-);
+import { caseStudies, summaryStats, methodologyItems, industryApps } from './data';
+import { CaseStudyCard } from './components';
 
 export default function CaseStudies() {
   return (
@@ -216,7 +24,7 @@ export default function CaseStudies() {
                 View Case Studies
               </Link>
               <Link
-                href="/contact"
+                href="#"
                 className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-green-900 transition-colors"
               >
                 Get Similar Results
@@ -348,7 +156,7 @@ export default function CaseStudies() {
           </div>
 
           <Link
-            href="/contact"
+            href="#"
             className="bg-white text-green-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors inline-block"
           >
             Get Similar Results

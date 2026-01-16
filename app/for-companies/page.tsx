@@ -22,7 +22,7 @@ export default function Companies() {
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="/contact"
+                href="#"
                 className="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
               >
                 Start Hiring
@@ -37,7 +37,7 @@ export default function Companies() {
             </div>
             <div className="hidden lg:block relative aspect-4/3">
               <Image
-                src="/company2.jpg"
+                src="/Background.jpg"
                 alt="Sales team collaborating in a modern office"
                 fill
                 className="object-cover rounded-3xl shadow-2xl"
@@ -150,7 +150,7 @@ export default function Companies() {
                 <li className="flex items-center"><span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></span>90-day replacement guarantee</li>
                 <li className="flex items-center"><span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></span>Salary negotiation support</li>
               </ul>
-              <Link href="/contact" className="block w-full py-3 px-4 bg-gray-50 text-gray-900 text-center rounded-lg font-medium hover:bg-gray-100 transition-colors">
+              <Link href="#" className="block w-full py-3 px-4 bg-gray-50 text-gray-900 text-center rounded-lg font-medium hover:bg-gray-100 transition-colors">
                 Get Started
               </Link>
             </div>
@@ -167,7 +167,7 @@ export default function Companies() {
                 <li className="flex items-center"><span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></span>Weekly performance reports</li>
                 <li className="flex items-center"><span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></span>Dedicated Team Lead</li>
               </ul>
-              <Link href="/contact" className="block w-full py-3 px-4 bg-blue-600 text-white text-center rounded-lg font-medium hover:bg-blue-700 transition-colors">
+              <Link href="#" className="block w-full py-3 px-4 bg-blue-600 text-white text-center rounded-lg font-medium hover:bg-blue-700 transition-colors">
                 Get Started
               </Link>
             </div>
@@ -182,7 +182,7 @@ export default function Companies() {
                 <li className="flex items-center"><span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></span>Custom SLAs & Security</li>
                 <li className="flex items-center"><span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></span>Dedicated Account Manager</li>
               </ul>
-              <Link href="/contact" className="block w-full py-3 px-4 bg-gray-50 text-gray-900 text-center rounded-lg font-medium hover:bg-gray-100 transition-colors">
+              <Link href="#" className="block w-full py-3 px-4 bg-gray-50 text-gray-900 text-center rounded-lg font-medium hover:bg-gray-100 transition-colors">
                 Contact Sales
               </Link>
             </div>
@@ -212,11 +212,11 @@ export default function Companies() {
                 { day: 'Day 5', title: 'Go Live', desc: 'Campaigns launch and first calls are made.' }
               ].map((step, i) => (
                 <div key={i} className="flex gap-6">
-                  <div className="flex-shrink-0 w-16 text-right">
+                  <div className="shrink-0 w-16 text-right">
                     <span className="text-blue-500 font-bold">{step.day}</span>
                   </div>
                   <div className="relative pb-8 border-l border-gray-800 pl-8 last:pb-0 last:border-0">
-                    <div className="absolute left-0 top-0 -ml-[5px] w-2.5 h-2.5 rounded-full bg-blue-600"></div>
+                    <div className="absolute left-0 top-0 -ml-1.25 w-2.5 h-2.5 rounded-full bg-blue-600"></div>
                     <h3 className="text-xl font-bold mb-2">{step.title}</h3>
                     <p className="text-gray-400">{step.desc}</p>
                   </div>
@@ -263,13 +263,13 @@ export default function Companies() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/contact"
+              href="#"
               className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors shadow-lg"
             >
               Book a Strategy Call
             </Link>
             <Link
-              href="/faqs-sdrs"
+              href="#"
               className="px-8 py-4 bg-transparent border border-white text-white rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors"
             >
               Have Questions? View FAQs

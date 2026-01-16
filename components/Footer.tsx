@@ -6,8 +6,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12 mb-8">
           <div className="col-span-1 md:col-span-2 lg:col-span-2">
-            <Link href="/" className="text-2xl font-bold text-white mb-4 inline-block tracking-tight hover:text-blue-400 transition-colors">
-              SDR Global
+            <Link href="/">
+             <img src="/SDRGlobalBW.png" alt="SDR Global Logo" className="h-12 w-auto mb-6" />
             </Link>
             <p className="text-gray-300 text-sm leading-relaxed max-w-sm mb-6">
               The global infrastructure for sales development. We connect world-class companies with performance-ready SDR talent across 50+ countries.
