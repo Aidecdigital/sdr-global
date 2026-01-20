@@ -4,16 +4,16 @@ export const caseStudies: CaseStudy[] = [
   {
     id: 'cloudsync',
     initials: 'CS',
-    initialsBg: 'bg-blue-600',
+    initialsBg: 'bg-[#0055ae]',
     title: 'CloudSync',
     subtitle: 'SaaS Startup • 50 employees',
-    subtitleColor: 'text-blue-600',
+    subtitleColor: 'text-[#0055ae]',
     clientBackground: 'Cloud-based data synchronization platform serving SMBs. Pre-Series A with aggressive growth targets.',
     problem: 'No dedicated sales team, relying on product-led growth. CEO handling all outbound sales manually, limiting scale and missing quarterly targets.',
     solution: 'Deployed 3 SDRs using our Outsourced Team model. Focused on enterprise SMB segment with personalized outreach sequences.',
     results: [
       { value: '150+', label: 'Qualified Meetings', color: 'text-green-600' },
-      { value: '300%', label: 'Pipeline Growth', color: 'text-blue-600' },
+      { value: '300%', label: 'Pipeline Growth', color: 'text-[#0055ae]' },
       { value: '$2.1M', label: 'New Pipeline', color: 'text-purple-600' },
       { value: '45 days', label: 'Time to Impact', color: 'text-orange-600' },
     ],
@@ -32,7 +32,7 @@ export const caseStudies: CaseStudy[] = [
     solution: 'Regional Pods model with 8 SDRs across North America and EMEA. Specialized in enterprise cybersecurity messaging and long-cycle nurturing.',
     results: [
       { value: '85%', label: 'MQL Quality Increase', color: 'text-green-600' },
-      { value: '40%', label: 'Sales Cycle Reduction', color: 'text-blue-600' },
+      { value: '40%', label: 'Sales Cycle Reduction', color: 'text-[#0055ae]' },
       { value: '$18M', label: 'Pipeline Value', color: 'text-purple-600' },
       { value: '60 days', label: 'Time to Impact', color: 'text-orange-600' },
     ],
@@ -51,7 +51,7 @@ export const caseStudies: CaseStudy[] = [
     solution: 'Regional Pods with native-speaking SDRs in Germany, UK, and Singapore. Localized market research and culturally-adapted messaging.',
     results: [
       { value: '5', label: 'New Markets Entered', color: 'text-green-600' },
-      { value: '250%', label: 'International Growth', color: 'text-blue-600' },
+      { value: '250%', label: 'International Growth', color: 'text-[#0055ae]' },
       { value: '$4.2M', label: 'International Revenue', color: 'text-purple-600' },
       { value: '90 days', label: 'Time to Impact', color: 'text-orange-600' },
     ],
@@ -70,7 +70,7 @@ export const caseStudies: CaseStudy[] = [
     solution: 'Vertical Pod with healthcare-experienced SDRs. Specialized training in HIPAA compliance, healthcare buying processes, and medical terminology.',
     results: [
       { value: '95%', label: 'Compliance Rate', color: 'text-green-600' },
-      { value: '65%', label: 'Win Rate Increase', color: 'text-blue-600' },
+      { value: '65%', label: 'Win Rate Increase', color: 'text-[#0055ae]' },
       { value: '$8.5M', label: 'New Bookings', color: 'text-purple-600' },
       { value: '75 days', label: 'Time to Impact', color: 'text-orange-600' },
     ],

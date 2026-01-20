@@ -4,27 +4,31 @@ export default function TalentPool() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              World-Class SDR Talent Pool
+      <section className="relative pt-24 pb-20 overflow-hidden bg-slate-50">
+        <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+            <div className="absolute left-0 top-0 -z-10 h-[310px] w-[310px] rounded-full bg-blue-400 opacity-20 blur-[100px]"></div>
+            <div className="absolute right-0 bottom-0 -z-10 h-[310px] w-[310px] rounded-full bg-cyan-400 opacity-20 blur-[100px]"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium text-blue-700 bg-blue-50 mb-8 border border-blue-100 shadow-sm">
+              <span className="flex h-2 w-2 rounded-full bg-blue-600 mr-2 animate-pulse"></span>
+              Global Talent Network
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-8 leading-tight">
+              World-Class SDR {" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">Talent Pool</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
               Access pre-vetted, trained, and ready-to-deploy SDRs with proven track records across industries and regions.
             </p>
-
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="#profiles"
-                className="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
-              >
+              <Link href="#profiles" className="px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold text-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1">
                 View SDR Profiles
               </Link>
-              <Link
-                href="/contact"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-900 transition-colors"
-              >
+              <Link href="/contact" className="px-8 py-4 bg-white text-gray-700 border border-gray-200 rounded-xl font-semibold text-lg hover:bg-gray-50 hover:border-gray-300 transition-all hover:-translate-y-1">
                 Request SDR Profiles
               </Link>
             </div>
@@ -51,7 +55,7 @@ export default function TalentPool() {
               <p className="text-gray-600 mb-4">
                 Deep expertise in cloud platforms, enterprise software, and emerging technologies.
               </p>
-              <div className="text-2xl font-bold text-blue-600">40%</div>
+              <div className="text-2xl font-bold text-[#0055ae]">40%</div>
               <div className="text-sm text-gray-600">of our SDRs</div>
             </div>
 
@@ -140,7 +144,7 @@ export default function TalentPool() {
             <div className="bg-white p-8 rounded-lg shadow-lg border-2 border-blue-500">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-blue-600">3-5</span>
+                  <span className="text-2xl font-bold text-[#0055ae]">3-5</span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Mid-Level SDR</h3>
                 <p className="text-gray-600">Years of Experience</p>
@@ -167,7 +171,7 @@ export default function TalentPool() {
 
               <div className="mt-6 pt-6 border-t">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600 mb-1">45%</div>
+                  <div className="text-3xl font-bold text-[#0055ae] mb-1">45%</div>
                   <div className="text-sm text-gray-600">of our talent pool</div>
                 </div>
               </div>
@@ -228,7 +232,7 @@ export default function TalentPool() {
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-lg text-center">
               <div className="text-4xl mb-4">🇺🇸</div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">North America</h3>
-              <div className="text-3xl font-bold text-blue-600 mb-2">150+</div>
+              <div className="text-3xl font-bold text-[#0055ae] mb-2">150+</div>
               <div className="text-sm text-gray-600 mb-4">Available SDRs</div>
               <p className="text-gray-600 text-sm">
                 Native English speakers across all time zones. Deep understanding of US and Canadian markets.
@@ -309,11 +313,11 @@ export default function TalentPool() {
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <div className="flex items-start mb-6">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-2xl font-bold text-blue-600">MJ</span>
+                  <span className="text-2xl font-bold text-[#0055ae]">MJ</span>
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900">Mid-Level SDR</h3>
-                  <p className="text-blue-600 font-semibold">Technology & SaaS • 4 Years Experience</p>
+                  <p className="text-[#0055ae] font-semibold">Technology & SaaS • 4 Years Experience</p>
                   <p className="text-gray-600">North America</p>
                 </div>
               </div>
@@ -345,7 +349,7 @@ export default function TalentPool() {
                       <div className="text-xs text-gray-600">SQLs/Month</div>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-blue-600">85%</div>
+                      <div className="text-2xl font-bold text-[#0055ae]">85%</div>
                       <div className="text-xs text-gray-600">Qualification Rate</div>
                     </div>
                     <div>
@@ -397,7 +401,7 @@ export default function TalentPool() {
                       <div className="text-xs text-gray-600">SQLs/Month</div>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-blue-600">78%</div>
+                      <div className="text-2xl font-bold text-[#0055ae]">78%</div>
                       <div className="text-xs text-gray-600">Win Rate</div>
                     </div>
                     <div>
@@ -449,7 +453,7 @@ export default function TalentPool() {
                       <div className="text-xs text-gray-600">SQLs/Month</div>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-blue-600">82%</div>
+                      <div className="text-2xl font-bold text-[#0055ae]">82%</div>
                       <div className="text-xs text-gray-600">Qualification Rate</div>
                     </div>
                     <div>
@@ -501,7 +505,7 @@ export default function TalentPool() {
                       <div className="text-xs text-gray-600">SQLs/Month</div>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-blue-600">88%</div>
+                      <div className="text-2xl font-bold text-[#0055ae]">88%</div>
                       <div className="text-xs text-gray-600">Qualification Rate</div>
                     </div>
                     <div>

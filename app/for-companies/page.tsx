@@ -5,16 +5,24 @@ export default function Companies() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative pt-24 pb-20 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-32 pb-24 overflow-hidden bg-slate-50">
+        {/* Background Elements */}
+        <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+            <div className="absolute left-0 top-0 -z-10 h-[310px] w-[310px] rounded-full bg-blue-400 opacity-20 blur-[100px]"></div>
+            <div className="absolute right-0 bottom-0 -z-10 h-[310px] w-[310px] rounded-full bg-purple-400 opacity-20 blur-[100px]"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative z-10">
-              <div className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium text-blue-600 bg-blue-50 mb-8 border border-blue-100">
-              For Startups, SMEs & Enterprises
+              <div className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium text-blue-700 bg-blue-50 mb-8 border border-blue-100 shadow-sm">
+                <span className="flex h-2 w-2 rounded-full bg-[#0055ae] mr-2 animate-pulse"></span>
+                For Startups, SMEs & Enterprises
             </div>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-8 leading-tight">
               Build a high-performance <br />
-              <span className="text-blue-600">sales engine</span> in days.
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0055ae] to-purple-600">sales engine</span> in days.
             </h1>
             <p className="text-xl text-gray-600 mb-10 max-w-2xl leading-relaxed">
               Skip the 3-month hiring cycle. Access pre-vetted, certified SDR teams that integrate with your stack and start booking meetings immediately.
@@ -22,14 +30,14 @@ export default function Companies() {
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="#"
-                className="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
+                href="/contact"
+                className="px-8 py-4 bg-[#0055ae] text-white rounded-xl font-semibold text-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1"
               >
                 Start Hiring
               </Link>
               <Link
                 href="/engagement-models"
-                className="px-8 py-4 bg-white text-gray-700 border border-gray-200 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-all"
+                className="px-8 py-4 bg-white text-gray-700 border border-gray-200 rounded-xl font-semibold text-lg hover:bg-gray-50 hover:border-gray-300 transition-all hover:-translate-y-1"
               >
                 View Pricing Models
               </Link>
@@ -40,28 +48,26 @@ export default function Companies() {
                 src="/Background.jpg"
                 alt="Sales team collaborating in a modern office"
                 fill
-                className="object-cover rounded-3xl shadow-2xl"
+                className="object-cover rounded-3xl shadow-2xl ring-1 ring-gray-900/10"
                 priority
               />
             </div>
           </div>
         </div>
-        {/* Background decoration */}
-        <div className="absolute top-0 left-0 -mt-20 -ml-20 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50"></div>
       </section>
 
       {/* Metrics Strip */}
-      <section className="border-y border-gray-100 bg-white">
+      <section className="border-y border-gray-100 bg-white relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x-0 md:divide-x divide-gray-100">
             {[
               { label: 'Time to Hire', value: '24h', sub: 'vs 90 days avg' },
               { label: 'Cost Savings', value: '40%', sub: 'on overhead' },
               { label: 'Retention', value: '94%', sub: 'industry leading' },
               { label: 'Ramp Time', value: '0 Days', sub: 'fully trained' },
             ].map((stat, i) => (
-              <div key={i} className="text-center md:text-left">
-                <div className="text-4xl font-bold text-gray-900 mb-1">{stat.value}</div>
+              <div key={i} className="text-center px-4">
+                <div className="text-4xl font-bold text-[#0055ae] mb-1">{stat.value}</div>
                 <div className="text-sm font-medium text-gray-900">{stat.label}</div>
                 <div className="text-sm text-gray-500">{stat.sub}</div>
               </div>
@@ -71,21 +77,22 @@ export default function Companies() {
       </section>
 
       {/* Comparison / Problem Solution */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">The Modern Way to Scale Sales</h2>
-            <p className="text-xl text-gray-600">Stop trading time for talent.</p>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">Stop trading time for talent. Compare the traditional hiring model with our infrastructure.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
             {/* Old Way */}
-            <div className="bg-white p-8 rounded-2xl border border-gray-200 opacity-75">
-              <h3 className="text-xl font-bold text-gray-500 mb-6 flex items-center">
-                <span className="w-2 h-2 bg-gray-400 rounded-full mr-3"></span>
+            <div className="bg-white p-10 rounded-3xl border border-red-100 shadow-sm relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-red-400"></div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
+                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-600 mr-3 text-sm">✕</span>
                 Traditional Hiring
               </h3>
-              <ul className="space-y-4">
+              <ul className="space-y-5">
                 {[
                   'Spend months sourcing and interviewing',
                   'Pay recruiter fees (15-20% of salary)',
@@ -93,7 +100,7 @@ export default function Companies() {
                   'High risk of turnover within 6 months',
                   'Manage training and coaching internally'
                 ].map((item, i) => (
-                  <li key={i} className="flex items-start text-gray-500">
+                  <li key={i} className="flex items-start text-gray-600">
                     <svg className="w-5 h-5 mr-3 mt-0.5 text-red-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -104,13 +111,13 @@ export default function Companies() {
             </div>
 
             {/* New Way */}
-            <div className="bg-white p-8 rounded-2xl border border-blue-100 shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-blue-600"></div>
-              <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+            <div className="bg-white p-10 rounded-3xl border border-blue-100 shadow-xl relative overflow-hidden ring-1 ring-blue-500/10">
+              <div className="absolute top-0 left-0 w-full h-1 bg-[#0055ae]"></div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
+                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-[#0055ae] mr-3 text-sm">✓</span>
                 SDR Global Infrastructure
               </h3>
-              <ul className="space-y-4">
+              <ul className="space-y-5">
                 {[
                   'Instant access to pre-vetted talent pool',
                   'Zero recruiting fees or overhead',
@@ -118,8 +125,8 @@ export default function Companies() {
                   'Replacement guarantee included',
                   'Ongoing performance management & coaching'
                 ].map((item, i) => (
-                  <li key={i} className="flex items-start text-gray-900 font-medium">
-                    <svg className="w-5 h-5 mr-3 mt-0.5 text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <li key={i} className="flex items-start text-gray-900 font-medium text-lg">
+                    <svg className="w-6 h-6 mr-3 mt-0.5 text-[#0055ae] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     {item}
@@ -136,53 +143,53 @@ export default function Companies() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Flexible Engagement Models</h2>
-            <p className="text-xl text-gray-600">Scale up or down based on your pipeline needs.</p>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">Scale up or down based on your pipeline needs.</p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Direct Hire */}
-            <div className="p-8 rounded-2xl border border-gray-200 hover:border-blue-200 transition-colors">
+            <div className="p-8 rounded-3xl border border-gray-200 hover:border-blue-200 hover:shadow-lg transition-all duration-300">
               <div className="text-lg font-semibold text-gray-900 mb-2">Direct Placement</div>
               <div className="text-3xl font-bold text-gray-900 mb-6">One-time fee</div>
               <p className="text-gray-600 mb-8 text-sm">Best for companies building long-term internal culture who need vetted talent fast.</p>
               <ul className="space-y-3 mb-8 text-sm text-gray-600">
-                <li className="flex items-center"><span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></span>Pre-vetted candidates</li>
-                <li className="flex items-center"><span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></span>90-day replacement guarantee</li>
-                <li className="flex items-center"><span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></span>Salary negotiation support</li>
+                <li className="flex items-center"><svg className="w-4 h-4 text-[#0055ae] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>Pre-vetted candidates</li>
+                <li className="flex items-center"><svg className="w-4 h-4 text-[#0055ae] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>90-day replacement guarantee</li>
+                <li className="flex items-center"><svg className="w-4 h-4 text-[#0055ae] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>Salary negotiation support</li>
               </ul>
-              <Link href="#" className="block w-full py-3 px-4 bg-gray-50 text-gray-900 text-center rounded-lg font-medium hover:bg-gray-100 transition-colors">
+              <Link href="#" className="block w-full py-3 px-4 bg-gray-50 text-gray-900 text-center rounded-xl font-medium hover:bg-gray-100 transition-colors">
                 Get Started
               </Link>
             </div>
 
             {/* Outsourced (Highlighted) */}
-            <div className="p-8 rounded-2xl border-2 border-blue-600 bg-blue-50/50 relative">
-              <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">MOST POPULAR</div>
+            <div className="p-8 rounded-3xl border-2 border-[#0055ae] bg-blue-50/30 relative shadow-xl transform md:-translate-y-4">
+              <div className="absolute top-0 right-0 bg-[#0055ae] text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl rounded-tr-xl">MOST POPULAR</div>
               <div className="text-lg font-semibold text-gray-900 mb-2">Managed Team</div>
               <div className="text-3xl font-bold text-gray-900 mb-6">Monthly subscription</div>
               <p className="text-gray-600 mb-8 text-sm">Best for rapid scaling. We manage the team, you get the meetings.</p>
               <ul className="space-y-3 mb-8 text-sm text-gray-600">
-                <li className="flex items-center"><span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></span>Fully managed SDRs</li>
-                <li className="flex items-center"><span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></span>Tech stack included</li>
-                <li className="flex items-center"><span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></span>Weekly performance reports</li>
-                <li className="flex items-center"><span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></span>Dedicated Team Lead</li>
+                <li className="flex items-center"><svg className="w-4 h-4 text-[#0055ae] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>Fully managed SDRs</li>
+                <li className="flex items-center"><svg className="w-4 h-4 text-[#0055ae] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>Tech stack included</li>
+                <li className="flex items-center"><svg className="w-4 h-4 text-[#0055ae] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>Weekly performance reports</li>
+                <li className="flex items-center"><svg className="w-4 h-4 text-[#0055ae] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>Dedicated Team Lead</li>
               </ul>
-              <Link href="#" className="block w-full py-3 px-4 bg-blue-600 text-white text-center rounded-lg font-medium hover:bg-blue-700 transition-colors">
+              <Link href="#" className="block w-full py-3 px-4 bg-[#0055ae] text-white text-center rounded-xl font-medium hover:bg-blue-700 transition-colors shadow-lg hover:shadow-blue-500/30">
                 Get Started
               </Link>
             </div>
 
             {/* Enterprise */}
-            <div className="p-8 rounded-2xl border border-gray-200 hover:border-blue-200 transition-colors">
+            <div className="p-8 rounded-3xl border border-gray-200 hover:border-blue-200 hover:shadow-lg transition-all duration-300">
               <div className="text-lg font-semibold text-gray-900 mb-2">Enterprise</div>
               <div className="text-3xl font-bold text-gray-900 mb-6">Custom</div>
               <p className="text-gray-600 mb-8 text-sm">For global organizations needing multi-region coverage and custom integration.</p>
               <ul className="space-y-3 mb-8 text-sm text-gray-600">
-                <li className="flex items-center"><span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></span>Global deployment (50+ countries)</li>
-                <li className="flex items-center"><span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></span>Custom SLAs & Security</li>
-                <li className="flex items-center"><span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></span>Dedicated Account Manager</li>
+                <li className="flex items-center"><svg className="w-4 h-4 text-[#0055ae] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>Global deployment (50+ countries)</li>
+                <li className="flex items-center"><svg className="w-4 h-4 text-[#0055ae] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>Custom SLAs & Security</li>
+                <li className="flex items-center"><svg className="w-4 h-4 text-[#0055ae] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>Dedicated Account Manager</li>
               </ul>
-              <Link href="#" className="block w-full py-3 px-4 bg-gray-50 text-gray-900 text-center rounded-lg font-medium hover:bg-gray-100 transition-colors">
+              <Link href="#" className="block w-full py-3 px-4 bg-gray-50 text-gray-900 text-center rounded-xl font-medium hover:bg-gray-100 transition-colors">
                 Contact Sales
               </Link>
             </div>
@@ -216,7 +223,7 @@ export default function Companies() {
                     <span className="text-blue-500 font-bold">{step.day}</span>
                   </div>
                   <div className="relative pb-8 border-l border-gray-800 pl-8 last:pb-0 last:border-0">
-                    <div className="absolute left-0 top-0 -ml-1.25 w-2.5 h-2.5 rounded-full bg-blue-600"></div>
+                    <div className="absolute left-0 top-0 -ml-1.25 w-2.5 h-2.5 rounded-full bg-[#0055ae]"></div>
                     <h3 className="text-xl font-bold mb-2">{step.title}</h3>
                     <p className="text-gray-400">{step.desc}</p>
                   </div>
@@ -236,15 +243,15 @@ export default function Companies() {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">300%</div>
+              <div className="text-4xl font-bold text-[#0055ae] mb-2">300%</div>
               <p className="text-gray-600">Increase in qualified leads</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">50%</div>
+              <div className="text-4xl font-bold text-[#0055ae] mb-2">50%</div>
               <p className="text-gray-600">Reduction in sales cycle</p>
             </div>
             <div className="text-center">
-              <Link href="/case-studies" className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+              <Link href="/case-studies" className="inline-block px-6 py-3 bg-[#0055ae] text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors">
                 View Case Studies
               </Link>
             </div>
@@ -253,7 +260,7 @@ export default function Companies() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-blue-600">
+      <section className="py-24 bg-[#0055ae]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Stop losing revenue to empty seats.
@@ -264,13 +271,13 @@ export default function Companies() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="#"
-              className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors shadow-lg"
+              className="px-8 py-4 bg-white text-[#0055ae] rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors shadow-lg"
             >
               Book a Strategy Call
             </Link>
             <Link
               href="#"
-              className="px-8 py-4 bg-transparent border border-white text-white rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors"
+              className="px-8 py-4 bg-transparent border border-white text-white rounded-lg font-semibold text-lg hover:bg-white hover:text-[#0055ae] transition-colors"
             >
               Have Questions? View FAQs
             </Link>

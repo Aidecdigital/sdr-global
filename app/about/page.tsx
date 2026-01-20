@@ -4,15 +4,34 @@ export default function About() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              About SDR Global
+      <section className="relative pt-24 pb-20 overflow-hidden bg-slate-50">
+        <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+            <div className="absolute left-0 top-0 -z-10 h-[310px] w-[310px] rounded-full bg-gray-400 opacity-20 blur-[100px]"></div>
+            <div className="absolute right-0 bottom-0 -z-10 h-[310px] w-[310px] rounded-full bg-blue-400 opacity-20 blur-[100px]"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium text-gray-700 bg-gray-50 mb-8 border border-gray-100 shadow-sm">
+              <span className="flex h-2 w-2 rounded-full bg-gray-600 mr-2 animate-pulse"></span>
+              Global Sales Infrastructure
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-8 leading-tight">
+              About SDR {" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-600 to-blue-600">Global</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
               Building the world's most reliable sales development infrastructure, one SDR at a time.
             </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="#mission" className="px-8 py-4 bg-gray-600 text-white rounded-xl font-semibold text-lg hover:bg-gray-700 transition-all shadow-lg hover:shadow-gray-500/30 hover:-translate-y-1">
+                Our Mission
+              </Link>
+              <Link href="/contact" className="px-8 py-4 bg-white text-gray-700 border border-gray-200 rounded-xl font-semibold text-lg hover:bg-gray-50 hover:border-gray-300 transition-all hover:-translate-y-1">
+                Get in Touch
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -112,7 +131,7 @@ export default function About() {
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold mb-6 text-blue-600">Broken Hiring Models</h3>
+              <h3 className="text-2xl font-bold mb-6 text-[#0055ae]">Broken Hiring Models</h3>
               <div className="space-y-4">
                 <div className="bg-white p-6 rounded-lg shadow-sm">
                   <h4 className="font-semibold mb-3">Traditional Recruiting</h4>
@@ -265,7 +284,7 @@ export default function About() {
                 <span className="text-2xl font-bold text-gray-600">SJ</span>
               </div>
               <h3 className="text-xl font-bold mb-2">Sarah Johnson</h3>
-              <div className="text-blue-600 font-semibold mb-4">CEO & Co-Founder</div>
+              <div className="text-[#0055ae] font-semibold mb-4">CEO & Co-Founder</div>
               <p className="text-gray-600 mb-4">
                 Former VP of Sales Operations at Salesforce. Scaled sales teams from 50 to 500+ globally.
               </p>
@@ -322,7 +341,7 @@ export default function About() {
                 </div>
                 <div>
                   <h4 className="font-semibold">David Chen</h4>
-                  <div className="text-blue-600 text-sm mb-2">Former CRO, ZoomInfo</div>
+                  <div className="text-[#0055ae] text-sm mb-2">Former CRO, ZoomInfo</div>
                   <p className="text-gray-600 text-sm">
                     Strategic advisor on sales intelligence and data-driven prospecting. 20+ years in B2B sales leadership.
                   </p>
@@ -384,7 +403,7 @@ export default function About() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+      <section className="py-20 bg-gradient-to-r from-[#0055ae] to-blue-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Build Your Sales Infrastructure?
@@ -396,13 +415,13 @@ export default function About() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/for-companies"
-              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
+              className="bg-white text-[#0055ae] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
             >
               Hire SDR Talent
             </Link>
             <Link
               href="/contact"
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors"
+              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[#0055ae] transition-colors"
             >
               Learn More
             </Link>
