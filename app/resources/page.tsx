@@ -4,28 +4,32 @@ export default function Resources() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-purple-900 via-purple-800 to-purple-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Sales Development Insights
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              Data-driven insights, benchmarks, and trends from SDR Global's global sales operations. Positioned as the authority in B2B sales development.
-            </p>
+      <section className="relative pt-24 pb-20 overflow-hidden bg-slate-50">
+        <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+            <div className="absolute left-0 top-0 -z-10 h-[310px] w-[310px] rounded-full bg-purple-400 opacity-20 blur-[100px]"></div>
+            <div className="absolute right-0 bottom-0 -z-10 h-[310px] w-[310px] rounded-full bg-pink-400 opacity-20 blur-[100px]"></div>
+        </div>
 
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium text-purple-700 bg-purple-50 mb-8 border border-purple-100 shadow-sm">
+              <span className="flex h-2 w-2 rounded-full bg-purple-600 mr-2 animate-pulse"></span>
+              Sales Intelligence Hub
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-8 leading-tight">
+              Sales Development {" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">Insights</span>
+            </h1>
+            <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+              Data-driven insights, benchmarks, and trends from SDR Global's global sales operations.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="#insights"
-                className="bg-white text-purple-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
-              >
+              <Link href="#insights" className="px-8 py-4 bg-purple-600 text-white rounded-xl font-semibold text-lg hover:bg-purple-700 transition-all shadow-lg hover:shadow-purple-500/30 hover:-translate-y-1">
                 Explore Insights
               </Link>
-              <Link
-                href="#subscribe"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-purple-900 transition-colors"
-              >
-                Subscribe for Insights
+              <Link href="#subscribe" className="px-8 py-4 bg-white text-gray-700 border border-gray-200 rounded-xl font-semibold text-lg hover:bg-gray-50 hover:border-gray-300 transition-all hover:-translate-y-1">
+                Subscribe for Updates
               </Link>
             </div>
           </div>
@@ -52,7 +56,7 @@ export default function Resources() {
                 Our research shows that trainable skills (communication, curiosity, resilience) outweigh experience in predicting SDR success.
               </p>
               <div className="bg-white p-4 rounded-lg">
-                <div className="text-2xl font-bold text-blue-600 mb-2">73%</div>
+                <div className="text-2xl font-bold text-[#0055ae] mb-2">73%</div>
                 <div className="text-sm text-gray-600">of top performers had 0-2 years sales experience</div>
               </div>
             </div>
@@ -133,7 +137,7 @@ export default function Resources() {
                     <div className="text-sm text-gray-600">Outbound emails per day</div>
                   </div>
                   <div className="text-right">
-                    <div className="text-2xl font-bold text-blue-600">75-100</div>
+                    <div className="text-2xl font-bold text-[#0055ae]">75-100</div>
                     <div className="text-sm text-gray-600">Top 25%</div>
                   </div>
                 </div>
@@ -183,7 +187,7 @@ export default function Resources() {
                     <div className="text-sm text-gray-600">Percentage of emails that get replies</div>
                   </div>
                   <div className="text-right">
-                    <div className="text-2xl font-bold text-blue-600">8-12%</div>
+                    <div className="text-2xl font-bold text-[#0055ae]">8-12%</div>
                     <div className="text-sm text-gray-600">Top 25%</div>
                   </div>
                 </div>
@@ -233,7 +237,7 @@ export default function Resources() {
                 <div className="text-sm text-gray-600">Exceed benchmarks by 50%+</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-blue-600 mb-2">60%</div>
+                <div className="text-4xl font-bold text-[#0055ae] mb-2">60%</div>
                 <div className="text-lg font-semibold text-gray-900">Solid Performers</div>
                 <div className="text-sm text-gray-600">Meet or slightly exceed benchmarks</div>
               </div>
@@ -267,7 +271,7 @@ export default function Resources() {
                   AI tools now handle 60% of initial research and lead scoring. SDRs focus on relationship-building and qualification.
                 </p>
                 <div className="flex items-center">
-                  <div className="text-2xl font-bold text-blue-600 mr-4">60%</div>
+                  <div className="text-2xl font-bold text-[#0055ae] mr-4">60%</div>
                   <div className="text-sm text-gray-600">of prospecting tasks AI-automated</div>
                 </div>
               </div>
@@ -377,7 +381,7 @@ export default function Resources() {
                 Comprehensive analysis of SDR salaries, bonuses, and equity across industries and regions.
               </p>
               <div className="text-sm text-gray-500 mb-4">Published: January 2026 • 45 pages</div>
-              <Link href="/contact" className="text-blue-600 font-semibold hover:text-blue-800">
+              <Link href="/contact" className="text-[#0055ae] font-semibold hover:text-blue-800">
                 Download Report →
               </Link>
             </div>
@@ -389,7 +393,7 @@ export default function Resources() {
                 8-week training program template with scripts, role-plays, and performance milestones.
               </p>
               <div className="text-sm text-gray-500 mb-4">Published: December 2025 • 120 pages</div>
-              <Link href="/contact" className="text-blue-600 font-semibold hover:text-blue-800">
+              <Link href="/contact" className="text-[#0055ae] font-semibold hover:text-blue-800">
                 Get Playbook →
               </Link>
             </div>
@@ -401,7 +405,7 @@ export default function Resources() {
                 Research on sales team structures, productivity metrics, and scaling strategies across 50 companies.
               </p>
               <div className="text-sm text-gray-500 mb-4">Published: November 2025 • 85 pages</div>
-              <Link href="/contact" className="text-blue-600 font-semibold hover:text-blue-800">
+              <Link href="/contact" className="text-[#0055ae] font-semibold hover:text-blue-800">
                 Access Study →
               </Link>
             </div>

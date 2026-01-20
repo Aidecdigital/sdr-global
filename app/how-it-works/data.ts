@@ -11,7 +11,7 @@ export const processSteps: ProcessStepData[] = [
     },
     timeline: { title: 'Timeline: 1-2 hours', description: 'Virtual discovery call with your sales leadership team.' },
     checklist: { icon: '🔍', title: 'Discovery Checklist', items: ['Target market analysis', 'Sales methodology review', 'Technology stack assessment', 'Success metrics definition'] },
-    theme: { stepBg: 'bg-blue-600', timelineBg: 'bg-blue-50', timelineTitle: 'text-blue-800', timelineText: 'text-blue-700' },
+    theme: { stepBg: 'bg-[#0055ae]', timelineBg: 'bg-blue-50', timelineTitle: 'text-blue-800', timelineText: 'text-blue-700' },
   },
   {
     step: 2,
@@ -53,12 +53,12 @@ export const processSteps: ProcessStepData[] = [
 
 export const performanceMetrics = [
   { label: 'Activity Volume', value: 98, color: 'bg-green-600', textColor: 'text-green-600' },
-  { label: 'Meeting Quality', value: 92, color: 'bg-blue-600', textColor: 'text-blue-600' },
+  { label: 'Meeting Quality', value: 92, color: 'bg-[#0055ae]', textColor: 'text-[#0055ae]' },
   { label: 'Response Rates', value: 87, color: 'bg-purple-600', textColor: 'text-purple-600' },
 ];
 
 export const keyBenefits = [
-  { icon: '⚡', title: 'Speed', description: 'From requirements to deployment in 24 hours – not 90+ days.', statistic: '97% Faster', color: 'text-blue-600' },
+  { icon: '⚡', title: 'Speed', description: 'From requirements to deployment in 24 hours – not 90+ days.', statistic: '97% Faster', color: 'text-[#0055ae]' },
   { icon: '🎯', title: 'Quality', description: 'Pre-certified SDRs with proven track records and skills.', statistic: '94% Success Rate', color: 'text-green-600' },
   { icon: '🔄', title: 'Flexibility', description: 'Scale up or down instantly without long-term commitments.', statistic: 'Instant Scaling', color: 'text-purple-600' },
 ];
@@ -73,7 +73,7 @@ export const commonConcerns = [
 ];
 
 export const timelineSummary = [
-  { day: 'Day 1', title: 'Discovery Call', color: 'bg-blue-600' },
+  { day: 'Day 1', title: 'Discovery Call', color: 'bg-[#0055ae]' },
   { day: 'Day 1-2', title: 'Requirements Finalized', color: 'bg-green-600' },
   { day: 'Day 2', title: 'SDR Matching', color: 'bg-purple-600' },
   { day: 'Day 2-3', title: 'Setup & Training', color: 'bg-orange-600' },

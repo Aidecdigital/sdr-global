@@ -4,27 +4,31 @@ export default function Contact() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-linear-to-br from-green-900 via-green-800 to-green-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Let's Build Your Sales Future
+      <section className="relative pt-24 pb-20 overflow-hidden bg-slate-50">
+        <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+            <div className="absolute left-0 top-0 -z-10 h-[310px] w-[310px] rounded-full bg-green-400 opacity-20 blur-[100px]"></div>
+            <div className="absolute right-0 bottom-0 -z-10 h-[310px] w-[310px] rounded-full bg-teal-400 opacity-20 blur-[100px]"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium text-green-700 bg-green-50 mb-8 border border-green-100 shadow-sm">
+              <span className="flex h-2 w-2 rounded-full bg-green-600 mr-2 animate-pulse"></span>
+              Let's Connect
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-8 leading-tight">
+              Build Your Sales {" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-teal-600">Future</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
               Ready to transform your sales performance? Connect with SDR Global's experts and discover how we can accelerate your growth.
             </p>
-
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="#contact-form"
-                className="bg-white text-green-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
-              >
+              <Link href="#contact-form" className="px-8 py-4 bg-green-600 text-white rounded-xl font-semibold text-lg hover:bg-green-700 transition-all shadow-lg hover:shadow-green-500/30 hover:-translate-y-1">
                 Get Started Today
               </Link>
-              <Link
-                href="#book-call"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-green-900 transition-colors"
-              >
+              <Link href="#book-call" className="px-8 py-4 bg-white text-gray-700 border border-gray-200 rounded-xl font-semibold text-lg hover:bg-gray-50 hover:border-gray-300 transition-all hover:-translate-y-1">
                 Book a Call
               </Link>
             </div>
@@ -74,7 +78,7 @@ export default function Contact() {
 
               <Link
                 href="#sales-form"
-                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-block"
+                className="bg-[#0055ae] text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-block"
               >
                 Start Sales Inquiry
               </Link>
@@ -218,7 +222,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                  className="w-full bg-[#0055ae] text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
                 >
                   Submit Sales Inquiry
                 </button>
@@ -404,7 +408,7 @@ export default function Contact() {
               <p className="text-gray-600 mb-4">
                 Speak directly with our sales team for immediate assistance.
               </p>
-              <div className="text-lg font-semibold text-blue-600 mb-4">
+              <div className="text-lg font-semibold text-[#0055ae] mb-4">
                 +1 (555) SDR-GLOBAL
               </div>
               <div className="text-sm text-gray-600">
@@ -434,7 +438,7 @@ export default function Contact() {
               <p className="text-gray-600 mb-4">
                 Send us detailed inquiries and we'll respond within 4 hours.
               </p>
-              <div className="text-lg font-semibold text-blue-600 mb-4">
+              <div className="text-lg font-semibold text-[#0055ae] mb-4">
                 hello@sdrglobal.com
               </div>
               <div className="text-sm text-gray-600">

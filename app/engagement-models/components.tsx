@@ -12,8 +12,8 @@ const ModelCard = ({ model }: { model: EngagementModel }) => {
   const themeClasses = {
     blue: {
       border: 'hover:border-blue-300',
-      price: 'text-blue-600',
-      button: 'bg-blue-600 hover:bg-blue-700',
+      price: 'text-[#0055ae]',
+      button: 'bg-[#0055ae] hover:bg-blue-700',
       bestForBg: 'bg-blue-50',
       bestForTitle: 'text-blue-800',
       bestForText: 'text-blue-700',
@@ -39,7 +39,7 @@ const ModelCard = ({ model }: { model: EngagementModel }) => {
   return (
     <div className={containerClasses}>
       {model.highlighted && (
-        <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+        <div className="absolute top-4 right-4 bg-[#0055ae] text-white px-3 py-1 rounded-full text-sm font-semibold">
           Most Popular
         </div>
       )}
@@ -74,7 +74,7 @@ const ModelCard = ({ model }: { model: EngagementModel }) => {
         <div className={`text-3xl font-bold ${currentTheme.price} mb-2`}>{model.price}</div>
         <p className="text-sm text-gray-600 mb-4">{model.priceSub}</p>
         <Link
-          href="#"
+          href="/contact"
           className={`${currentTheme.button} text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-block`}
         >
           {model.buttonText}
@@ -85,18 +85,31 @@ const ModelCard = ({ model }: { model: EngagementModel }) => {
 };
 
 export const HeroSection = () => (
-    <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Choose Your Engagement Model</h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+    <section className="relative pt-24 pb-20 overflow-hidden bg-slate-50">
+        <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+            <div className="absolute left-0 top-0 -z-10 h-[310px] w-[310px] rounded-full bg-blue-400 opacity-20 blur-[100px]"></div>
+            <div className="absolute right-0 bottom-0 -z-10 h-[310px] w-[310px] rounded-full bg-purple-400 opacity-20 blur-[100px]"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium text-blue-700 bg-blue-50 mb-8 border border-blue-100 shadow-sm">
+              <span className="flex h-2 w-2 rounded-full bg-[#0055ae] mr-2 animate-pulse"></span>
+              Flexible & Scalable
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-8 leading-tight">
+              Choose Your {" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0055ae] to-purple-600">Engagement Model</span>
+            </h1>
+            <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
               Flexible commercial structures designed to match your business needs and growth stage.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="#models" className="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors">
+              <Link href="#models" className="px-8 py-4 bg-[#0055ae] text-white rounded-xl font-semibold text-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1">
                 Explore Models
               </Link>
-              <Link href="#" className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-900 transition-colors">
+              <Link href="/contact" className="px-8 py-4 bg-white text-gray-700 border border-gray-200 rounded-xl font-semibold text-lg hover:bg-gray-50 hover:border-gray-300 transition-all hover:-translate-y-1">
                 Request Proposal
               </Link>
             </div>
@@ -279,7 +292,7 @@ export const FaqSection = () => (
 );
 
 export const FinalCtaSection = () => (
-    <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+    <section className="py-20 bg-gradient-to-r from-[#0055ae] to-blue-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Choose Your Model?</h2>
           <p className="text-xl mb-8 opacity-90">
@@ -307,7 +320,7 @@ export const FinalCtaSection = () => (
             </div>
           </div>
 
-          <Link href="#" className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors inline-block">
+          <Link href="/contact" className="bg-white text-[#0055ae] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors inline-block">
             Request a Proposal
           </Link>
         </div>
