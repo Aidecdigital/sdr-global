@@ -157,7 +157,7 @@ export default function Companies() {
                 <li className="flex items-center"><svg className="w-4 h-4 text-[#0055ae] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>90-day replacement guarantee</li>
                 <li className="flex items-center"><svg className="w-4 h-4 text-[#0055ae] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>Salary negotiation support</li>
               </ul>
-              <Link href="#" className="block w-full py-3 px-4 bg-gray-50 text-gray-900 text-center rounded-xl font-medium hover:bg-gray-100 transition-colors">
+              <Link href="/contact" className="block w-full py-3 px-4 bg-gray-50 text-gray-900 text-center rounded-xl font-medium hover:bg-gray-100 transition-colors">
                 Get Started
               </Link>
             </div>
@@ -174,7 +174,7 @@ export default function Companies() {
                 <li className="flex items-center"><svg className="w-4 h-4 text-[#0055ae] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>Weekly performance reports</li>
                 <li className="flex items-center"><svg className="w-4 h-4 text-[#0055ae] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>Dedicated Team Lead</li>
               </ul>
-              <Link href="#" className="block w-full py-3 px-4 bg-[#0055ae] text-white text-center rounded-xl font-medium hover:bg-blue-700 transition-colors shadow-lg hover:shadow-blue-500/30">
+              <Link href="/contact" className="block w-full py-3 px-4 bg-[#0055ae] text-white text-center rounded-xl font-medium hover:bg-blue-700 transition-colors shadow-lg hover:shadow-blue-500/30">
                 Get Started
               </Link>
             </div>
@@ -189,7 +189,7 @@ export default function Companies() {
                 <li className="flex items-center"><svg className="w-4 h-4 text-[#0055ae] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>Custom SLAs & Security</li>
                 <li className="flex items-center"><svg className="w-4 h-4 text-[#0055ae] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>Dedicated Account Manager</li>
               </ul>
-              <Link href="#" className="block w-full py-3 px-4 bg-gray-50 text-gray-900 text-center rounded-xl font-medium hover:bg-gray-100 transition-colors">
+              <Link href="/contact" className="block w-full py-3 px-4 bg-gray-50 text-gray-900 text-center rounded-xl font-medium hover:bg-gray-100 transition-colors">
                 Contact Sales
               </Link>
             </div>

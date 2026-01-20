@@ -72,7 +72,7 @@ const careerPathways = [
     description: "Sales Ops, Management, or Executive",
     salary: "$150K+",
     timeline: "2-3 years",
-    color: "orange",
+    color: "green",
     marginTop: "md:mt-48",
   },
 ];
