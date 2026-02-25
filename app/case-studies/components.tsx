@@ -10,6 +10,11 @@ const CaseStudyCard = ({ study }: { study: CaseStudy }) => (
               {study.initials}
             </div>
             <div>
+              <div className="inline-block mb-2">
+                <span className="text-xs inline-flex items-center px-2.5 py-1 rounded-full bg-yellow-50 text-yellow-800 font-semibold border border-yellow-100">
+                  Illustrative — Fictional company
+                </span>
+              </div>
               <h3 className="text-2xl font-bold text-gray-900">{study.title}</h3>
               <p className={`${study.subtitleColor} font-semibold`}>{study.subtitle}</p>
             </div>

@@ -33,8 +33,8 @@ const ModelCard = ({ model }: { model: EngagementModel }) => {
   const currentTheme = themeClasses[model.theme];
 
   const containerClasses = model.highlighted
-    ? 'bg-blue-50 border-2 border-blue-300 rounded-lg p-8 relative'
-    : `bg-white border-2 border-gray-200 rounded-lg p-8 ${currentTheme.border} transition-colors`;
+    ? 'bg-blue-50 border-2 border-blue-300 rounded-lg p-8 relative flex flex-col h-full'
+    : `bg-white border-2 border-gray-200 rounded-lg p-8 ${currentTheme.border} transition-colors flex flex-col h-full`;
 
   return (
     <div className={containerClasses}>
@@ -49,7 +49,7 @@ const ModelCard = ({ model }: { model: EngagementModel }) => {
         <p className="text-gray-600">{model.description}</p>
       </div>
 
-      <div className="space-y-4 mb-8">
+      <div className="space-y-4 mb-8 flex-grow">
         <div className={`${model.highlighted ? currentTheme.highlightedBestForBg : currentTheme.bestForBg} p-4 rounded-lg`}>
           <h4 className={`font-semibold mb-2 ${currentTheme.bestForTitle}`}>Best For:</h4>
           <ul className={`${currentTheme.bestForText} space-y-1 list-disc list-inside`}>
@@ -70,12 +70,47 @@ const ModelCard = ({ model }: { model: EngagementModel }) => {
         </div>
       </div>
 
-      <div className="text-center">
-        <div className={`text-3xl font-bold ${currentTheme.price} mb-2`}>{model.price}</div>
-        <p className="text-sm text-gray-600 mb-4">{model.priceSub}</p>
+      <div className="text-center border-t border-gray-200 pt-6 mt-auto">
+        <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Starting At</p>
+        <div className={`text-4xl font-bold ${currentTheme.price} mb-2`}>{model.price}</div>
+        <p className="text-sm text-gray-600 mb-6">{model.priceSub}</p>
+
+        <details className="group bg-white border border-gray-200 rounded-xl overflow-hidden text-left mb-6 transition-all duration-300">
+          <summary className="cursor-pointer font-semibold p-4 flex items-center justify-between hover:bg-gray-50 transition-colors list-none select-none">
+            <span className="text-sm text-gray-700">View Pricing Breakdown</span>
+            <span className="transform group-open:rotate-180 transition-transform duration-200 text-gray-400">
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </summary>
+          <div className="px-4 pb-4 text-sm text-gray-700 space-y-3 border-t border-gray-100 pt-3 bg-gray-50">
+            <div className="flex justify-between items-start">
+              <span className="font-medium text-gray-900">Subscription:</span>
+              <span className="text-right text-gray-600">{model.pricing?.subscription ?? '—'}</span>
+            </div>
+            <div className="flex justify-between items-start">
+              <span className="font-medium text-gray-900">Setup / One-time:</span>
+              <span className="text-right text-gray-600">{model.pricing?.setupFee ?? '—'}</span>
+            </div>
+            {model.pricing?.customOptions && (
+              <div className="pt-2 border-t border-gray-200 mt-2">
+                <div className="font-medium text-gray-900 mb-1">Custom options:</div>
+                <ul className="list-disc list-inside text-gray-600 pl-1 space-y-1">
+                  {model.pricing.customOptions.map((opt) => <li key={opt}>{opt}</li>)}
+                </ul>
+              </div>
+            )}
+            {model.pricing?.notes && (
+              <div className="pt-2 border-t border-gray-200 mt-2 text-xs text-gray-500 italic">
+                {model.pricing.notes}
+              </div>
+            )}
+          </div>
+        </details>
         <Link
           href="/contact"
-          className={`${currentTheme.button} text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-block`}
+          className={`${currentTheme.button} text-white px-6 py-4 rounded-xl font-bold transition-all shadow-md hover:shadow-lg inline-block w-full`}
         >
           {model.buttonText}
         </Link>
@@ -160,13 +195,13 @@ export const ModelsSection = () => (
     </section>
 );
 
-export const PricingPhilosophySection = () => (
+export const InvestmentPhilosophySection = () => (
     <section className="py-20 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Pricing Philosophy</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Investment Philosophy</h2>
             <p className="text-xl opacity-90 max-w-4xl mx-auto">
-              We believe pricing should reflect value delivered, not just hours worked. Our models are designed for predictable costs and measurable ROI.
+              We believe investment should reflect value delivered, not just hours worked. Our models are designed for predictable costs and measurable ROI.
             </p>
           </div>
 
@@ -315,7 +350,7 @@ export const FinalCtaSection = () => (
               <div className="text-center">
                 <div className="text-3xl mb-2" aria-hidden="true">📄</div>
                 <div className="font-semibold">3. Proposal</div>
-                <div className="text-sm text-gray-600">Custom pricing and terms</div>
+                <div className="text-sm text-gray-600">Custom investment and terms</div>
               </div>
             </div>
           </div>

@@ -9,6 +9,11 @@ export const engagementModels: EngagementModel[] = [
     highlighted: false,
     price: 'Starting at $4,500/mo',
     priceSub: 'Per SDR placement',
+    pricing: {
+      subscription: '$4,500/mo',
+      setupFee: '$1,500 one-time',
+      customOptions: ['Dedicated manager +$2,000/mo', 'Premium SLA +$1,500/mo'],
+    },
     buttonText: 'Get Started',
     bestFor: [
       'Testing new markets or segments',
@@ -32,6 +37,11 @@ export const engagementModels: EngagementModel[] = [
     highlighted: true,
     price: 'Starting at $12,000/mo',
     priceSub: 'Per SDR (3 SDR minimum)',
+    pricing: {
+      subscription: '$12,000/mo (3 SDRs)',
+      setupFee: '$4,000 one-time',
+      customOptions: ['Add SDR +$3,500/mo', 'Advanced analytics +$1,200/mo'],
+    },
     buttonText: 'Get Started',
     bestFor: [
       'Consistent pipeline requirements',
@@ -54,8 +64,13 @@ export const engagementModels: EngagementModel[] = [
     description: 'Specialized teams for specific markets or industries',
     theme: 'purple',
     highlighted: false,
-    price: 'Custom Pricing',
+    price: 'Custom Investment',
     priceSub: 'Based on scope and specialization',
+    pricing: {
+      subscription: 'Custom',
+      setupFee: 'Varies based on scope',
+      customOptions: ['Localization & language teams (custom pricing)', 'Extended SLA & training (custom)'],
+    },
     buttonText: 'Learn More',
     bestFor: [
       'Geographic market expansion',
@@ -86,20 +101,20 @@ export const comparisonFeatures = [
 export const philosophyItems = [
     {
         icon: '💰',
-        title: 'Value-Based Pricing',
+        title: 'Value-Based Investment',
         description: 'Costs scale with the value you receive. Higher-performing SDRs and more complex campaigns command premium rates.',
-        quote: '"You pay for results, not just time. Our pricing reflects the quality and impact of our SDRs."',
+        quote: '"You pay for results, not just time. Our investment reflects the quality and impact of our SDRs."',
     },
     {
         icon: '📊',
         title: 'Transparent Economics',
-        description: 'No hidden fees, complex calculations, or surprise charges. Clear pricing with predictable monthly costs.',
+        description: 'No hidden fees, complex calculations, or surprise charges. Clear investment with predictable monthly costs.',
         quote: '"What you see is what you pay. No nickel-and-diming or unexpected add-ons."',
     },
     {
         icon: '📈',
         title: 'ROI-Focused Structure',
-        description: 'Pricing designed to ensure positive ROI from day one. We succeed when you succeed.',
+        description: 'Investment designed to ensure positive ROI from day one. We succeed when you succeed.',
         quote: '"Our fees are an investment in your growth. We only win when you win big."',
     },
 ];

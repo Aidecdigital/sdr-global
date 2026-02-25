@@ -10,4 +10,10 @@ export type EngagementModel = {
   bestFor: string[];
   included: string[];
   commitment: string;
+  pricing?: {
+    subscription: string;
+    setupFee?: string;
+    customOptions?: string[];
+    notes?: string;
+  };
 };
