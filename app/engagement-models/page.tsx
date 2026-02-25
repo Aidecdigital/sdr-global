@@ -1,7 +1,7 @@
 import {
   HeroSection,
   ModelsSection,
-  PricingPhilosophySection,
+  InvestmentPhilosophySection,
   SupportSection,
   FaqSection,
   FinalCtaSection,
@@ -12,7 +12,7 @@ export default function EngagementModelsPage() {
     <div className="min-h-screen">
       <HeroSection />
       <ModelsSection />
-      <PricingPhilosophySection />
+      <InvestmentPhilosophySection />
       <SupportSection />
       <FaqSection />
       <FinalCtaSection />

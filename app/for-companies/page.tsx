@@ -5,53 +5,46 @@ export default function Companies() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 overflow-hidden bg-slate-50">
-        {/* Background Elements */}
-        <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-            <div className="absolute left-0 top-0 -z-10 h-[310px] w-[310px] rounded-full bg-blue-400 opacity-20 blur-[100px]"></div>
-            <div className="absolute right-0 bottom-0 -z-10 h-[310px] w-[310px] rounded-full bg-purple-400 opacity-20 blur-[100px]"></div>
+      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/Background.jpg" // Replace with actual image
+            alt="SDR cohort in training at AIDEC"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/60" /> {/* Dark overlay */}
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative z-10">
-              <div className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium text-blue-700 bg-blue-50 mb-8 border border-blue-100 shadow-sm">
-                <span className="flex h-2 w-2 rounded-full bg-[#0055ae] mr-2 animate-pulse"></span>
-                For Startups, SMEs & Enterprises
-            </div>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-8 leading-tight">
-              Build a high-performance <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0055ae] to-purple-600">sales engine</span> in days.
-            </h1>
-            <p className="text-xl text-gray-600 mb-10 max-w-2xl leading-relaxed">
-              Skip the 3-month hiring cycle. Access pre-vetted, certified SDR teams that integrate with your stack and start booking meetings immediately.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/contact"
-                className="px-8 py-4 bg-[#0055ae] text-white rounded-xl font-semibold text-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1"
-              >
-                Start Hiring
-              </Link>
-              <Link
-                href="/engagement-models"
-                className="px-8 py-4 bg-white text-gray-700 border border-gray-200 rounded-xl font-semibold text-lg hover:bg-gray-50 hover:border-gray-300 transition-all hover:-translate-y-1"
-              >
-                View Pricing Models
-              </Link>
-            </div>
-            </div>
-            <div className="hidden lg:block relative aspect-4/3">
-              <Image
-                src="/Background.jpg"
-                alt="Sales team collaborating in a modern office"
-                fill
-                className="object-cover rounded-3xl shadow-2xl ring-1 ring-gray-900/10"
-                priority
-              />
-            </div>
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+          <div className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium bg-white/10 backdrop-blur-sm mb-8 border border-white/20">
+            <span className="flex h-2 w-2 rounded-full bg-green-400 mr-2"></span>
+            For Startups, SMEs & Enterprises
+          </div>
+
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight">
+            Build a high-performance <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0055ae] to-purple-600">sales engine</span> in days.
+          </h1>
+
+          <p className="text-xl text-gray-200 mb-12 max-w-3xl mx-auto">
+            Skip the 3-month hiring cycle. Access pre-vetted, certified SDR teams that integrate with your stack and start booking meetings immediately.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="#cta"
+              className="px-8 py-4 bg-[#0055ae] text-white rounded-lg font-semibold text-lg hover:bg-blue-600 transition-all shadow-lg"
+            >
+              Start Hiring
+            </Link>
+
+            <Link
+              href="#engagement-models"
+              className="px-8 py-4 bg-white text-gray-900 rounded-lg font-semibold text-lg hover:bg-gray-200 transition-all"
+            >
+              View Models
+            </Link>
           </div>
         </div>
       </section>
@@ -72,6 +65,102 @@ export default function Companies() {
                 <div className="text-sm text-gray-500">{stat.sub}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Four-Step Onboarding Process */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+          <div className="absolute right-0 top-1/2 -z-10 h-[400px] w-[400px] rounded-full bg-blue-400 opacity-10 blur-[100px]"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Onboarding in 4 Simple Steps
+            </h2>
+            <p className="text-xl text-gray-600 leading-relaxed">
+              From discovery to live deployment. Your sales team grows faster than traditional hiring—without the 90-day wait.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-6 mb-12">
+            {[
+              {
+                step: 1,
+                title: 'Discovery',
+                description: 'We understand your ICP, sales process, and success metrics.',
+                time: '1-2 hours',
+                icon: '🔍',
+                color: 'bg-blue-50 border-blue-200'
+              },
+              {
+                step: 2,
+                title: 'Matching',
+                description: 'Certified SDRs perfectly aligned with your requirements.',
+                time: '24 hours',
+                icon: '🎯',
+                color: 'bg-green-50 border-green-200',
+                featured: true
+              },
+              {
+                step: 3,
+                title: 'Training',
+                description: 'Product bootcamp and sales playbook integration.',
+                time: '24 hours',
+                icon: '📚',
+                color: 'bg-purple-50 border-purple-200'
+              },
+              {
+                step: 4,
+                title: 'Live Deployment',
+                description: 'Go live, book meetings, and start closing deals.',
+                time: 'Day 3',
+                icon: '🚀',
+                color: 'bg-orange-50 border-orange-200'
+              },
+            ].map((item) => (
+              <div
+                key={item.step}
+                className={`p-6 rounded-2xl border-2 transition-all ${item.color} ${item.featured ? 'ring-2 ring-green-400 shadow-lg scale-105' : 'hover:shadow-lg'}`}
+              >
+                <div className="text-4xl mb-4">{item.icon}</div>
+                <div className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Step {item.step}</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
+                <p className="text-gray-600 text-sm mb-4">{item.description}</p>
+                <div className={`text-sm font-semibold ${item.featured ? 'text-green-700' : 'text-gray-700'}`}>
+                  {item.time}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <div className="inline-block bg-gradient-to-r from-blue-50 to-green-50 border-2 border-blue-200 rounded-2xl p-8">
+              <div className="text-sm font-bold text-blue-700 uppercase tracking-wider mb-2">The Key Differentiator</div>
+              <div className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
+                <span className="text-green-600">24-Hour Deployment</span>
+              </div>
+              <p className="text-gray-600 text-lg max-w-2xl">
+                While traditional hiring takes 90+ days, we deploy certified, ready-to-perform SDRs in 24 hours. That's your competitive advantage.
+              </p>
+              <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+                <Link
+                  href="/how-it-works"
+                  className="px-6 py-3 bg-[#0055ae] text-white rounded-xl font-semibold hover:bg-blue-700 transition-all shadow-lg hover:shadow-blue-500/30"
+                >
+                  Learn How It Works
+                </Link>
+                <Link
+                  href="/contact"
+                  className="px-6 py-3 bg-white text-gray-700 border border-gray-300 rounded-xl font-semibold hover:bg-gray-50 transition-all"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -138,8 +227,59 @@ export default function Companies() {
         </div>
       </section>
 
+      {/* Cost Comparison & Value Proposition */}
+      <section className="py-24 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Cost Comparison & Value Proposition</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              A clear breakdown of the fully loaded costs of traditional hiring versus our managed model over a 6-month period.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse bg-white shadow-lg rounded-lg overflow-hidden">
+              <thead className="bg-gray-50 border-b border-gray-200">
+                <tr>
+                  <th className="px-6 py-4 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">Cost Category</th>
+                  <th className="px-6 py-4 text-left text-sm font-bold text-red-600 uppercase tracking-wider">Traditional Hiring</th>
+                  <th className="px-6 py-4 text-left text-sm font-bold text-[#0055ae] uppercase tracking-wider">SDR Global Model</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                <tr>
+                  <td className="px-6 py-4 text-sm font-medium text-gray-900">Recruitment & Sourcing</td>
+                  <td className="px-6 py-4 text-sm text-gray-600">$15,000 (Agency fees & ads)</td>
+                  <td className="px-6 py-4 text-sm font-bold text-[#0055ae]">Included</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-sm font-medium text-gray-900">Training & Onboarding</td>
+                  <td className="px-6 py-4 text-sm text-gray-600">$25,000 (Tools + Time)</td>
+                  <td className="px-6 py-4 text-sm font-bold text-[#0055ae]">Included (Pre-trained)</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-sm font-medium text-gray-900">Management & Leader Time</td>
+                  <td className="px-6 py-4 text-sm text-gray-600">$20,000 (20% of VP Sales time)</td>
+                  <td className="px-6 py-4 text-sm font-bold text-[#0055ae]">Included (Dedicated Team Lead)</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-sm font-medium text-gray-900">Ramp Time / Lost Productivity</td>
+                  <td className="px-6 py-4 text-sm text-gray-600">$30,000 (3+ Months)</td>
+                  <td className="px-6 py-4 text-sm font-bold text-[#0055ae]">Included (Day 1 Productivity)</td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="px-6 py-4 text-base font-bold text-gray-900">Total Estimated Cost (6 Months)</td>
+                  <td className="px-6 py-4 text-base font-bold text-red-600">$90,000+</td>
+                  <td className="px-6 py-4 text-base font-bold text-[#0055ae]">$27,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
       {/* Engagement Models */}
-      <section className="py-24 bg-white">
+      <section id="engagement-models" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Flexible Engagement Models</h2>
@@ -260,7 +400,7 @@ export default function Companies() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-[#0055ae]">
+      <section id="cta" className="py-24 bg-[#0055ae]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Stop losing revenue to empty seats.

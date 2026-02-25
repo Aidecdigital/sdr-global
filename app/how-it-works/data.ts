@@ -16,9 +16,9 @@ export const processSteps: ProcessStepData[] = [
   {
     step: 2,
     title: 'SDR Matching & Deployment',
-    description: 'We match and deploy certified SDRs who are perfectly aligned with your requirements and ready to perform.',
+    description: 'We match and deploy certified SDRs who are perfectly aligned with your requirements and ready to perform. Our data-driven, AI-supported approach ensures precise matching of ICP, market, language, and deal complexity to the right SDR profiles.',
     details: {
-      title: 'Our Matching Process:',
+      title: 'Our Intelligent Matching Criteria:',
       items: ['Industry and ICP expertise matching', 'Geographic and timezone alignment', 'Language and cultural fit assessment', 'Experience level and skill verification', 'Availability and commitment confirmation'],
     },
     timeline: { title: 'Timeline: 24 hours', description: 'From requirements approval to SDRs active in your systems.' },
