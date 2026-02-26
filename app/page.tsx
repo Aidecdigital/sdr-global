@@ -8,7 +8,7 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/cohort_training.jpeg" // Replace with actual image
+            src="/home.jpg"
             alt="SDR cohort in training at AIDEC"
             className="w-full h-full object-cover"
           />

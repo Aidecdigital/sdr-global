@@ -101,20 +101,32 @@ const developmentCommitment = [
 
 const successStories = [
   {
-    initials: "AJ",
-    name: "Alex Johnson",
-    title: "Senior SDR at TechCorp",
+    initials: "JI",
+    name: "Joyce Apagyiwa Inkoom",
+    title: "SDR Global Cohort Member",
     quote:
-      "Started as an SDR with SDR Global and was promoted to Senior SDR in 8 months. Now leading a team of 5.",
-    progress: "Career Path: SDR → Senior SDR → Team Lead",
+      "My training journey was a transformation from understanding 'what' an SDR does, to mastering 'how' we create predictable revenue. Successful outreach isn't luck; it's metric-driven planning and consistency.",
   },
   {
-    initials: "MR",
-    name: "Maria Rodriguez",
-    title: "Account Executive at CloudTech",
+    initials: "EA",
+    name: "Edrita Rhema Abban",
+    title: "SDR Global Cohort Member",
     quote:
-      "The training and certification gave me the foundation to transition into closing deals. Best career move ever.",
-    progress: "Career Path: SDR → Account Executive",
+      "The training was truly transformative. It sharpened not only my mindset but also the structures and subtle cues that distinguish a top-performing SDR from the average. I gained valuable insights into strategic prospecting and communicating value with precision.",
+  },
+  {
+    initials: "ES",
+    name: "Esther Oluwatosin Sebiola",
+    title: "SDR Global Cohort Member",
+    quote:
+      "My training with SDR Global was both insightful and rewarding. I gained a deeper understanding of effective communication and lead generation, and the sessions equipped me with practical skills for real-world situations.",
+  },
+  {
+    initials: "RB",
+    name: "Ruby Bonsu",
+    title: "SDR Global Cohort Member",
+    quote:
+      "The program opened new perspectives in client relations, lead generation, and objection handling. Participating has been one of the best decisions I have made; it was a true eye-opener.",
   },
 ];
 
@@ -149,6 +161,7 @@ export default function Work() {
   const [whyJoin, setWhyJoin] = useState("");
   const [cvFile, setCvFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const validateForm = () => {
@@ -160,6 +173,39 @@ export default function Work() {
     if (!cvFile) newErrors.cvFile = "CV is required";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
+  };
+
+  const handleFileSelected = (file: File | null) => {
+    setCvFile(file);
+    if (file && errors.cvFile) {
+      setErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors.cvFile;
+        return newErrors;
+      });
+    }
+  }
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    handleFileSelected(e.target.files ? e.target.files[0] : null);
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsDragging(false);
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      handleFileSelected(e.dataTransfer.files[0]);
+    }
   };
 
   const handleWorkFormSubmit = async (e: React.FormEvent) => {
@@ -206,7 +252,7 @@ export default function Work() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/training2.jpg" // Replace with actual image
+            src="/working.jpg" // Replace with actual image
             alt="SDR cohort in training at AIDEC"
             className="w-full h-full object-cover"
           />
@@ -219,7 +265,7 @@ export default function Work() {
             Join the Elite
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-[#0055ae] mb-8 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-8 leading-tight">
             Launch Your Sales Career{"       "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-teal-600">
               Globally.
@@ -854,7 +900,6 @@ export default function Work() {
                     </div>
                   </div>
                   <p className="text-sm italic mb-4">"{story.quote}"</p>
-                  <div className="text-sm opacity-75">{story.progress}</div>
                 </div>
               ))}
             </div>
@@ -966,16 +1011,43 @@ export default function Work() {
 
               <div>
                 <label htmlFor="cv" className="block text-sm font-medium text-gray-700 mb-2">Upload CV *</label>
-                <input
-                  id="cv"
-                  name="cv"
-                  type="file"
-                  accept=".pdf,.doc,.docx"
-                  required
-                  onChange={(e) => setCvFile(e.target.files ? e.target.files[0] : null)}
-                  className="w-full"
-                />
-                {errors.cvFile && <p className="text-red-500 text-sm mt-1">{errors.cvFile}</p>}
+                {cvFile ? (
+                  <div className="mt-2 flex items-center justify-between bg-gray-50 p-3 rounded-lg border">
+                    <div className="flex items-center overflow-hidden">
+                      <svg className="h-5 w-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <p className="ml-2 text-sm font-medium text-gray-900 truncate">{cvFile.name}</p>
+                    </div>
+                    <button type="button" onClick={() => handleFileSelected(null)} className="ml-2 text-gray-500 hover:text-gray-700 flex-shrink-0">
+                      <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                      </svg>
+                    </button>
+                  </div>
+                ) : (
+                  <div
+                    onDragOver={handleDragOver}
+                    onDragLeave={handleDragLeave}
+                    onDrop={handleDrop}
+                    className={`mt-2 flex justify-center px-6 pt-5 pb-6 border-2 ${errors.cvFile ? 'border-red-500' : 'border-gray-300'} ${isDragging ? 'border-[#0055ae]' : ''} border-dashed rounded-lg transition-colors`}
+                  >
+                    <div className="space-y-1 text-center">
+                      <svg className="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                        <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      <div className="flex text-sm text-gray-600">
+                        <label htmlFor="cv" className="relative cursor-pointer bg-white rounded-md font-medium text-[#0055ae] hover:text-blue-700 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#0055ae]">
+                          <span>Upload a file</span>
+                          <input id="cv" name="cv" type="file" className="sr-only" accept=".pdf,.doc,.docx" required onChange={handleFileChange} />
+                        </label>
+                        <p className="pl-1">or drag and drop</p>
+                      </div>
+                      <p className="text-xs text-gray-500">PDF, DOC, DOCX up to 10MB</p>
+                    </div>
+                  </div>
+                )}
+                {errors.cvFile && !cvFile && <p className="text-red-500 text-sm mt-1">{errors.cvFile}</p>}
               </div>
 
               <div>
