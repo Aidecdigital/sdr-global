@@ -1,66 +1,139 @@
+import { url } from "inspector";
 import Image from "next/image";
 
-const LINKEDIN_URL = "https://www.linkedin.com/company/sdrglobal/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BD6%2FEyETWTDeO9hpmBbhxKA%3D%3D";
+const LINKEDIN_URL =
+  "https://www.linkedin.com/company/sdrglobal/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BD6%2FEyETWTDeO9hpmBbhxKA%3D%3D";
 
 // Data for the page sections
 const operatingModelItems = [
   {
     title: "Clear Leadership",
-    description: "Regional GTM ownership across Africa, the United States, and the United Kingdom & Europe.",
+    description:
+      "Regional GTM ownership across Africa, the United States, and the United Kingdom & Europe.",
   },
   {
     title: "Operational Ownership",
-    description: "Dedicated SDR operations leadership responsible for delivery, coaching standards, and performance management.",
+    description:
+      "Dedicated SDR operations leadership responsible for delivery, coaching standards, and performance management.",
   },
   {
     title: "Delivery Depth",
-    description: "Revenue intelligence, enablement, and financial governance integrated into every client program.",
+    description:
+      "Revenue intelligence, enablement, and financial governance integrated into every client program.",
   },
 ];
 
 const coFounders = [
-  { name: "Sir Ambrose Yennah", title: "Regional GTM – Africa", image: "/sir-ambrose.jpeg" },
-  { name: "Erica Franklin", title: "Regional GTM – United States", image: "/erica.jpg" },
-  { name: "Michael Adonteng", title: "Regional GTM – United Kingdom & Europe", image: "/mike.png" },
+  {
+    name: "Sir Ambrose Yennah",
+    title: "Regional GTM – Africa",
+    image: "/sir-ambrose.jpeg",
+    url: "https://www.linkedin.com/in/ambrose-akyebe-yennah-029b336b/",
+  },
+  {
+    name: "Erica Franklin",
+    title: "Regional GTM – United States",
+    image: "/erica.jpg",
+    url: "https://www.linkedin.com/in/erica-franklin/",
+  },
+  {
+    name: "Michael Adonteng",
+    title: "Regional GTM – United Kingdom & Europe",
+    image: "/mike.png",
+    url: "https://www.linkedin.com/in/michaeladonteng/",
+  },
 ];
 
 const leadershipTeam = {
-  sdrOps: { name: "Emmanuel Agyapong", title: "Global SDR Operations & Delivery", image: "/emmanuel.png" },
-  delivery: { name: "Naana Baffo", title: "SDR Team Leads & Enablement", image: "/naana.png" },
+  sdrOps: {
+    name: "Emmanuel Agyapong",
+    title: "Global SDR Operations & Delivery",
+    image: "/emmanuel.png",
+    url: "https://www.linkedin.com/in/emmanuel-agyapong-chrbp-24104653/",
+  },
+  delivery: {
+    name: "Naana Baffo",
+    title: "SDR Team Leads & Enablement",
+    image: "/naana.png",
+    url: "https://www.linkedin.com/in/naana-baffo/",
+  },
   revIntel: [
-    { name: "Nigel Henaku", title: "Revenue Intelligence & Analytics", image: "/nigel.jpeg" },
-    { name: "Williams Naasorri", title: "Revenue Intelligence & Analytics", image: "/williams.png" },
+    {
+      name: "Nigel Henaku",
+      title: "Revenue Intelligence & Analytics",
+      image: "/nigel.jpeg",
+      url: "https://www.linkedin.com/in/nigel-henaku/",
+    },
+    {
+      name: "Williams Naasorri",
+      title: "Revenue Intelligence & Analytics",
+      image: "/williams.png",
+      url: "https://www.linkedin.com/in/williamsnaasorri25/",
+    },
   ],
-  finance: { name: "Richard Yeboah", title: "Financial Governance & Planning", image: "/richard.jpg" },
+  finance: {
+    name: "Richard Yeboah",
+    title: "Financial Governance & Planning",
+    image: "/richard.jpg",
+    url: "https://www.linkedin.com/in/richard-yeboah-abb44955/",
+  },
 };
 
 // Reusable components for the page
-function OperatingModelCard({ title, description }: { title: string; description: string }) {
+function OperatingModelCard({
+  title,
+  description,
+}: {
+  title: string;
+  description: string;
+}) {
   return (
     <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
       <h3 className="text-xl font-semibold">{title}</h3>
-      <p className="mt-4 text-slate-600 text-sm leading-relaxed">{description}</p>
+      <p className="mt-4 text-slate-600 text-sm leading-relaxed">
+        {description}
+      </p>
     </div>
   );
 }
 
-function LeadershipCard({ name, title, image }: { name: string; title: string; image: string }) {
+function LeadershipCard({
+  name,
+  title,
+  image,
+  url,
+}: {
+  name: string;
+  title: string;
+  image: string;
+  url: string;
+}) {
   return (
     <div className="text-center">
-      <div className="relative mx-auto w-40 h-40 rounded-full overflow-hidden shadow-md">
-        <Image src={image} alt={name} fill className="object-cover" />
-      </div>
-      <h4 className="mt-6 text-lg font-semibold">{name}</h4>
-      <p className="text-sm text-slate-600 mt-2">{title}</p>
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        <div className="relative mx-auto w-40 h-40 rounded-full overflow-hidden shadow-md">
+          <Image src={image} alt={name} fill className="object-cover" />
+        </div>
+        <h4 className="mt-6 text-lg font-semibold">{name}</h4>
+        <p className="text-sm text-slate-600 mt-2">{title}</p>
+      </a>
     </div>
   );
 }
 
-function SectionHeader({ title, subtitle }: { title: string; subtitle: string }) {
+function SectionHeader({
+  title,
+  subtitle,
+}: {
+  title: string;
+  subtitle: string;
+}) {
   return (
     <div className="text-center">
       <h2 className="text-3xl font-bold">{title}</h2>
-      <p className="mt-6 max-w-3xl mx-auto text-lg text-slate-600">{subtitle}</p>
+      <p className="mt-6 max-w-3xl mx-auto text-lg text-slate-600">
+        {subtitle}
+      </p>
     </div>
   );
 }
@@ -68,7 +141,6 @@ function SectionHeader({ title, subtitle }: { title: string; subtitle: string })
 export default function About() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
-
       {/* ================= HERO ================= */}
       <section className="bg-slate-950 text-white py-28">
         <div className="max-w-6xl mx-auto px-6 text-center">
@@ -78,16 +150,14 @@ export default function About() {
 
           <h1 className="mt-6 text-4xl md:text-6xl font-bold leading-tight">
             Revenue Infrastructure for
-            <span className="block text-sky-400">
-              Modern B2B Growth Teams
-            </span>
+            <span className="block text-sky-400">Modern B2B Growth Teams</span>
           </h1>
 
           <p className="mt-8 max-w-3xl mx-auto text-lg text-slate-300 leading-relaxed">
             SDR Global delivers managed pipeline generation through structured
-            leadership, operational ownership, and disciplined execution.
-            We are built to scale across markets with clarity, accountability,
-            and measurable outcomes.
+            leadership, operational ownership, and disciplined execution. We are
+            built to scale across markets with clarity, accountability, and
+            measurable outcomes.
           </p>
         </div>
       </section>
@@ -130,7 +200,6 @@ export default function About() {
           />
 
           <div className="mt-20 space-y-20">
-
             {/* Co-Founders */}
             <div>
               <h3 className="text-sm font-semibold uppercase tracking-widest text-slate-500">
@@ -184,7 +253,6 @@ export default function About() {
                 <LeadershipCard {...leadershipTeam.finance} />
               </div>
             </div>
-
           </div>
 
           {/* LinkedIn CTA */}
@@ -198,10 +266,8 @@ export default function About() {
               View Company on LinkedIn
             </a>
           </div>
-
         </div>
       </section>
-
     </div>
   );
 }
