@@ -53,7 +53,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
             <div>
               <div className="text-4xl md:text-5xl font-bold text-[#0055ae] mb-2">
-                1000+
+                30+
               </div>
               <div className="text-gray-600 uppercase tracking-wide text-sm">
                 SDRs Deployed
@@ -259,7 +259,7 @@ export default function Home() {
                 href="/hire-sdrs#companies-form"
                 className="inline-flex items-center justify-center w-full px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#0055ae] hover:bg-blue-700 transition-colors"
               >
-                Hire Talent
+                Hire SDR
               </Link>
             </div>
 
