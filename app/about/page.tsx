@@ -67,7 +67,7 @@ const leadershipTeam = {
     {
       name: "Williams Naasorri",
       title: "Revenue Intelligence & Analytics",
-      image: "/williams.png",
+      image: "/williams5.png",
       url: "https://www.linkedin.com/in/williamsnaasorri25/",
     },
   ],
