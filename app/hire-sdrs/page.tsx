@@ -6,10 +6,7 @@ import { ModelsSection, ProcessStep } from "./components";
 import {
   processSteps,
   faqItems,
-  testimonials,
-  keyMetrics,
   whyChooseUsFeatures,
-  clientLogos,
 } from "./data";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
@@ -106,7 +103,7 @@ export default function page() {
 
           <p className="text-xl text-gray-200 mb-12 max-w-3xl mx-auto">
             Skip the 3-month hiring cycle. Access pre-vetted, certified SDR
-            teams that integrate with your stack and start booking meetings
+            teams that integrate with your stack and start generating qualified pipeline
             immediately.
           </p>
 
@@ -124,108 +121,6 @@ export default function page() {
             >
               Investment Models
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Logo Cloud / Social Proof */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-base font-semibold text-gray-600 uppercase tracking-wider">
-              Powering sales for world-class companies
-            </h2>
-            <div className="mt-8 grid grid-cols-2 gap-8 md:grid-cols-5">
-              {clientLogos.map((client) => (
-                <div
-                  key={client.name}
-                  className="col-span-1 flex justify-center items-center"
-                >
-                  <p className="text-gray-400 font-bold text-2xl opacity-60 hover:opacity-100 transition-opacity">
-                    {client.name}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Key Metrics Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-blue-200 opacity-10 blur-3xl"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              The SDR Global Difference
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Go from zero to pipeline in days, not months. We provide the
-              people, processes, and platform for predictable growth.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {keyMetrics.map((item) => (
-              <div
-                key={item.label}
-                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-blue-100 hover:-translate-y-1 transition-all border border-gray-100"
-              >
-                <div className="text-3xl mb-4">{item.icon}</div>
-                <div className="text-4xl font-bold text-[#0055ae] mb-2">
-                  {item.metric}
-                </div>
-                <div className="text-lg font-semibold text-gray-900 mb-2">
-                  {item.label}
-                </div>
-                <p className="text-gray-600">{item.detail}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              What Leaders Say About Us
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Trusted by founders and sales leaders at fast-growing companies
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, i) => (
-              <div
-                key={i}
-                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all"
-              >
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, j) => (
-                    <svg
-                      key={j}
-                      className="w-5 h-5 text-yellow-400 fill-current"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-6 italic">
-                  "{testimonial.quote}"
-                </p>
-                <div className="border-t border-gray-200 pt-4">
-                  <p className="font-semibold text-gray-900">
-                    {testimonial.author}
-                  </p>
-                  <p className="text-sm text-gray-600">{testimonial.role}</p>
-                  <p className="text-sm text-gray-500">{testimonial.company}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -500,7 +395,7 @@ export default function page() {
                   "✓ Access a global talent pool of 500+ certified SDRs",
                   "✓ AI-powered matching for your exact ICP",
                   "✓ No recruiting fees, no overhead",
-                  "✓ Start booking meetings this week",
+                  "✓ Start generating pipeline this week",
                 ].map((item) => (
                   <li key={item} className="flex items-start text-gray-700">
                     <span className="text-green-500 mr-3 mt-1">

@@ -252,7 +252,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-center">
                   <span className="w-1.5 h-1.5 bg-[#0055ae] rounded-full mr-2"></span>
-                  Flexible engagement models
+                  Flexible investment models
                 </li>
               </ul>
               <Link

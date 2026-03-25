@@ -1,28 +1,5 @@
 import { EngagementModel, ProcessStepData } from "./types";
 
-export const testimonials = [
-  {
-    quote:
-      "We went from having one SDR to a team of four in 48 hours. The impact on our pipeline was immediate. Within the first month, we had generated $500K+ in qualified opportunities.",
-    author: "Sarah Chen",
-    role: "VP of Sales",
-    company: "TechVenture Inc",
-  },
-  {
-    quote:
-      "Hiring and training SDRs internally was taking 4+ months and costing us a fortune. With SDR Global, we deployed three certified SDRs in two days. Game changer for our growth.",
-    author: "Michael Torres",
-    role: "Founder & CEO",
-    company: "Growth Labs",
-  },
-  {
-    quote:
-      "The quality of the SDRs is exceptional. They came pre-trained, integrated seamlessly with our tools, and hit their KPIs from day one. This is the future of hiring.",
-    author: "Jennifer Wang",
-    role: "Chief Revenue Officer",
-    company: "NextGen Solutions",
-  },
-];
 
 export const faqItems = [
   {
@@ -58,7 +35,7 @@ export const faqItems = [
   {
     question: "How do you measure SDR performance?",
     answer:
-      "We track daily metrics including calls, conversations, meetings booked, and pipeline value created. You get real-time dashboard access and weekly performance reports. We hold ourselves accountable with guaranteed SLAs on our team models.",
+      "We track daily metrics including calls, conversations, sales-accepted meetings, and pipeline value created. You get real-time dashboard access and weekly performance reports. We hold ourselves accountable with guaranteed SLAs on our team models.",
   },
   {
     question: "What happens to continuity if an SDR leaves?",
@@ -67,52 +44,6 @@ export const faqItems = [
   },
 ];
 
-export const clientLogos = [
-    { name: 'TechVenture', logo: '/logo-placeholder.svg' },
-    { name: 'Growth Labs', logo: '/logo-placeholder.svg' },
-    { name: 'NextGen', logo: '/logo-placeholder.svg' },
-    { name: 'Innovate Co', logo: '/logo-placeholder.svg' },
-    { name: 'Quantum Inc', logo: '/logo-placeholder.svg' },
-];
-
-export const keyMetrics = [
-  {
-    metric: "48 Hours",
-    label: "Time to Productivity",
-    detail: "Deploy fully-ramped SDRs and start booking meetings in under two days.",
-    icon: "⚡"
-  },
-  {
-    metric: "320%",
-    label: "Average ROI",
-    detail: "Clients see an average of 320% return on investment within the first year.",
-    icon: "📈"
-  },
-  {
-    metric: "40%+",
-    label: "Cost Reduction",
-    detail: "Save on recruitment, overhead, and management costs vs. traditional hiring.",
-    icon: "💰"
-  },
-  {
-    metric: "2.8x",
-    label: "Faster Pipeline Growth",
-    detail: "Build qualified pipeline faster compared to internal teams.",
-    icon: "🚀"
-  },
-  {
-    metric: "94%",
-    label: "Client Retention",
-    detail: "Our performance and flexibility lead to industry-leading client satisfaction.",
-    icon: "⭐"
-  },
-  {
-    metric: "150+",
-    label: "Global Teams Deployed",
-    detail: "We support your growth with expert teams across 25+ countries.",
-    icon: "🌍"
-  },
-];
 
 export const whyChooseUsFeatures = [
   {
@@ -123,7 +54,7 @@ export const whyChooseUsFeatures = [
   {
     icon: "📊",
     title: "Radical Transparency",
-    description: "Get real-time dashboards tracking every metric that matters, from calls and emails to pipeline value and booked meetings."
+    description: "Get real-time dashboards tracking every metric that matters, from calls and emails to pipeline value and qualified opportunities."
   },
   {
     icon: "🔄",
@@ -266,7 +197,7 @@ export const processSteps: ProcessStepData[] = [
     description: 'Real-time visibility into SDR performance with comprehensive reporting and proactive management.',
     details: {
       title: 'Daily Metrics Tracked:',
-      items: ['Calls and conversations completed', 'Qualified meetings booked', 'Response rates and engagement', 'Pipeline contribution', 'Follow-up activities'],
+      items: ['Calls and conversations completed', 'Qualified pipeline generated', 'Response rates and engagement', 'Pipeline contribution', 'Follow-up activities'],
     },
     timeline: { title: 'Reporting: Real-time', description: 'Daily performance dashboards and weekly strategy calls.' },
     checklist: { icon: '📊', title: 'Performance Dashboard', items: [] }, // Special case for progress bars

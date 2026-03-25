@@ -212,7 +212,7 @@ export const ProcessStep = ({ step, index }: { step: ProcessStepData; index: num
                     <span className="text-[#0055ae] mr-2 font-bold">•</span>
                     <div className="flex-1 h-2 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full"></div>
                   </div>
-                  <p className="text-sm font-semibold">Quality Meetings Booked</p>
+                  <p className="text-sm font-semibold">Qualified Pipeline Generated</p>
                   <div className="flex items-center">
                     <span className="text-[#0055ae] mr-2 font-bold">•</span>
                     <div className="flex-1 h-2 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full"></div>
