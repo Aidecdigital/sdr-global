@@ -2,6 +2,38 @@ import Link from "next/link";
 import { comparisonFeatures, engagementModels } from "./data";
 import { EngagementModel, ProcessStepData } from "./types";
 
+export const ComparisonTableSection = () => (
+  <section className="py-16 bg-white">
+    <div className="max-w-5xl mx-auto px-6">
+      <h2 className="text-3xl font-bold mb-12 text-center">
+        Pricing Comparison
+      </h2>
+      <div className="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
+        <table className="w-full text-left border-collapse">
+          <thead>
+            <tr className="bg-slate-50 border-b border-slate-200">
+              <th className="p-6 font-bold text-slate-500 uppercase text-xs">Core Capabilities</th>
+              <th className="p-6 font-bold text-center text-slate-500 uppercase text-xs">Dedicated Hire</th>
+              <th className="p-6 font-bold text-center text-slate-500 uppercase text-xs">Outsourced Team</th>
+              <th className="p-6 font-bold text-center text-slate-500 uppercase text-xs">Regional Pods</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-50">
+            {comparisonFeatures.map((row) => (
+              <tr key={row.feature} className="hover:bg-gray-50/50 transition-colors">
+                <td className="p-6 font-semibold text-gray-700">{row.feature}</td>
+                {row.values.map((value, i) => (
+                  <td key={i} className="py-4 text-center text-sm text-gray-600">{value}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+);
+
 const ModelCard = ({ model }: { model: EngagementModel }) => {
   const themeClasses = {
     blue: {
@@ -27,77 +59,53 @@ const ModelCard = ({ model }: { model: EngagementModel }) => {
   const currentTheme = themeClasses[model.theme];
 
   const containerClasses = model.highlighted
-    ? 'bg-blue-50 border-2 border-blue-300 rounded-lg p-8 relative flex flex-col h-full'
-    : `bg-white border-2 border-gray-200 rounded-lg p-8 ${currentTheme.border} transition-colors flex flex-col h-full`;
+    ? 'bg-blue-50 border-2 border-blue-300 rounded-lg p-6 sm:p-8 relative flex flex-col h-full shadow-lg'
+    : `bg-white border-2 border-gray-200 rounded-lg p-6 sm:p-8 ${currentTheme.border} transition-all flex flex-col h-full hover:shadow-md`;
 
   return (
     <div className={containerClasses}>
       {model.highlighted && (
-        <div className="absolute top-4 right-4 bg-[#0055ae] text-white px-3 py-1 rounded-full text-sm font-semibold">
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#0055ae] text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
           Most Popular
         </div>
       )}
       <div className="text-center mb-8">
-        <div className="text-6xl mb-4" aria-hidden="true">{model.icon}</div>
+        <div className="text-5xl mb-4" aria-hidden="true">{model.icon}</div>
         <h3 className="text-2xl font-bold mb-2">{model.title}</h3>
-        <p className="text-gray-600">{model.description}</p>
+        <p className="text-gray-600 text-sm">{model.description}</p>
       </div>
 
-      <div className="space-y-4 mb-8 flex-grow">
+      <div className="space-y-4 mb-4 flex-grow">
         <div className={`${model.highlighted ? currentTheme.highlightedBestForBg : currentTheme.bestForBg} p-4 rounded-lg`}>
-          <h4 className={`font-semibold mb-2 ${currentTheme.bestForTitle}`}>Best For:</h4>
-          <ul className={`${currentTheme.bestForText} space-y-1 list-disc list-inside`}>
+          <h4 className={`font-semibold mb-2 text-sm ${currentTheme.bestForTitle}`}>Best For:</h4>
+          <ul className={`${currentTheme.bestForText} text-sm space-y-1 list-disc list-inside`}>
             {model.bestFor.map((item) => <li key={item}>{item}</li>)}
           </ul>
         </div>
 
-        <div className={`${model.highlighted ? 'bg-white' : 'bg-gray-50'} p-4 rounded-lg`}>
-          <h4 className="font-semibold mb-2">What's Included:</h4>
-          <ul className="text-gray-700 space-y-1 list-disc list-inside">
+        <div className={`${model.highlighted ? 'bg-white' : 'bg-gray-50'} p-4 rounded-lg border border-gray-100`}>
+          <h4 className="font-semibold mb-2 text-sm">Included:</h4>
+          <ul className="text-gray-700 text-sm space-y-1 list-disc list-inside">
             {model.included.map((item) => <li key={item}>{item}</li>)}
           </ul>
         </div>
 
-        <div className={`${model.highlighted ? 'bg-green-100' : 'bg-green-50'} p-4 rounded-lg`}>
-          <h4 className="font-semibold mb-2 text-green-800">Commitment:</h4>
-          <p className="text-green-700">{model.commitment}</p>
+        <div className="bg-green-50 p-4 rounded-lg border border-green-100">
+          <h4 className="font-semibold mb-1 text-sm text-green-800">Commitment:</h4>
+          <p className="text-sm text-green-700 leading-relaxed">{model.commitment}</p>
         </div>
       </div>
 
-      <div className="text-center border-t border-gray-200 pt-6 mt-auto">
-        <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Starting At</p>
-        <div className={`text-4xl font-bold ${currentTheme.price} mb-2`}>{model.price}</div>
-        <p className="text-sm text-gray-600 mb-6">{model.priceSub}</p>
-
-        <div className="bg-gray-50 border border-gray-200 rounded-xl text-left mb-6 p-4">
-          <h4 className="font-semibold text-sm text-gray-800 mb-3">Pricing Breakdown</h4>
-          <div className="text-sm text-gray-700 space-y-3">
-            <div className="flex justify-between items-start">
-              <span className="font-medium text-gray-900">Subscription:</span>
-              <span className="text-right text-gray-600">{model.pricing?.subscription ?? '—'}</span>
-            </div>
-            <div className="flex justify-between items-start">
-              <span className="font-medium text-gray-900">Setup / One-time:</span>
-              <span className="text-right text-gray-600">{model.pricing?.setupFee ?? '—'}</span>
-            </div>
-            {model.pricing?.customOptions && (
-              <div className="pt-2 border-t border-gray-200 mt-2">
-                <div className="font-medium text-gray-900 mb-1">Custom options:</div>
-                <ul className="list-disc list-inside text-gray-600 pl-1 space-y-1">
-                  {model.pricing.customOptions.map((opt) => <li key={opt}>{opt}</li>)}
-                </ul>
-              </div>
-            )}
-            {model.pricing?.notes && (
-              <div className="pt-2 border-t border-gray-200 mt-2 text-xs text-gray-500 italic">
-                {model.pricing.notes}
-              </div>
-            )}
-          </div>
+      <div className="mt-auto pt-4 border-t border-gray-100">
+        <div className="text-center mb-6">
+          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-1">Starting At</p>
+          <div className={`text-3xl font-bold ${currentTheme.price}`}>{model.price}</div>
+          <p className="text-xs text-gray-500 mt-1">{model.priceSub}</p>
         </div>
+
         <Link
           href="#companies-form"
-          className={`${currentTheme.button} text-white px-6 py-4 rounded-xl font-bold transition-all shadow-md hover:shadow-lg inline-block w-full`}
+          className={`${currentTheme.button} text-white px-6 py-4 rounded-xl font-bold transition-all text-center block w-full`}
         >
           {model.buttonText}
         </Link>
@@ -107,122 +115,38 @@ const ModelCard = ({ model }: { model: EngagementModel }) => {
 };
 
 export const ModelsSection = () => (
-    <section className="py-14 bg-white" id="models">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Three Ways to Invest</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From individual SDRs to full regional teams, we have a model that fits your scale and objectives.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-8 mb-12">
-            {engagementModels.map((model) => <ModelCard key={model.title} model={model} />)}
-          </div>
-
-          {/* Model Comparison Table */}
-          <div className="bg-gray-50 p-8 rounded-lg">
-            <h3 className="text-2xl font-bold text-center mb-8">Model Comparison</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b-2 border-gray-300">
-                    <th className="text-left py-4 px-4 font-semibold">Feature</th>
-                    <th className="text-center py-4 px-4 font-semibold">Dedicated SDR</th>
-                    <th className="text-center py-4 px-4 font-semibold">Outsourced Team</th>
-                    <th className="text-center py-4 px-4 font-semibold">Regional Pods</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {comparisonFeatures.map((row, index) => (
-                    <tr key={row.feature} className={index < comparisonFeatures.length - 1 ? "border-b border-gray-200" : ""}>
-                      <td className="py-4 px-4 font-medium">{row.feature}</td>
-                      {row.values.map((value) => <td key={value} className="text-center py-4 px-4 text-sm">{value}</td>)}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-    </section>
-);
-
-export const ProcessStep = ({ step, index }: { step: ProcessStepData; index: number }) => {
-  return (
-    <div className={`grid md:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-      {/* Timeline Content */}
-      <div className={index % 2 === 1 ? 'md:order-2' : ''}>
-        <div className="md:text-right md:pr-12">
-          <div className={`inline-block px-4 py-2 rounded-full text-sm font-bold text-white mb-4 ${step.theme.stepBg}`}>
-            Step {step.step}
-          </div>
-          <h3 className="text-3xl font-bold text-gray-900 mb-4">{step.title}</h3>
-          <p className="text-xl text-gray-600 mb-8">{step.description}</p>
-
-          <div className="space-y-6">
-            <div>
-              <h4 className="font-bold text-gray-900 mb-3">{step.details.title}</h4>
-              <ul className="space-y-2 text-sm text-gray-700">
-                {step.details.items.map((item, i) => (
-                  <li key={i} className="flex items-start md:justify-end">
-                    <span className="text-[#0055ae] mr-2 font-bold">✓</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className={`p-4 rounded-lg ${step.theme.timelineBg}`}>
-              <p className={`font-bold ${step.theme.timelineTitle}`}>{step.timeline.title}</p>
-              <p className={`text-sm ${step.theme.timelineText}`}>{step.timeline.description}</p>
-            </div>
-          </div>
-        </div>
+  <section className="py-20 bg-gray-50/50" id="models">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="text-center mb-16">
+        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Flexible Pricing Models</h2>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          From individual SDRs to specialized regional pods, we provide the talent and infrastructure to scale your pipeline.
+        </p>
       </div>
 
-      {/* Timeline Visual */}
-      <div className={index % 2 === 1 ? 'md:order-1' : ''}>
-        <div className="relative">
-          {/* Timeline Node */}
-          <div className="absolute left-6 md:left-auto md:right-6 top-0 w-12 h-12 rounded-full bg-white border-4 border-gray-300 flex items-center justify-center font-bold text-gray-900 z-10 hidden md:flex">
-            {step.step}
-          </div>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        {engagementModels.map((model) => <ModelCard key={model.title} model={model} />)}
+      </div>
+    </div>
+  </section>
+);
 
-          {/* Checklist Card */}
-          <div className={`p-8 rounded-2xl border-2 border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all ${step.theme.timelineBg}`}>
-            <div className="text-4xl mb-4">{step.checklist.icon}</div>
-            <h4 className="text-lg font-bold text-gray-900 mb-4">{step.checklist.title}</h4>
-            <ul className="space-y-3">
-              {step.checklist.items.length > 0 ? (
-                step.checklist.items.map((item, i) => (
-                  <li key={i} className="flex items-start text-gray-700 text-sm">
-                    <span className="text-[#0055ae] mr-2 font-bold">•</span>
-                    {item}
-                  </li>
-                ))
-              ) : (
-                <div className="space-y-2">
-                  <div className="flex items-center">
-                    <span className="text-[#0055ae] mr-2 font-bold">•</span>
-                    <div className="flex-1 h-2 bg-gradient-to-r from-green-400 to-green-600 rounded-full"></div>
-                  </div>
-                  <p className="text-sm font-semibold">Exceeding Pipeline Targets</p>
-                  <div className="flex items-center">
-                    <span className="text-[#0055ae] mr-2 font-bold">•</span>
-                    <div className="flex-1 h-2 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full"></div>
-                  </div>
-                  <p className="text-sm font-semibold">Qualified Pipeline Generated</p>
-                  <div className="flex items-center">
-                    <span className="text-[#0055ae] mr-2 font-bold">•</span>
-                    <div className="flex-1 h-2 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full"></div>
-                  </div>
-                  <p className="text-sm font-semibold">Client Satisfaction</p>
-                </div>
-              )}
-            </ul>
-          </div>
+export const ProcessStep = ({ step }: { step: ProcessStepData }) => {
+  const icons = ['🔍', '🤝', '📈', '🚀'];
+  return (
+    <div className="relative group p-8 rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+      <div className="absolute -top-4 -right-2 text-6xl font-black text-gray-50 group-hover:text-blue-50 transition-colors pointer-events-none select-none">
+        0{step.step}
+      </div>
+      
+      <div className="relative z-10">
+        <div className={`w-14 h-14 rounded-2xl ${step.theme.stepBg} flex items-center justify-center text-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
+          {icons[step.step - 1]}
         </div>
+        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#0055ae] transition-colors">{step.title}</h3>
+        <p className="text-gray-600 text-sm leading-relaxed">
+          {step.description}
+        </p>
       </div>
     </div>
   );

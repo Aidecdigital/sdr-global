@@ -37,7 +37,7 @@ export async function POST(request: Request) {
 
     const publicId = `${firstName}_${lastName}_${createId()}`;
     // Cloudinary upload returns result or error via callback; wrap into a promise
-    const resumeUpload = await new Promise<any>((resolve, reject) => {
+    const resumeUpload = await new Promise<{ public_id: string }>((resolve, reject) => {
       const stream = cloudinary.uploader.upload_stream(
         {
           resource_type: "raw",

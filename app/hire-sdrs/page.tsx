@@ -1,43 +1,61 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
-import { ModelsSection, ProcessStep } from "./components";
-import {
-  processSteps,
-  faqItems,
-  whyChooseUsFeatures,
-} from "./data";
+import Image from "next/image";
+import React, { useState, useEffect } from "react";
+import { ModelsSection, ProcessStep, ComparisonTableSection } from "./components";
+import { processSteps, faqItems } from "./data";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function page() {
+export default function HireSDRsPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [isStickyVisible, setIsStickyVisible] = useState(false);
 
-  const [companyName, setCompanyName] = useState<string>("");
-  const [name, setName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [companySize, setCompanySize] = useState<string>("");
-  const [role, setRole] = useState<string>("");
-  const [linkedinProfile, setLinkedinProfile] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
+  const [formData, setFormData] = useState({
+    companyName: "",
+    name: "",
+    email: "",
+    companySize: "",
+    role: "",
+    linkedinProfile: "",
+    message: "",
+  });
   const [loading, setLoading] = useState<boolean>(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 500) {
+        setIsStickyVisible(true);
+      } else {
+        setIsStickyVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
+
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
-    if (!companyName.trim()) newErrors.companyName = "Company Name is required";
-    if (!email.trim()) {
+    if (!formData.companyName.trim()) newErrors.companyName = "Company Name is required";
+    if (!formData.email.trim()) {
       newErrors.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Email is invalid";
     }
-    if (!name.trim()) newErrors.name = "Name is required";
-    if (!role.trim()) newErrors.role = "Role is required";
-    if (!linkedinProfile.trim()) newErrors.linkedinProfile = "LinkedIn Profile is required";
-    if (!companySize || companySize === "Select company size") newErrors.companySize = "Company Size is required";
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.role.trim()) newErrors.role = "Role is required";
+    if (!formData.companySize || formData.companySize === "Select size")
+      newErrors.companySize = "Company Size is required";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -47,108 +65,109 @@ export default function page() {
     e.preventDefault();
     if (!validateForm()) return;
 
-    const body = { companyName, name, email, companySize, role, linkedinProfile, message };
     setLoading(true);
     axios
-    .post("/api/submit", body)
-    .then((response) => {
+      .post("/api/submit", formData)
+      .then(() => {
         toast.success("Request submitted successfully!");
-        setCompanyName("");
-        setName("");
-        setEmail("");
-        setCompanySize("");
-        setRole("");
-        setLinkedinProfile("");
-        setMessage("");
+        setFormData({
+          companyName: "",
+          name: "",
+          email: "",
+          companySize: "",
+          role: "",
+          linkedinProfile: "",
+          message: "",
+        });
         setErrors({});
-        console.log(response.data);
       })
-      .catch((error) => {
-        console.log(error);
-        
-        toast.error("There was an error submitting your request. Please try again later.");
-      }).finally(() => {
+      .catch(() => {
+        toast.error(
+          "There was an error submitting your request. Please try again later.",
+        );
+      })
+      .finally(() => {
         setLoading(false);
       });
-  
   };
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img
-            src="/Background.jpg" // Replace with actual image
+          <Image
+            src="/Background.jpg"
             alt="SDR cohort in training at AIDEC"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/60" /> {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/60" />
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <div className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium bg-white/10 backdrop-blur-sm mb-8 border border-white/20">
+          <div className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium bg-white/10 backdrop-blur-sm mb-5 border border-white/20">
             <span className="flex h-2 w-2 rounded-full bg-green-400 mr-2"></span>
             For Startups, SMEs & Enterprises
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight">
-            Build a high-performance <br />
+          <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
+            Deploy a Ready-Made <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0055ae] to-purple-600">
-              sales engine
+              SDR Team
             </span>{" "}
-            in days.
+            48 Hours.
           </h1>
 
-          <p className="text-xl text-gray-200 mb-12 max-w-3xl mx-auto">
-            Skip the 3-month hiring cycle. Access pre-vetted, certified SDR
-            teams that integrate with your stack and start generating qualified pipeline
-            immediately.
+          <p className="text-xl text-gray-200 mb-10 max-w-3xl mx-auto">
+            SDR Global deploys pre-certified, managed sales teams for B2B
+            companies across Africa, the US, and Europe — with Day 1
+            productivity and zero recruitment overhead.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="#companies-form"
-              className="px-8 py-4 bg-[#0055ae] text-white rounded-lg font-semibold text-lg hover:bg-blue-600 transition-all shadow-lg"
+              className="px-6 py-2 bg-[#0055ae] text-white rounded-lg font-semibold text-lg hover:bg-blue-600 transition-all shadow-lg"
             >
               Start Hiring
             </Link>
 
             <Link
               href="#models"
-              className="px-8 py-4 bg-white text-gray-900 rounded-lg font-semibold text-lg hover:bg-gray-200 transition-all"
+              className="px-6 py-2 bg-white text-gray-900 rounded-lg font-semibold text-lg hover:bg-gray-200 transition-all"
             >
-              Investment Models
+              Pricing Models
             </Link>
           </div>
         </div>
       </section>
 
       {/* Comparison / Problem Solution */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-12 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               The Modern Way to Scale Sales
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Stop trading time for talent. Compare the traditional hiring model
-              with our infrastructure.
+            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+              Save time & money. Instead of traditional hiring, use SDR Global
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
             {/* Old Way */}
-            <div className="bg-white p-10 rounded-3xl border border-red-100 shadow-sm relative overflow-hidden">
+            <div className="bg-white p-6 sm:p-10 rounded-3xl border border-red-100 shadow-sm relative overflow-hidden flex flex-col h-full">
               <div className="absolute top-0 left-0 w-full h-1 bg-red-400"></div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                 <span className="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-600 mr-3 text-sm">
                   ✕
                 </span>
                 Traditional Hiring
               </h3>
-              <ul className="space-y-5">
+              <ul className="space-y-5 flex-grow mb-10">
                 {[
                   "Spend months sourcing and interviewing",
                   "Pay recruiter fees (15-20% of salary)",
@@ -174,20 +193,26 @@ export default function page() {
                   </li>
                 ))}
               </ul>
+              <div className="text-center bg-red-50 p-6 rounded-2xl border border-red-100/50">
+                <p className="text-sm font-bold uppercase tracking-wider text-red-400 mb-1">Estimated Annual Cost</p>
+                <p className="text-5xl font-extrabold text-red-700">
+                  $90K
+                </p>
+              </div>
             </div>
 
             {/* New Way */}
-            <div className="bg-white p-10 rounded-3xl border border-blue-100 shadow-xl relative overflow-hidden ring-1 ring-blue-500/10">
+            <div className="bg-white p-6 sm:p-10 rounded-3xl border border-blue-100 shadow-xl relative overflow-hidden ring-1 ring-blue-500/10 flex flex-col">
               <div className="absolute top-0 left-0 w-full h-1 bg-[#0055ae]"></div>
               <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
                 <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-[#0055ae] mr-3 text-sm">
                   ✓
                 </span>
-                SDR Global Infrastructure
+                SDR Global Sales Infrastructure
               </h3>
-              <ul className="space-y-5">
+              <ul className="space-y-5 flex-grow mb-8">
                 {[
-                  "Instant access to pre-vetted talent pool",
+                  "Instant access to Africa's premier pre-vetted talent pool",
                   "Zero recruiting fees or overhead",
                   "Day 1 productivity (pre-trained)",
                   "Replacement guarantee included",
@@ -214,170 +239,48 @@ export default function page() {
                   </li>
                 ))}
               </ul>
+              <div className="text-center bg-blue-50 p-6 rounded-2xl border border-blue-100/50 shadow-inner">
+                <p className="text-sm font-bold uppercase tracking-wider text-[#0055ae]/60 mb-1">Your Estimated Cost</p>
+                <div className="flex items-baseline justify-center gap-2">
+                  <p className="text-5xl font-extrabold text-[#0055ae]">$20K</p>
+                  <p className="text-xl font-bold text-green-600 bg-green-100 px-2 py-0.5 rounded-lg">Save $70K</p>
+                </div>
+              </div>
             </div>
           </div>
+
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              A Complete Sales Development Infrastructure
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              SDR Global is more than a hiring platform. We provide an
-              end-to-end solution for building and managing high-performance
-              sales teams.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {whyChooseUsFeatures.map((item) => (
-              <div
-                key={item.title}
-                className="text-center p-6 rounded-xl transition-all"
-              >
-                <div className="text-5xl mb-4 flex justify-center">
-                  {item.icon}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Cost Comparison & Value Proposition */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Cost Comparison & Value Proposition
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              A clear breakdown of the fully loaded costs of traditional hiring
-              versus our managed model over a 6-month period.
-            </p>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[600px] border-collapse bg-white shadow-lg rounded-lg overflow-hidden">
-              <thead className="bg-gray-50 border-b border-gray-200">
-                <tr>
-                  <th className="px-6 py-4 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
-                    Cost Category
-                  </th>
-                  <th className="px-6 py-4 text-left text-sm font-bold text-red-600 uppercase tracking-wider">
-                    Traditional Hiring
-                  </th>
-                  <th className="px-6 py-4 text-left text-sm font-bold text-[#0055ae] uppercase tracking-wider">
-                    SDR Global Model
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200">
-                <tr>
-                  <td className="px-6 py-4 text-sm font-medium text-gray-900">
-                    Recruitment & Sourcing
-                  </td>
-                  <td className="px-6 py-4 text-sm text-gray-600">
-                    $15,000 (Agency fees & ads)
-                  </td>
-                  <td className="px-6 py-4 text-sm font-bold text-[#0055ae]">
-                    Included
-                  </td>
-                </tr>
-                <tr>
-                  <td className="px-6 py-4 text-sm font-medium text-gray-900">
-                    Training & Onboarding
-                  </td>
-                  <td className="px-6 py-4 text-sm text-gray-600">
-                    $25,000 (Tools + Time)
-                  </td>
-                  <td className="px-6 py-4 text-sm font-bold text-[#0055ae]">
-                    Included (Pre-trained)
-                  </td>
-                </tr>
-                <tr>
-                  <td className="px-6 py-4 text-sm font-medium text-gray-900">
-                    Management & Leader Time
-                  </td>
-                  <td className="px-6 py-4 text-sm text-gray-600">
-                    $20,000 (20% of VP Sales time)
-                  </td>
-                  <td className="px-6 py-4 text-sm font-bold text-[#0055ae]">
-                    Included (Dedicated Team Lead)
-                  </td>
-                </tr>
-                <tr>
-                  <td className="px-6 py-4 text-sm font-medium text-gray-900">
-                    Ramp Time / Lost Productivity
-                  </td>
-                  <td className="px-6 py-4 text-sm text-gray-600">
-                    $30,000 (3+ Months)
-                  </td>
-                  <td className="px-6 py-4 text-sm font-bold text-[#0055ae]">
-                    Included (Day 1 Productivity)
-                  </td>
-                </tr>
-                <tr className="bg-gray-50">
-                  <td className="px-6 py-4 text-base font-bold text-gray-900">
-                    Total Estimated Cost (6 Months)
-                  </td>
-                  <td className="px-6 py-4 text-base font-bold text-red-600">
-                    $90,000+
-                  </td>
-                  <td className="px-6 py-4 text-base font-bold text-[#0055ae]">
-                    $27,000
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+      {/* Brand Origin Story */}
+      <section className="py-12 bg-slate-50/50 border-y border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Our Origin Story
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
+            SDR Global was built from the ground up in Africa. Founded through
+            the partnership of AIDEC Digital and Africa Sales Academy, we
+            combine the infrastructure of one of the continent&apos;s SDR training
+            programmes and global digital firms. Our talent is certified,
+            managed, and deployment-ready — not placed and left to figure it
+            out.
+          </p>
         </div>
       </section>
 
       {/* Engagement Models */}
-      <section id="models" className="py-24 bg-white">
+      <section id="models" className="py-10 bg-white">
         <ModelsSection />
       </section>
 
-      {/* Process Overview */}
-      <section className="py-24 bg-white" id="process">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Our 4-Step Process
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We remove the complexity and risk from SDR hiring, so you can
-              focus on growing your business.
-            </p>
-          </div>
-
-          {/* Process Timeline */}
-          <div className="relative">
-            {/* Desktop Timeline */}
-            <div className="hidden md:block absolute top-24 left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-200 h-full"></div>
-
-            <div className="space-y-24">
-              {processSteps.map((step, index) => (
-                <ProcessStep key={step.step} step={step} index={index} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Model Comparison Table */}
+      <ComparisonTableSection />
 
       {/* Contact Form Section */}
       <section
         id="companies-form"
-        className="py-24 bg-gradient-to-br from-blue-50 to-indigo-50"
+        className="py-10 bg-gradient-to-br from-blue-50 to-indigo-50"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -385,17 +288,17 @@ export default function page() {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 Start Building Your Pipeline
               </h2>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-lg sm:text-xl text-gray-600 mb-8">
                 Fill out the form to get a customized proposal and discover how
                 we can deploy a high-performing SDR team for you in under 48
                 hours.
               </p>
               <ul className="space-y-4">
                 {[
-                  "✓ Access a global talent pool of 500+ certified SDRs",
-                  "✓ AI-powered matching for your exact ICP",
-                  "✓ No recruiting fees, no overhead",
-                  "✓ Start generating pipeline this week",
+                  "Access a premier talent pool of pre-certified SDRs",
+                  "Precision matching for your exact ICP and culture",
+                  "No recruiting fees, no overhead",
+                  "Start generating pipeline this week",
                 ].map((item) => (
                   <li key={item} className="flex items-start text-gray-700">
                     <span className="text-green-500 mr-3 mt-1">
@@ -421,188 +324,148 @@ export default function page() {
               <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                 Hire Your SDR Team Today
               </h3>
-              <form className="space-y-6" onSubmit={handleHireFormSubmit}>
+              <form className="space-y-5" onSubmit={handleHireFormSubmit}>
+                <div className="grid md:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
+                      Company Name *
+                    </label>
+                    <input
+                      id="companyName"
+                      value={formData.companyName}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-3 rounded-xl border ${errors.companyName ? "border-red-500 bg-red-50" : "border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"}`}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
+                      Business Email *
+                    </label>
+                    <input
+                      id="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-3 rounded-xl border ${errors.email ? "border-red-500 bg-red-50" : "border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"}`}
+                    />
+                  </div>
+                </div>
+
                 <div>
-                  <label
-                    htmlFor="companyName"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Company Name *
+                  <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
+                    Full Name *
                   </label>
                   <input
-                    id="companyName"
-                    type="text"
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                      errors.companyName ? "border-red-500" : "border-gray-300"
-                    }`}
-                    placeholder="Your company name"
-                    value={companyName}
-                    onChange={(e) => setCompanyName(e.target.value)}
+                    id="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 rounded-xl border ${errors.name ? "border-red-500 bg-red-50" : "border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"}`}
                   />
-                  {errors.companyName && (
-                    <p className="text-red-500 text-sm mt-1">{errors.companyName}</p>
-                  )}
                 </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Business Email *
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                      errors.email ? "border-red-500" : "border-gray-300"
-                    }`}
-                    placeholder="your.email@company.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                  {errors.email && (
-                    <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-                  )}
+
+                <div className="grid md:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
+                      Your Role *
+                    </label>
+                    <input
+                      id="role"
+                      value={formData.role}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-3 rounded-xl border ${errors.role ? "border-red-500 bg-red-50" : "border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"}`}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
+                      Company Size
+                    </label>
+                    <select
+                      id="companySize"
+                      value={formData.companySize}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    >
+                      <option>Select size</option>
+                      <option value="1-20">1-20</option>
+                      <option value="21-100">21-100</option>
+                      <option value="101-500">101-500</option>
+                      <option value="500+">500+</option>
+                    </select>
+                  </div>
                 </div>
+
                 <div>
-                  <label
-                    htmlFor="yourName"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Name *
-                  </label>
-                  <input
-                    id="yourName"
-                    type="text"
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                      errors.name ? "border-red-500" : "border-gray-300"
-                    }`}
-                    placeholder="Your full name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                  {errors.name && (
-                    <p className="text-red-500 text-sm mt-1">{errors.name}</p>
-                  )}
-                </div>
-                <div>
-                  <label
-                    htmlFor="yourRole"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Your Role *
-                  </label>
-                  <input
-                    id="yourRole"
-                    type="text"
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                      errors.role ? "border-red-500" : "border-gray-300"
-                    }`}
-                    placeholder="Your role at the company"
-                    value={role}
-                    onChange={(e) => setRole(e.target.value)}
-                  />
-                  {errors.role && (
-                    <p className="text-red-500 text-sm mt-1">{errors.role}</p>
-                  )}
-                </div>
-                <div>
-                  <label
-                    htmlFor="linkedinProfile"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Your LinkedIn Profile *
+                  <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
+                    LinkedIn Profile
                   </label>
                   <input
                     id="linkedinProfile"
-                    type="text"
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                      errors.linkedinProfile ? "border-red-500" : "border-gray-300"
-                    }`}
-                    placeholder="Your LinkedIn Profile URL"
-                    value={linkedinProfile}
-                    onChange={(e) => setLinkedinProfile(e.target.value)}
+                    value={formData.linkedinProfile}
+                    onChange={handleChange}
+                    placeholder="https://linkedin.com/in/..."
+                    className={`w-full px-4 py-3 rounded-xl border ${errors.linkedinProfile ? "border-red-500 bg-red-50" : "border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"}`}
                   />
-                  {errors.linkedinProfile && (
-                    <p className="text-red-500 text-sm mt-1">{errors.linkedinProfile}</p>
-                  )}
                 </div>
+
                 <div>
-                  <label
-                    htmlFor="companySize"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Company Size
-                  </label>
-                  <select
-                    id="companySize"
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white ${
-                      errors.companySize ? "border-red-500" : "border-gray-300"
-                    }`}
-                    value={companySize}
-                    onChange={(e) => setCompanySize(e.target.value)}
-                  >
-                    <option>Select company size</option>
-                    <option value={"1-10"}>1-10 employees</option>
-                    <option value={"11-50"}>11-50 employees</option>
-                    <option value={"51-200"}>51-200 employees</option>
-                    <option value={"201-1000"}>201-1000 employees</option>
-                    <option value={"1000+"}>1000+ employees</option>
-                  </select>
-                  {errors.companySize && (
-                    <p className="text-red-500 text-sm mt-1">{errors.companySize}</p>
-                  )}
-                </div>
-                <div>
-                  <label
-                    htmlFor="goals"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
+                  <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
                     Message / Goals
                   </label>
                   <textarea
-                    id="goals"
+                    id="message"
                     rows={3}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                      errors.message ? "border-red-500" : "border-gray-300"
-                    }`}
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                     placeholder="Leave additional message"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                  ></textarea>
-                  {errors.message && (
-                    <p className="text-red-500 text-sm mt-1">{errors.message}</p>
-                  )}
+                  />
                 </div>
-                {loading ? (
-                  <button
-                    type="submit"
-                    className="w-full bg-[#0055ae] text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
-                  >
-                    <CircularProgress color="inherit" size={24} />
-                  </button>
-                ) : (
-                  <button
-                    type="submit"
-                    className="w-full bg-[#0055ae] text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
-                  >
-                    Submit Request
-                  </button>
-                )}
+
+                <button
+                  disabled={loading}
+                  className="w-full bg-blue-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition-all flex justify-center items-center shadow-lg active:scale-[0.98]"
+                >
+                  {loading ? (
+                    <CircularProgress size={24} color="inherit" />
+                  ) : (
+                    "Submit Request"
+                  )}
+                </button>
               </form>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Process Overview */}
+      <section className="py-12 bg-gray-50/50" id="process">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Our 4-Step Process
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              We remove the complexity and risk from SDR hiring, so you can
+              focus on growing your business.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {processSteps.map((step) => (
+              <ProcessStep key={step.step} step={step} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section className="py-24 bg-white">
+      <section className="py-12 bg-slate-50/30">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg sm:text-xl text-gray-600">
               Answers to questions from buyers just like you
             </p>
           </div>
@@ -638,42 +501,47 @@ export default function page() {
           <div className="mt-12 text-center">
             <p className="text-gray-600 mb-4">Still have questions?</p>
             <Link
-              href="/contact#contact-form"
-              className="inline-block px-6 py-3 bg-[#0055ae] text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              href="#companies-form"
+              className="inline-block px-8 py-4 bg-[#0055ae] text-white rounded-xl font-bold text-lg hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl active:scale-[0.98]"
             >
-              Contact Our Sales Team
+              Book a 15-Min Discovery Call
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Enhanced CTA Section */}
-      <section
-        id="cta"
-        className="py-24 bg-gradient-to-r from-[#0055ae] to-blue-700 relative overflow-hidden"
+      {/* Persistent Sticky CTA Bar */}
+      <div
+        className={`fixed left-0 right-0 z-40 bg-white/95 backdrop-blur border-y border-slate-200 shadow-lg transform transition-all duration-300 ${
+          isStickyVisible
+        ? "translate-y-0 opacity-100"
+        : "translate-y-full opacity-0 pointer-events-none"
+        } bottom-0 lg:hidden`}
       >
-        <div className="absolute top-0 left-0 w-96 h-96 rounded-full bg-white opacity-10 blur-3xl"></div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Build Your Sales Engine?
-          </h2>
-          <p className="text-xl text-blue-100 mb-4">
-            Get a fully operational, pre-vetted sales team deployed within 48
-            hours.
-          </p>
-          <p className="text-lg text-blue-200 mb-12 max-w-2xl mx-auto">
-            No long hiring cycles. No training overhead. No risk. Just results.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="#companies-form"
-              className="px-8 py-4 bg-white text-[#0055ae] rounded-lg font-bold text-lg hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl"
-            >
-              Get Started Today
-            </Link>
+        <div className="max-w-7xl mx-auto px-4 py-3 sm:px-6 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="relative flex h-2 w-2" aria-hidden="true">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </div>
+            <div className="flex flex-col">
+              <p className="text-[10px] sm:text-xs font-bold text-slate-900 leading-tight uppercase tracking-wider">
+                SDR Talent Pool
+              </p>
+              <p className="text-[9px] sm:text-[10px] text-slate-500 font-medium">
+                Ready for deployment
+              </p>
+            </div>
           </div>
+          <Link
+            href="#companies-form"
+            className="bg-[#0055ae] text-white px-5 sm:px-8 py-3 rounded-xl font-bold text-xs sm:text-sm hover:bg-blue-700 transition-all shadow-md active:scale-95 whitespace-nowrap"
+          >
+            Deploy Your SDR Team →
+          </Link>
         </div>
-      </section>
+      </div>
+
       <ToastContainer position="bottom-right" />
     </div>
   );
