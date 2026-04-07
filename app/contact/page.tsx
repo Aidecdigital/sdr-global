@@ -4,6 +4,7 @@ import { CircularProgress } from "@mui/material";
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import { toast, ToastContainer } from 'react-toastify';
+import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
 
 const contactChannels = [
@@ -68,8 +69,8 @@ export default function Contact() {
   const validateEmail = (email: string) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  const validateLinkedIn = (url: string) =>
-    /^https:\/\/(www\.)?linkedin\.com\/.*$/i.test(url);
+  // const validateLinkedIn = (url: string) =>
+  //   /^https:\/\/(www\.)?linkedin\.com\/.*$/i.test(url);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -105,17 +106,8 @@ export default function Contact() {
 
     try {
       setLoading(true);
-
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(trimmedData),
-      });
-
-      if (!response.ok) {
-        throw new Error("Submission failed");
-      }
-
+      await axios.post("/api/contact", trimmedData);
+      
       toast.success(
         "Thanks. Your message has been received. Our team will respond shortly.",
       );

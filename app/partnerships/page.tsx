@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { ComponentProps, useState } from 'react';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { CircularProgress } from '@mui/material';
 
 type PartnerIconType = 'technology' | 'agency' | 'investor';
@@ -56,23 +55,7 @@ const partnerCategories: PartnerCategory[] = [
   },
 ];
 
-const whyPartnerFeatures = [
-  {
-    title: 'Global Reach',
-    description: 'Access markets in 15+ countries with SDRs who speak the local language and understand the culture.',
-    icon: '🌍'
-  },
-  {
-    title: 'Quality First',
-    description: 'Our SDRs undergo intensive certification. Partnering with us means associating with the top 1% of sales talent.',
-    icon: '🏆'
-  },
-  {
-    title: 'Revenue Growth',
-    description: 'Drive tangible revenue outcomes for your clients or portfolio companies through our proven outbound engine.',
-    icon: '📈'
-  }
-];
+// Removed unused whyPartnerFeatures variable
 
 /* ----------------------- */
 /* Layout Helpers          */
@@ -165,7 +148,6 @@ export default function Partnerships() {
       newErrors.email = "Email is invalid";
     }
     if (!name.trim()) newErrors.name = "Name is required";
-    if (!linkedinProfile.trim()) newErrors.linkedinProfile = "LinkedIn Profile is required";
     if (!partnershipIdea.trim()) newErrors.partnershipIdea = "Partnership Idea is required";
     if (!partnershipType.trim()) newErrors.partnershipType = "Partnership Type is required";
 
@@ -192,9 +174,7 @@ export default function Partnerships() {
         setErrors({});
         console.log(response.data);
       })
-      .catch((error) => {
-        console.log(error);
-        
+      .catch(() => {        
         toast.error("There was an error submitting your request. Please try again later.");
       }).finally(() => {
         setLoading(false);
@@ -206,7 +186,7 @@ export default function Partnerships() {
     <div className="flex min-h-screen flex-col bg-white">
 
       {/* ================= HERO ================= */}
-      <Section className="relative min-h-[90vh] overflow-hidden text-white">
+      <Section className="relative min-h-[80vh] overflow-hidden text-white">
         <Image
           src="/partnership1.jpg"
           alt="Global partnership collaboration"
@@ -216,9 +196,9 @@ export default function Partnerships() {
         />
         <div className="absolute inset-0 bg-black/60" />
 
-        <Container className="relative z-10 flex min-h-[90vh] flex-col items-center justify-center text-center">
+        <Container className="relative z-10 flex min-h-[80vh] flex-col items-center justify-center text-center">
           <p className="mb-6 text-sm uppercase tracking-widest text-blue-200">
-            Global Strategic Partnerships
+            Africa-Powered Strategic Partnerships
           </p>
 
           <h1 className="mb-8 text-5xl font-bold leading-tight md:text-7xl">
@@ -229,8 +209,8 @@ export default function Partnerships() {
           </h1>
 
           <p className="mx-auto mb-10 max-w-2xl text-xl text-gray-200">
-            Partner with a global SDR organization trusted by high-growth startups,
-            enterprise teams, and international investors.
+            Partner with Africa&apos;s leading SDR organization trusted by high-growth 
+            startups, enterprise teams, and international investors.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
@@ -244,11 +224,11 @@ export default function Partnerships() {
         </Container>
       </Section>
 
-      {/* ================= CREDIBILITY ================= */}
+      {/* ================= CREDIBILITY =================
       <Section className="bg-white py-20">
         <Container className="grid gap-12 text-center md:grid-cols-4">
           {[
-            { value: '15+', label: 'Countries Served' },
+            { value: '50+', label: 'Countries Served' },
             { value: '250+', label: 'Clients Supported' },
             { value: '1M+', label: 'Outbound Conversations' },
             { value: '92%', label: 'Client Retention Rate' },
@@ -261,7 +241,7 @@ export default function Partnerships() {
             </div>
           ))}
         </Container>
-      </Section>
+      </Section> */}
 
       {/* ================= PARTNER TYPES ================= */}
       <Section className="bg-gray-50 py-24">
@@ -298,7 +278,7 @@ export default function Partnerships() {
       </Section>
 
       {/* ================= WHY PARTNER ================= */}
-      <Section className="bg-white py-24">
+      {/* <Section className="bg-white py-24">
         <Container>
            <div className="text-center mb-16">
             <h2 className="mb-4 text-4xl font-bold text-gray-900">
@@ -318,7 +298,7 @@ export default function Partnerships() {
             ))}
           </div>
         </Container>
-      </Section>
+      </Section> */}
 
       {/* Contact Form Section */}
       <section id="partnership-form" className="py-24 bg-gradient-to-br from-blue-50 to-indigo-50">
@@ -329,14 +309,14 @@ export default function Partnerships() {
                 Join Our Partner Ecosystem
               </h2>
               <p className="text-xl text-gray-600 mb-8">
-                Whether you're a technology provider, an agency, or an investor, let's create value together. Fill out the form to explore partnership opportunities.
+                Whether you&apos;re a technology provider, an agency, or an investor, let&apos;s create value together. Fill out the form to explore partnership opportunities.
               </p>
               <ul className="space-y-4">
                 {[
-                  '✓ Expand your service offering with white-label SDRs',
-                  '✓ Integrate your tech into our global sales stack',
-                  '✓ Accelerate portfolio growth for your investments',
-                  '✓ Access exclusive partner resources and revenue share'
+                  'Expand your service offering with white-label SDRs',
+                  'Integrate your tech into our global sales stack',
+                  'Accelerate portfolio growth for your investments',
+                  'Access exclusive partner resources and revenue share'
                 ].map(item => (
                   <li key={item} className="flex items-start text-gray-700">
                     <span className="text-green-500 mr-3 mt-1">
@@ -363,7 +343,7 @@ export default function Partnerships() {
                   </label>
                   <input
                     type="text"
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent ${
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:outline-none ${
                       errors.companyName ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="Your organization name"
@@ -381,7 +361,7 @@ export default function Partnerships() {
                   </label>
                   <input
                     type="text"
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent ${
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:outline-none ${
                       errors.name ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="Your full name"
@@ -400,7 +380,7 @@ export default function Partnerships() {
                   </label>
                   <input
                     type="email"
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent ${
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:outline-none ${
                       errors.email ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="your.email@organization.com"
@@ -417,17 +397,16 @@ export default function Partnerships() {
                     Partnership Type
                   </label>
                   <select 
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent ${
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:outline-none ${
                       errors.partnershipType ? 'border-red-500' : 'border-gray-300'
                     }`}
                     value={partnershipType}
                     onChange={(e) => setPartnershipType(e.target.value)}
                   >
                     <option value="">Select partnership type</option>
-                    <option value="Technology Integration">Technology Integration</option>
+                    <option value="Technology Partnership">Technology Partnership</option>
                     <option value="Referral Partnership">Referral Partnership</option>
                     <option value="Co-Marketing">Co-Marketing</option>
-                    <option value="Channel Partnership">Channel Partnership</option>
                     <option value="Other">Other</option>
                   </select>
                   {errors.partnershipType && (
@@ -437,11 +416,11 @@ export default function Partnerships() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    LinkedIn Profile *
+                    LinkedIn Profile
                   </label>
                   <input
                     type="text"
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent ${
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:outline-none ${
                       errors.linkedinProfile ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="LinkedIn URL (e.g., https://www.linkedin.com/in/yourprofile)"
@@ -459,7 +438,7 @@ export default function Partnerships() {
                   </label>
                   <textarea
                     rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:outline-none"
                     placeholder="Describe your partnership proposal and how we can work together..."
                     value={partnershipIdea}
                     onChange={(e) => setPartnershipIdea(e.target.value)}
@@ -492,12 +471,12 @@ export default function Partnerships() {
       <Section className="bg-[#0055ae] py-24 text-white">
         <Container className="text-center">
           <h2 className="mb-6 text-4xl font-bold">
-            Let’s Scale Revenue — Globally
+            Let&apos;s Scale Revenue with Africa&apos;s Best
           </h2>
 
           <p className="mx-auto mb-10 max-w-2xl text-xl text-blue-100">
-            If you're serious about expanding market reach, accelerating
-            outbound performance, and delivering measurable growth,
+            If you&apos;re serious about expanding market reach and leveraging 
+            Africa&apos;s premier sales talent to deliver measurable growth,
             let’s build something exceptional together.
           </p>
 

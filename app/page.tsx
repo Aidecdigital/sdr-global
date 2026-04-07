@@ -1,45 +1,51 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[85vh] lg:min-h-[75vh] flex items-center justify-center overflow-hidden py-20 lg:py-0">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/home.jpg"
             alt="SDR cohort in training at AIDEC"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-black/60" /> {/* Dark overlay */}
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <div className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium bg-white/10 backdrop-blur-sm mb-8 border border-white/20">
+        <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 text-center text-white">
+          <div className="inline-flex items-center rounded-full px-3 py-1 text-xs md:text-sm font-medium bg-white/10 backdrop-blur-sm mb-8 border border-white/20">
             <span className="flex h-2 w-2 rounded-full bg-green-400 mr-2"></span>
-            Now deploying in 50+ countries
+            Building the future of sales
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight">
-            The Global Infrastructure for Sales Development
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight text-white px-2">
+            The Global Infrastructure for <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">
+              Sales Development
+            </span>
           </h1>
 
-          <p className="text-xl text-gray-200 mb-12 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
             Certified, pre-trained SDRs deployed globally in 24 hours.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="/hire-sdrs"
-              className="px-8 py-4 bg-[#0055ae] text-white rounded-lg font-semibold text-lg hover:bg-blue-600 transition-all shadow-lg"
+              className="w-full sm:w-auto px-6 py-2 bg-[#0055ae] text-white rounded-lg font-semibold text-lg hover:bg-blue-600 transition-all shadow-lg text-center"
             >
               Hire SDR Talent
             </Link>
 
             <Link
               href="/work"
-              className="px-8 py-4 bg-white text-gray-900 rounded-lg font-semibold text-lg hover:bg-gray-200 transition-all"
+              className="w-full sm:w-auto px-6 py-2 bg-white text-gray-900 rounded-lg font-semibold text-lg hover:bg-gray-200 transition-all text-center"
             >
               Become an SDR
             </Link>
@@ -47,43 +53,60 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Impact Metrics */}
-      <section className="bg-white py-16 border-b border-gray-100">
+      {/* Logo Cloud / Trust Bar */}
+      {/* <section className="py-12 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
-            <div>
+          <p className="text-center text-sm font-semibold text-gray-400 uppercase tracking-widest mb-8">
+            Trusted by industry leaders worldwide
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all"> */}
+            {/* Replace these placeholders with actual partner logos */}
+            {/* <div className="h-8 w-24 bg-gray-200 rounded animate-pulse"></div>
+            <div className="h-8 w-24 bg-gray-200 rounded animate-pulse"></div>
+            <div className="h-8 w-24 bg-gray-200 rounded animate-pulse"></div>
+            <div className="h-8 w-24 bg-gray-200 rounded animate-pulse"></div>
+            <div className="h-8 w-24 bg-gray-200 rounded animate-pulse"></div>
+          </div>
+        </div>
+      </section> */}
+
+      {/* Impact Metrics */}
+      <section className="bg-slate-50/50 py-12 border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div className="p-6 md:p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition-shadow">
               <div className="text-4xl md:text-5xl font-bold text-[#0055ae] mb-2">
-                30+
+                21
               </div>
-              <div className="text-gray-600 uppercase tracking-wide text-sm">
-                SDRs Deployed
+              <div className="text-gray-500 font-medium uppercase tracking-wide text-xs">
+                SDRs Trained & Certified
               </div>
             </div>
 
-            <div>
+            <div className="p-6 md:p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition-shadow">
               <div className="text-4xl md:text-5xl font-bold text-[#0055ae] mb-2">
-                50+
+                12
               </div>
-              <div className="text-gray-600 uppercase tracking-wide text-sm">
-                Countries
+              <div className="text-gray-500 font-medium uppercase tracking-wide text-xs">
+                Placed or In Process
               </div>
             </div>
 
-            <div>
+            <div className="p-6 md:p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition-shadow">
               <div className="text-4xl md:text-5xl font-bold text-[#0055ae] mb-2">
-                94%
+                279
               </div>
-              <div className="text-gray-600 uppercase tracking-wide text-sm">
-                Retention Rate
+              <div className="text-gray-500 font-medium uppercase tracking-wide text-xs">
+                Outreach Contacts<br /> Generated
               </div>
             </div>
 
-            <div>
+            <div className="p-6 md:p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition-shadow">
               <div className="text-4xl md:text-5xl font-bold text-[#0055ae] mb-2">
-                24h
+                4+
               </div>
-              <div className="text-gray-600 uppercase tracking-wide text-sm">
-                Avg. Deployment
+              <div className="text-gray-500 font-medium uppercase tracking-wide text-xs">
+                Counties Reached
               </div>
             </div>
           </div>
@@ -91,7 +114,7 @@ export default function Home() {
       </section>
 
       {/* Problem/Solution Grid */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -205,8 +228,8 @@ export default function Home() {
       </section>
 
       {/* Dual Audience Section - Clean Split */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-slate-50/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Choose Your Path
@@ -218,7 +241,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* For Companies */}
-            <div className="group relative rounded-2xl border border-gray-200 bg-white p-10 hover:border-blue-200 hover:shadow-lg transition-all duration-300">
+            <div className="group relative rounded-2xl border border-gray-200 bg-white p-6 md:p-10 hover:border-blue-400 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
               <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center text-[#0055ae] mb-6">
                 <svg
                   className="w-6 h-6"
@@ -252,7 +275,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-center">
                   <span className="w-1.5 h-1.5 bg-[#0055ae] rounded-full mr-2"></span>
-                  Flexible engagement models
+                  Flexible investment models
                 </li>
               </ul>
               <Link
@@ -264,7 +287,7 @@ export default function Home() {
             </div>
 
             {/* For Talent */}
-            <div className="group relative rounded-2xl border border-gray-200 bg-white p-10 hover:border-green-200 hover:shadow-lg transition-all duration-300">
+            <div className="group relative rounded-2xl border border-gray-200 bg-white p-6 md:p-10 hover:border-green-400 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
               <div className="h-12 w-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600 mb-6">
                 <svg
                   className="w-6 h-6"
@@ -313,7 +336,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gray-900 py-24">
+      <section className="bg-gray-900 py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to modernize your sales infrastructure?

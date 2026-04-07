@@ -1,4 +1,3 @@
-import { url } from "inspector";
 import Image from "next/image";
 
 const LINKEDIN_URL =
@@ -8,16 +7,19 @@ const LINKEDIN_URL =
 const operatingModelItems = [
   {
     title: "Clear Leadership",
+    category: "GTM",
     description:
-      "Regional GTM ownership across Africa, the United States, and the United Kingdom & Europe.",
+      "Regional go-to-market (GTM) ownership across Africa, the United States, and the United Kingdom & Europe.",
   },
   {
     title: "Operational Ownership",
+    category: "Operations",
     description:
       "Dedicated SDR operations leadership responsible for delivery, coaching standards, and performance management.",
   },
   {
     title: "Delivery Depth",
+    category: "Strategy",
     description:
       "Revenue intelligence, enablement, and financial governance integrated into every client program.",
   },
@@ -26,48 +28,48 @@ const operatingModelItems = [
 const coFounders = [
   {
     name: "Sir Ambrose Yennah",
-    title: "Regional GTM – Africa",
+    title: "Regional Go-To-Market (GTM) - Africa",
     image: "/sir-ambrose.jpeg",
+    group: "Co-Founder",
     url: "https://www.linkedin.com/in/ambrose-akyebe-yennah-029b336b/",
   },
   {
     name: "Erica Franklin",
-    title: "Regional GTM – United States",
+    title: "Regional Go-To-Market (GTM) - United States",
     image: "/erica.jpg",
+    group: "Co-Founder",
     url: "https://www.linkedin.com/in/erica-franklin/",
   },
   {
     name: "Michael Adonteng",
-    title: "Regional GTM – United Kingdom & Europe",
+    title: "Regional Go-To-Market (GTM) - United Kingdom & Europe",
     image: "/mike.png",
+    group: "Co-Founder",
     url: "https://www.linkedin.com/in/michaeladonteng/",
   },
 ];
 
 const leadershipTeam = {
-  sdrOps: {
-    name: "Emmanuel Agyapong",
-    title: "Global SDR Operations & Delivery",
-    image: "/emmanuel.png",
-    url: "https://www.linkedin.com/in/emmanuel-agyapong-chrbp-24104653/",
-  },
   delivery: {
     name: "Naana Baffo",
     title: "SDR Team Leads & Enablement",
-    image: "/naana.png",
+    image: "/baffo.png",
+    group: "Delivery",
     url: "https://www.linkedin.com/in/naana-baffo/",
   },
   revIntel: [
     {
       name: "Nigel Henaku",
       title: "Revenue Intelligence & Analytics",
-      image: "/nigel.jpeg",
+      image: "/nigel2.jpeg",
+      group: "Revenue Intelligence",
       url: "https://www.linkedin.com/in/nigel-henaku/",
     },
     {
       name: "Williams Naasorri",
       title: "Revenue Intelligence & Analytics",
       image: "/williams5.png",
+      group: "Revenue Intelligence",
       url: "https://www.linkedin.com/in/williamsnaasorri25/",
     },
   ],
@@ -75,9 +77,14 @@ const leadershipTeam = {
     name: "Richard Yeboah",
     title: "Financial Governance & Planning",
     image: "/richard.jpg",
+    group: "Finance",
     url: "https://www.linkedin.com/in/richard-yeboah-abb44955/",
   },
 };
+
+// Flatten the team for a unified grid
+const allTeamMembers = [...coFounders, leadershipTeam.delivery, ...leadershipTeam.revIntel, leadershipTeam.finance];
+
 
 // Reusable components for the page
 function OperatingModelCard({
@@ -88,8 +95,8 @@ function OperatingModelCard({
   description: string;
 }) {
   return (
-    <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
-      <h3 className="text-xl font-semibold">{title}</h3>
+    <div className="bg-white p-6 rounded-2xl border-t-4 border-t-sky-500 border-x border-b border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+      <h3 className="text-lg font-bold text-slate-900">{title}</h3>
       <p className="mt-4 text-slate-600 text-sm leading-relaxed">
         {description}
       </p>
@@ -101,20 +108,25 @@ function LeadershipCard({
   name,
   title,
   image,
+  group,
   url,
 }: {
   name: string;
   title: string;
   image: string;
+  group?: string;
   url: string;
 }) {
   return (
-    <div className="text-center">
-      <a href={url} target="_blank" rel="noopener noreferrer">
-        <div className="relative mx-auto w-40 h-40 rounded-full overflow-hidden shadow-md">
+    <div className="group text-center">
+      <a href={url} target="_blank" rel="noopener noreferrer" className="block">
+        <div className="relative mx-auto w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden shadow-lg border-2 border-transparent group-hover:border-sky-400 transition-all">
           <Image src={image} alt={name} fill className="object-cover" />
         </div>
-        <h4 className="mt-6 text-lg font-semibold">{name}</h4>
+        {group && (
+          <span className="inline-block mt-4 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-widest bg-slate-100 text-slate-500">{group}</span>
+        )}
+        <h4 className="mt-2 text-lg font-bold text-slate-900">{name}</h4>
         <p className="text-sm text-slate-600 mt-2">{title}</p>
       </a>
     </div>
@@ -131,7 +143,7 @@ function SectionHeader({
   return (
     <div className="text-center">
       <h2 className="text-3xl font-bold">{title}</h2>
-      <p className="mt-6 max-w-3xl mx-auto text-lg text-slate-600">
+      <p className="mt-4 max-w-2xl mx-auto text-lg text-slate-600">
         {subtitle}
       </p>
     </div>
@@ -142,48 +154,44 @@ export default function About() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       {/* ================= HERO ================= */}
-      <section className="bg-slate-950 text-white py-28">
+      <section className="bg-slate-950 text-white py-20 md:py-24">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <p className="text-sm uppercase tracking-widest text-sky-400 font-semibold">
+          <p className="text-xs uppercase tracking-[0.3em] text-sky-400 font-bold">
             About SDR Global
           </p>
 
-          <h1 className="mt-6 text-4xl md:text-6xl font-bold leading-tight">
-            Revenue Infrastructure for
-            <span className="block text-sky-400">Modern B2B Growth Teams</span>
+          <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
+            Africa&apos;s Premier Revenue Infrastructure for 
+            <span className="block text-sky-400">Global B2B Growth</span>
           </h1>
 
-          <p className="mt-8 max-w-3xl mx-auto text-lg text-slate-300 leading-relaxed">
-            SDR Global delivers managed pipeline generation through structured
-            leadership, operational ownership, and disciplined execution. We are
-            built to scale across markets with clarity, accountability, and
-            measurable outcomes.
+          <p className="mt-8 max-w-3xl mx-auto text-lg md:text-xl text-slate-300 leading-relaxed">
+            Built at the heart of Africa&apos;s tech hub, we deliver managed pipeline generation through structured leadership and disciplined execution.
           </p>
         </div>
       </section>
 
       {/* ================= MISSION ================= */}
-      <section className="py-24">
+      <section className="py-16 md:py-20">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold">Our Mission</h2>
 
-          <p className="mt-6 text-lg text-slate-600 leading-relaxed">
-            To provide global B2B companies with reliable, revenue-aligned
-            pipeline generation through structured SDR deployment and
-            disciplined operational execution.
+          <p className="mt-6 text-xl text-slate-600 leading-relaxed italic font-medium">
+            To empower global B2B companies with reliable, revenue-aligned pipeline
+            generation, powered by Africa&apos;s premier sales talent and disciplined operational execution.
           </p>
         </div>
       </section>
 
       {/* ================= OPERATING MODEL ================= */}
-      <section className="bg-slate-50 py-24">
+      <section className="bg-slate-50 py-16 md:py-20 border-y border-slate-100">
         <div className="max-w-6xl mx-auto px-6">
           <SectionHeader
             title="Our Operating Model"
-            subtitle="SDR Global is structured around clear leadership ownership, operational depth, and performance intelligence."
+            subtitle="Structured around clear leadership ownership, operational depth, and performance intelligence."
           />
 
-          <div className="mt-16 grid md:grid-cols-3 gap-10">
+          <div className="mt-12 grid md:grid-cols-3 gap-6 lg:gap-10">
             {operatingModelItems.map((item) => (
               <OperatingModelCard key={item.title} {...item} />
             ))}
@@ -192,67 +200,17 @@ export default function About() {
       </section>
 
       {/* ================= LEADERSHIP ================= */}
-      <section className="py-28">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-slate-50/50">
+        <div className="max-w-6xl mx-auto px-6">
           <SectionHeader
             title="Leadership & Team Structure"
             subtitle="Structured ownership across revenue, operations, intelligence, and finance."
           />
 
-          <div className="mt-20 space-y-20">
-            {/* Co-Founders */}
-            <div>
-              <h3 className="text-sm font-semibold uppercase tracking-widest text-slate-500">
-                Co-Founders | International GTM & Revenue
-              </h3>
-              <div className="mt-10 grid md:grid-cols-3 gap-10">
-                {coFounders.map((leader) => (
-                  <LeadershipCard key={leader.name} {...leader} />
-                ))}
-              </div>
-            </div>
-
-            {/* SDR Operations */}
-            <div>
-              <h3 className="text-sm font-semibold uppercase tracking-widest text-slate-500">
-                Head of SDR Operations
-              </h3>
-              <div className="mt-10 flex justify-center">
-                <LeadershipCard {...leadershipTeam.sdrOps} />
-              </div>
-            </div>
-
-            {/* Delivery & Enablement */}
-            <div>
-              <h3 className="text-sm font-semibold uppercase tracking-widest text-slate-500">
-                Delivery & Enablement
-              </h3>
-              <div className="mt-10 flex justify-center">
-                <LeadershipCard {...leadershipTeam.delivery} />
-              </div>
-            </div>
-
-            {/* Revenue Intelligence */}
-            <div>
-              <h3 className="text-sm font-semibold uppercase tracking-widest text-slate-500">
-                Revenue Intelligence
-              </h3>
-              <div className="mt-10 grid md:grid-cols-2 gap-10 justify-items-center">
-                {leadershipTeam.revIntel.map((member) => (
-                  <LeadershipCard key={member.name} {...member} />
-                ))}
-              </div>
-            </div>
-
-            {/* Finance */}
-            <div>
-              <h3 className="text-sm font-semibold uppercase tracking-widest text-slate-500">
-                Finance
-              </h3>
-              <div className="mt-10 flex justify-center">
-                <LeadershipCard {...leadershipTeam.finance} />
-              </div>
-            </div>
+          <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
+            {allTeamMembers.map((member) => (
+              <LeadershipCard key={member.name} {...member} />
+            ))}
           </div>
 
           {/* LinkedIn CTA */}
