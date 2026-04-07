@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] lg:min-h-[75vh] flex items-center justify-center overflow-hidden py-20 lg:py-0">
+      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image

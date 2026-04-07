@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { BsFillThreadsFill, BsTwitterX } from 'react-icons/bs';
 
 export default function Footer() {
@@ -9,10 +8,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12 mb-8">
           <div className="col-span-1 md:col-span-2 lg:col-span-2">
             <Link href="/">
-             <Image src="/SDRGlobalBW.png" alt="SDR Global Logo" width={48} height={48} className="h-12 w-auto mb-6" />
+             <img src="/SDRGlobalBW.png" alt="SDR Global Logo" className="h-12 w-auto mb-6" />
             </Link>
             <p className="text-gray-300 text-sm leading-relaxed max-w-sm mb-6">
-              Headquartered in Accra, Ghana, we are Africa&apos;s premier sales development infrastructure. We connect world-class companies with the continent&apos;s top performance-ready talent, supporting growth across Africa.
+              Headquartered in Accra, Ghana, we are Africa's premier sales development infrastructure. We connect world-class companies with the continent's top performance-ready talent, supporting growth across Africa.
             </p>
             <div className="flex space-x-4">
               <a href="https://x.com/global_sdr6835" className="text-gray-400 hover:text-white transition-colors" aria-label="Follow us on Twitter">

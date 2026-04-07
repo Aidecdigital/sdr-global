@@ -154,7 +154,7 @@ export default function About() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       {/* ================= HERO ================= */}
-      <section className="bg-slate-950 text-white py-20 md:py-24">
+      <section className="bg-slate-950 text-white min-h-[75vh] flex items-center justify-center">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <p className="text-xs uppercase tracking-[0.3em] text-sky-400 font-bold">
             About SDR Global

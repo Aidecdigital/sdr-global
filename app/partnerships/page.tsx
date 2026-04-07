@@ -186,7 +186,7 @@ export default function Partnerships() {
     <div className="flex min-h-screen flex-col bg-white">
 
       {/* ================= HERO ================= */}
-      <Section className="relative min-h-[80vh] overflow-hidden text-white">
+      <Section className="relative min-h-[75vh] overflow-hidden text-white">
         <Image
           src="/partnership1.jpg"
           alt="Global partnership collaboration"
@@ -196,7 +196,7 @@ export default function Partnerships() {
         />
         <div className="absolute inset-0 bg-black/60" />
 
-        <Container className="relative z-10 flex min-h-[80vh] flex-col items-center justify-center text-center">
+        <Container className="relative z-10 flex min-h-[75vh] flex-col items-center justify-center text-center">
           <p className="mb-6 text-sm uppercase tracking-widest text-blue-200">
             Africa-Powered Strategic Partnerships
           </p>
@@ -223,25 +223,6 @@ export default function Partnerships() {
           </div>
         </Container>
       </Section>
-
-      {/* ================= CREDIBILITY =================
-      <Section className="bg-white py-20">
-        <Container className="grid gap-12 text-center md:grid-cols-4">
-          {[
-            { value: '50+', label: 'Countries Served' },
-            { value: '250+', label: 'Clients Supported' },
-            { value: '1M+', label: 'Outbound Conversations' },
-            { value: '92%', label: 'Client Retention Rate' },
-          ].map((stat) => (
-            <div key={stat.label}>
-              <p className="text-4xl font-bold text-[#0055ae]">
-                {stat.value}
-              </p>
-              <p className="mt-2 text-gray-500">{stat.label}</p>
-            </div>
-          ))}
-        </Container>
-      </Section> */}
 
       {/* ================= PARTNER TYPES ================= */}
       <Section className="bg-gray-50 py-24">
@@ -405,8 +386,8 @@ export default function Partnerships() {
                   >
                     <option value="">Select partnership type</option>
                     <option value="Technology Partnership">Technology Partnership</option>
-                    <option value="Referral Partnership">Referral Partnership</option>
-                    <option value="Co-Marketing">Co-Marketing</option>
+                    <option value="Referral Partnership">Agencies & Consultants</option>
+                    <option value="Co-Marketing">Investors & VCs</option>
                     <option value="Other">Other</option>
                   </select>
                   {errors.partnershipType && (

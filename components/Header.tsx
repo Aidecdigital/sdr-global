@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 type NavItem = {
@@ -42,7 +41,6 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
@@ -66,7 +64,7 @@ export default function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-3 md:py-4">
           <Link href="/" className="shrink-0">
-            <Image src="/SDRGloballogo.png" alt="SDR Global Logo" width={48} height={48} className="h-10 w-auto sm:h-11 lg:h-12" />
+            <img src="/SDRGloballogo.png" alt="SDR Global Logo" className="h-10 w-auto sm:h-11 lg:h-12" />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1">
