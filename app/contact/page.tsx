@@ -128,11 +128,11 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
-      <section className="relative overflow-hidden border-b border-white/10">
+      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden border-b border-white/10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(56,189,248,0.28),transparent_32%),radial-gradient(circle_at_90%_0%,rgba(34,197,94,0.2),transparent_30%),linear-gradient(180deg,#020617_0%,#0f172a_100%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(148,163,184,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.12)_1px,transparent_1px)] bg-[size:36px_36px] opacity-40" />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 lg:px-8 lg:pb-28 lg:pt-24">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-5xl text-center">
             <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-100">
               Global Support and Partnerships

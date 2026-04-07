@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import { CircularProgress } from '@mui/material';
@@ -104,27 +104,6 @@ const successStories = [
   },
 ];
 
-const applicationProcess = [
-  {
-    icon: "📝",
-    step: 1,
-    title: "Apply Online",
-    description: "Submit your application",
-  },
-  {
-    icon: "🎯",
-    step: 2,
-    title: "Assessment",
-    description: "Skills and fit evaluation",
-  },
-  {
-    icon: "🚀",
-    step: 3,
-    title: "Start Training",
-    description: "Begin your journey",
-  },
-];
-
 export default function Work() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -132,10 +111,10 @@ export default function Work() {
   const [phone, setPhone] = useState("");
   const [linkedin, setLinkedin] = useState("");
   const [experience, setExperience] = useState("");
-  const [whyJoin, setWhyJoin] = useState("");
   const [cvFile, setCvFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null); // Add a ref for the file input
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const validateForm = () => {
@@ -182,6 +161,10 @@ export default function Work() {
     }
   };
 
+  const handleDivClick = () => {
+    fileInputRef.current?.click(); // Programmatically click the hidden file input
+  };
+
   const handleWorkFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
@@ -195,7 +178,6 @@ export default function Work() {
     formData.append("linkedin", linkedin);
     formData.append("experience", experience);
     if (cvFile) formData.append("resume", cvFile);
-    formData.append("whyJoin", whyJoin);
 
     try {
       await axios.post("/api/applicants", formData, {
@@ -208,7 +190,6 @@ export default function Work() {
       setPhone("");
       setLinkedin("");
       setExperience("");
-      setWhyJoin("");
       setCvFile(null);
       setErrors({});
     } catch (err) {
@@ -540,26 +521,6 @@ export default function Work() {
             </div>
           </div>
 
-          {/* Application Process */}
-          <div className="py-10">
-            <div className="text-center mb-12">
-              <h3 className="text-2xl font-bold text-gray-900">How to Join</h3>
-              <p className="text-gray-600">Simple steps to launch your career</p>
-            </div>
-            <div className="flex flex-col md:flex-row justify-center items-center gap-8 relative">
-              <div className="hidden md:block absolute top-1/2 left-10 right-10 h-0.5 bg-gray-200 -z-10 transform -translate-y-1/2"></div>
-              {applicationProcess.map((step) => (
-                <div key={step.step} className="bg-white p-6 rounded-xl shadow-md border border-gray-100 w-full max-w-xs text-center relative z-10">
-                  <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-3xl mb-4 mx-auto">
-                    {step.icon}
-                  </div>
-                  <div className="text-sm font-bold text-[#0055ae] uppercase tracking-wide mb-1">Step {step.step}</div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">{step.title}</h4>
-                  <p className="text-gray-600">{step.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
@@ -647,7 +608,7 @@ export default function Work() {
               <div>
                 <label htmlFor="cv" className="block text-sm font-medium text-gray-700 mb-2">Upload CV *</label>
                 {cvFile ? (
-                  <div className="mt-2 flex items-center justify-between bg-gray-50 p-3 rounded-lg border">
+                  <div className="mt-2 flex items-center justify-between bg-gray-50 p-3 rounded-lg border cursor-pointer" onClick={handleDivClick}>
                     <div className="flex items-center overflow-hidden">
                       <svg className="h-5 w-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -665,6 +626,7 @@ export default function Work() {
                     onDragOver={handleDragOver}
                     onDragLeave={handleDragLeave}
                     onDrop={handleDrop}
+                    onClick={handleDivClick} // Add onClick handler here
                     className={`mt-2 flex justify-center px-6 pt-5 pb-6 border-2 ${errors.cvFile ? 'border-red-500' : 'border-gray-300'} ${isDragging ? 'border-[#0055ae]' : ''} border-dashed rounded-lg transition-colors`}
                   >
                     <div className="space-y-1 text-center">
@@ -672,10 +634,8 @@ export default function Work() {
                         <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                       <div className="flex text-sm text-gray-600">
-                        <label htmlFor="cv" className="relative cursor-pointer bg-white rounded-md font-medium text-[#0055ae] hover:text-blue-700 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#0055ae]">
-                          <span>Upload a file</span>
-                          <input id="cv" name="cv" type="file" className="sr-only" accept=".pdf,.doc,.docx" required onChange={handleFileChange} />
-                        </label>
+                        {/* The span below is now directly clickable via the parent div's onClick */}
+                        <span className="font-medium text-[#0055ae] hover:text-blue-700">Upload a file</span>
                         <p className="pl-1">or drag and drop</p>
                       </div>
                       <p className="text-xs text-gray-500">PDF, DOC, DOCX up to 10MB</p>
@@ -683,20 +643,10 @@ export default function Work() {
                   </div>
                 )}
                 {errors.cvFile && !cvFile && <p className="text-red-500 text-sm mt-1">{errors.cvFile}</p>}
+                {/* The actual file input, now hidden and referenced by ref */}
+                <input id="cv" name="cv" type="file" ref={fileInputRef} className="sr-only" accept=".pdf,.doc,.docx" onChange={handleFileChange} />
               </div>
 
-              <div>
-                <label htmlFor="why-join" className="block text-sm font-medium text-gray-700 mb-2">Why do you want to join SDR Global?</label>
-                <textarea
-                  id="why-join"
-                  name="why-join"
-                  rows={4}
-                  value={whyJoin}
-                  onChange={(e) => setWhyJoin(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0055ae] focus:border-transparent transition-shadow focus:outline-none"
-                  placeholder="Tell us about your career goals and why SDR Global..."
-                ></textarea>
-              </div>
 
               <div className="pt-4">
                 {loading ? (

@@ -16,7 +16,6 @@ export async function POST(request: Request) {
     const phone = String(formData.get("phone") ?? "").trim();
     const linkedin = String(formData.get("linkedin") ?? "").trim();
     const experience = String(formData.get("experience") ?? "").trim();
-    const whyJoin = String(formData.get("whyJoin") ?? "").trim();
     const resumeEntry = formData.get("resume");
     const resume = resumeEntry instanceof File ? resumeEntry : null;
 
@@ -84,7 +83,7 @@ export async function POST(request: Request) {
     // 📊 Save applicant data + resume URL in Sheet
     await sheets.spreadsheets.values.append({
       spreadsheetId: GOOGLE_SHEET_ID,
-      range: "Applicants!A:I",
+      range: "Applicants!A:H",
       valueInputOption: "RAW",
       requestBody: {
         values: [
@@ -96,7 +95,6 @@ export async function POST(request: Request) {
             linkedin,
             experience,
             resumeUrl,
-            whyJoin,
             new Date().toISOString(),
           ],
         ],
