@@ -501,7 +501,7 @@ export default function HireSDRsPage() {
           <div className="mt-12 text-center">
             <p className="text-gray-600 mb-4">Still have questions?</p>
             <Link
-              href="#companies-form"
+              href="/contact#contact-form"
               className="inline-block px-8 py-4 bg-[#0055ae] text-white rounded-xl font-bold text-lg hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl active:scale-[0.98]"
             >
               Book a 15-Min Discovery Call

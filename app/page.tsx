@@ -53,59 +53,42 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Logo Cloud / Trust Bar */}
-      {/* <section className="py-12 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-sm font-semibold text-gray-400 uppercase tracking-widest mb-8">
-            Trusted by industry leaders worldwide
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all"> */}
-            {/* Replace these placeholders with actual partner logos */}
-            {/* <div className="h-8 w-24 bg-gray-200 rounded animate-pulse"></div>
-            <div className="h-8 w-24 bg-gray-200 rounded animate-pulse"></div>
-            <div className="h-8 w-24 bg-gray-200 rounded animate-pulse"></div>
-            <div className="h-8 w-24 bg-gray-200 rounded animate-pulse"></div>
-            <div className="h-8 w-24 bg-gray-200 rounded animate-pulse"></div>
-          </div>
-        </div>
-      </section> */}
-
       {/* Impact Metrics */}
-      <section className="bg-slate-50/50 py-12 border-y border-gray-100">
+      <section className="bg-slate-50 py-12 border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div className="p-6 md:p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition-shadow">
+            <div className="p-6 md:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <div className="text-4xl md:text-5xl font-bold text-[#0055ae] mb-2">
                 21
               </div>
-              <div className="text-gray-500 font-medium uppercase tracking-wide text-xs">
+              <div className="text-slate-600 font-bold uppercase tracking-wider text-[10px] sm:text-xs">
                 SDRs Trained & Certified
               </div>
             </div>
 
-            <div className="p-6 md:p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition-shadow">
+            <div className="p-6 md:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <div className="text-4xl md:text-5xl font-bold text-[#0055ae] mb-2">
                 12
               </div>
-              <div className="text-gray-500 font-medium uppercase tracking-wide text-xs">
+              <div className="text-slate-600 font-bold uppercase tracking-wider text-[10px] sm:text-xs">
                 Placed or In Process
               </div>
             </div>
 
-            <div className="p-6 md:p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition-shadow">
+            <div className="p-6 md:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <div className="text-4xl md:text-5xl font-bold text-[#0055ae] mb-2">
                 279
               </div>
-              <div className="text-gray-500 font-medium uppercase tracking-wide text-xs">
+              <div className="text-slate-600 font-bold uppercase tracking-wider text-[10px] sm:text-xs">
                 Outreach Contacts<br /> Generated
               </div>
             </div>
 
-            <div className="p-6 md:p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition-shadow">
+            <div className="p-6 md:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <div className="text-4xl md:text-5xl font-bold text-[#0055ae] mb-2">
                 4+
               </div>
-              <div className="text-gray-500 font-medium uppercase tracking-wide text-xs">
+              <div className="text-slate-600 font-bold uppercase tracking-wider text-[10px] sm:text-xs">
                 Counties Reached
               </div>
             </div>
