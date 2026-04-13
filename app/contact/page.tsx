@@ -235,6 +235,7 @@ export default function Contact() {
                   <label className="mb-2 block text-sm font-medium text-slate-700">Inquiry type *</label>
                   <select className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200" value={inquiryType} onChange={(e) => setInquiryType(e.target.value)}>
                     <option value="">Select an inquiry type</option>
+                    <option value="General question">Book 15 min Discovery Call</option>
                     <option value="Hiring SDR talent">Hiring SDR talent</option>
                     <option value="Applying as talent">Applying as talent</option>
                     <option value="Partnership or media">Partnership or media</option>

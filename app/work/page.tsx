@@ -28,7 +28,7 @@ const whyJoinBenefits = [
 
 const networkStats = [
   { value: "21", title: "SDRs", subtitle: "Trained & Certified" },
-  { value: "48", title: "Hours", subtitle: "Time to Productivity" },
+  { value: "279", title: "Outreach Contacts ", subtitle: "Generated" },
   { value: "4+", title: "Countries", subtitle: "Reached" },
   { value: "Top Tier", title: "Compensation", subtitle: "Competitive packages" },
 ];
