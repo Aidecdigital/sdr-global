@@ -135,7 +135,7 @@ export const ProcessStep = ({ step }: { step: ProcessStepData }) => {
   const icons = ['🔍', '🤝', '📈', '🚀'];
   return (
     <div className="relative group p-8 rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
-      <div className="absolute -top-4 -right-2 text-6xl font-black text-gray-50 group-hover:text-blue-50 transition-colors pointer-events-none select-none">
+      <div className="absolute -top-4 -right-2 text-6xl font-black text-slate-200 group-hover:text-blue-100 transition-colors pointer-events-none select-none">
         0{step.step}
       </div>
       
