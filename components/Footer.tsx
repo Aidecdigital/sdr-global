@@ -2,6 +2,10 @@ import Link from 'next/link';
 import { BsFillThreadsFill, BsTwitterX } from 'react-icons/bs';
 
 export default function Footer() {
+  const companyLinks = [{ name: 'About', href: '/about' }, { name: 'Careers', href: '/careers' }, { name: 'Partners', href: '/partnerships' }];
+  const resourcesLinks = [{ name: 'SDR Training', href: '/work' }, { name: 'Hire Talent', href: '/hire-sdrs' }, { name: 'Community', href: '/community' }];
+  const legalLinks = [{ name: 'Privacy Policy', href: '/privacy-policy' }, { name: 'Terms of Service', href: '/terms-of-service' }, { name: 'Cookie Policy', href: '/cookie-policy' }];
+
   return (
     <footer className="bg-gradient-to-b from-gray-800 to-gray-900 text-white border-t border-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
@@ -46,10 +50,10 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">Company</h3>
             <ul className="space-y-3">
-              {['About', 'Careers', 'Partners'].map((item) => (
-                <li key={item}>
-                  <Link href="#" className="text-base text-gray-400 hover:text-white transition-colors">
-                    {item}
+              {companyLinks.map((item) => (
+                <li key={item.name}>
+                  <Link href={item.href} className="text-base text-gray-400 hover:text-white transition-colors">
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -59,10 +63,10 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">Resources</h3>
             <ul className="space-y-3">
-              {['SDR Training', 'Hire Talent', 'Community'].map((item) => (
-                <li key={item}>
-                  <Link href="#" className="text-base text-gray-400 hover:text-white transition-colors">
-                    {item}
+              {resourcesLinks.map((item) => (
+                <li key={item.name}>
+                  <Link href={item.href} className="text-base text-gray-400 hover:text-white transition-colors">
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -72,10 +76,10 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">Legal</h3>
             <ul className="space-y-3">
-              {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item) => (
-                <li key={item}>
-                  <Link href="#" className="text-base text-gray-400 hover:text-white transition-colors">
-                    {item}
+              {legalLinks.map((item) => (
+                <li key={item.name}>
+                  <Link href={item.href} className="text-base text-gray-400 hover:text-white transition-colors">
+                    {item.name}
                   </Link>
                 </li>
               ))}
