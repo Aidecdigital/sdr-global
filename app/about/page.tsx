@@ -28,25 +28,25 @@ const operatingModelItems = [
 const coFounders = [
   {
     name: "Sir Ambrose Yennah",
-    title: "Regional Go-To-Market (GTM) - Africa",
+    title: "Regional Go-To-Market (GTM)",
     image: "/sir-ambrose.jpeg",
-    group: "Co-Founder",
+    group: "  Founder",
     url: "https://www.linkedin.com/in/ambrose-akyebe-yennah-029b336b/",
   },
-  {
-    name: "Erica Franklin",
-    title: "Regional Go-To-Market (GTM) - United States",
-    image: "/erica.jpg",
-    group: "Co-Founder",
-    url: "https://www.linkedin.com/in/erica-franklin/",
-  },
-  {
-    name: "Michael Adonteng",
-    title: "Regional Go-To-Market (GTM) - United Kingdom & Europe",
-    image: "/mike.png",
-    group: "Co-Founder",
-    url: "https://www.linkedin.com/in/michaeladonteng/",
-  },
+  // {
+  //   name: "Erica Franklin",
+  //   title: "Regional Go-To-Market (GTM) - United States",
+  //   image: "/erica.jpg",
+  //   group: "Co-Founder",
+  //   url: "https://www.linkedin.com/in/erica-franklin/",
+  // },
+  // {
+  //   name: "Michael Adonteng",
+  //   title: "Regional Go-To-Market (GTM) - United Kingdom & Europe",
+  //   image: "/mike.png",
+  //   group: "Co-Founder",
+  //   url: "https://www.linkedin.com/in/michaeladonteng/",
+  // },
 ];
 
 const leadershipTeam = {
