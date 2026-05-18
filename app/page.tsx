@@ -56,7 +56,7 @@ export default function Home() {
       {/* Impact Metrics */}
       <section className="bg-slate-50 py-12 border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="p-6 md:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <div className="text-4xl md:text-5xl font-bold text-[#0055ae] mb-2">
                 21
@@ -72,15 +72,6 @@ export default function Home() {
               </div>
               <div className="text-slate-600 font-bold uppercase tracking-wider text-[10px] sm:text-xs">
                 Placed or In Process
-              </div>
-            </div>
-
-            <div className="p-6 md:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              <div className="text-4xl md:text-5xl font-bold text-[#0055ae] mb-2">
-                279
-              </div>
-              <div className="text-slate-600 font-bold uppercase tracking-wider text-[10px] sm:text-xs">
-                Outreach Contacts<br /> Generated
               </div>
             </div>
 
